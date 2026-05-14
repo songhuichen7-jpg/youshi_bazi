@@ -82,7 +82,7 @@ export function HepanCardPreview() {
 
       <footer className="landing-hepan-foot">
         <span className="landing-hepan-foot-brand">有時合盤</span>
-        <span>PAIR EDITION · youshi.app</span>
+        <span>PAIR EDITION · youshi.fun</span>
       </footer>
     </article>
   );

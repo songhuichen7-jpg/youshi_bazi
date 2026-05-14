@@ -2,7 +2,7 @@
 
 > 一款理性派的八字 AI 应用。
 > **品牌**：「有时」——双关「命有其时」与「有时间」。
-> **线上**：https://youshi.app
+> **线上**：https://youshi.fun
 > **定位**：排盘引擎 + 古籍真本检索 + 流式 LLM 多轮对话 + 梅花易数起卦
 
 不是另一个把生辰八字塞给 GPT 让它瞎编的工具。
@@ -20,7 +20,7 @@
 |---|---|
 | Specimen 风格命盘卡，html2canvas 一键导出 | A 生成分享链接 → B 填完落地 → 双方流式合盘解读 |
 
-> 截图保留在线上版本，README 中暂以文字呈现。访问 https://youshi.app 直接体验。
+> 截图保留在线上版本，README 中暂以文字呈现。访问 https://youshi.fun 直接体验。
 
 ---
 
@@ -361,14 +361,14 @@ cd ../frontend && npm ci && npm run build
 sudo cp deploy/nginx.conf /etc/nginx/sites-available/youshi
 sudo ln -s /etc/nginx/sites-available/youshi /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
-sudo certbot --nginx -d youshi.app -d www.youshi.app
+sudo certbot --nginx -d youshi.fun -d www.youshi.fun
 ```
 
 ### DNS 配置（域名 → 服务器）
 
 ```
-youshi.app          A     <server-ip>     TTL 600
-www.youshi.app      A     <server-ip>     TTL 600
+youshi.fun          A     <server-ip>     TTL 600
+www.youshi.fun      A     <server-ip>     TTL 600
 ```
 
 注册商解析生效后 → certbot 自动签 Let's Encrypt 证书 → nginx 把 `80` redirect 到 `443`。
@@ -386,8 +386,8 @@ www.youshi.app      A     <server-ip>     TTL 600
 ### 验收清单
 
 ```bash
-curl https://youshi.app/api/health                       # {"status":"ok",...}
-curl -I https://youshi.app/assets/index-*.js | grep -i cache-control
+curl https://youshi.fun/api/health                       # {"status":"ok",...}
+curl -I https://youshi.fun/assets/index-*.js | grep -i cache-control
 # 浏览器开 DevTools EventStream，发条 > 30s 的长问题，看 chunk 不被切断
 redis-cli MONITOR | grep -E "rl:|lock:"                  # 多 worker 锁验证
 ```
@@ -509,7 +509,7 @@ npm run test                  # 全部
 
 - 项目作者：陈松辉
 - Email: songhuichen7@gmail.com
-- 在线 demo: https://youshi.app
+- 在线 demo: https://youshi.fun
 
 ---
 

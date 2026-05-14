@@ -61,7 +61,7 @@ export function CosmicCardPreview({
       ) : null}
       <footer className="landing-card-foot">
         <span>有时</span>
-        <span>youshi.app</span>
+        <span>youshi.fun</span>
       </footer>
     </article>
   );

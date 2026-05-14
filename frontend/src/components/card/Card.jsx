@@ -149,7 +149,7 @@ export const Card = forwardRef(function Card({ card, interactive = true }, ref) 
 
           <div className="specimen-foot">
             <span className="specimen-foot-brand">有時</span>
-            <span>youshi.app · NO. {card.type_id}</span>
+            <span>youshi.fun · NO. {card.type_id}</span>
           </div>
         </div>
 
@@ -176,7 +176,7 @@ export const Card = forwardRef(function Card({ card, interactive = true }, ref) 
 
           <div className="specimen-foot">
             <span className="specimen-foot-brand">有時</span>
-            <span>youshi.app · 人類圖鑑</span>
+            <span>youshi.fun · 人類圖鑑</span>
           </div>
         </div>
       </div>

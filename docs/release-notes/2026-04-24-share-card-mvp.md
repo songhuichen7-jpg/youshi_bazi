@@ -46,7 +46,7 @@
 
 - No SSR; WeChat is the only rich-preview share target
 - WeChat features require 公众号 备案 + JS 安全域名 configuration (non-engineering, user推进)
-- Domain `youshi.app` is a placeholder; replace before launch
+- Domain `youshi.fun` is a placeholder; replace before launch
 
 ## Required config
 

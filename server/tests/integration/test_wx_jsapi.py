@@ -25,7 +25,7 @@ async def test_jsapi_ticket_returns_signature_payload(client, monkeypatch):
         fake_access_token, fake_ticket,
     ])):
         resp = await client.get(
-            "/api/wx/jsapi-ticket?url=https%3A%2F%2Fyoushi.app%2Fcard%2Fc_abc"
+            "/api/wx/jsapi-ticket?url=https%3A%2F%2Fyoushi.fun%2Fcard%2Fc_abc"
         )
 
     assert resp.status_code == 200, resp.text
@@ -49,7 +49,7 @@ async def test_jsapi_ticket_500_when_not_configured(client, monkeypatch):
         "jsapi_ticket": None, "jsapi_ticket_expiry": 0.0,
     })
 
-    resp = await client.get("/api/wx/jsapi-ticket?url=https%3A%2F%2Fyoushi.app")
+    resp = await client.get("/api/wx/jsapi-ticket?url=https%3A%2F%2Fyoushi.fun")
     assert resp.status_code == 500
 
 

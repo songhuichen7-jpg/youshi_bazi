@@ -104,7 +104,7 @@ class Settings(BaseSettings):
     # 逗号分隔的 allowed origin 列表。空 = 不挂 CORSMiddleware（同源部署
     # 用，nginx 反代到前后端共用一个 origin 时不需要）。跨域部署时填
     # 完整 origin（含 scheme + host + port），eg.
-    # CORS_ORIGINS="https://youshi.app,https://beta.youshi.app"
+    # CORS_ORIGINS="https://youshi.fun,https://beta.youshi.fun"
     cors_origins: str = ""
 
     # ── 全局 API rate-limit ──────────────────────────────────────────

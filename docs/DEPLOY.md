@@ -2,7 +2,7 @@
 
 把项目从零部署到一台云服务器上，跑 HTTPS 域名访问的完整流程。
 
-线上版本部署在腾讯云 Lighthouse（2 vCPU / 4 GB / Ubuntu 22.04），域名 `youshi.app`。
+线上版本部署在腾讯云 Lighthouse（2 vCPU / 4 GB / Ubuntu 22.04），域名 `youshi.fun`。
 
 ---
 
@@ -25,8 +25,8 @@
 注册商（阿里云 / 腾讯云 / Cloudflare 等）控制台添加 A 记录：
 
 ```
-youshi.app          A     <server-ipv4>      TTL 600
-www.youshi.app      A     <server-ipv4>      TTL 600
+youshi.fun          A     <server-ipv4>      TTL 600
+www.youshi.fun      A     <server-ipv4>      TTL 600
 ```
 
 > 国内服务器需先完成 ICP 备案，否则 80/443 端口无法对外访问。
@@ -35,7 +35,7 @@ www.youshi.app      A     <server-ipv4>      TTL 600
 验证生效：
 
 ```bash
-dig youshi.app +short
+dig youshi.fun +short
 # 应当返回 <server-ipv4>
 ```
 
@@ -153,7 +153,7 @@ sudo -u youshi npm run build
 ```bash
 sudo apt install -y nginx
 sudo cp /opt/youshi/deploy/nginx.conf /etc/nginx/sites-available/youshi
-# 编辑文件，把所有 youshi.app 替换成你的真实域名
+# 编辑文件，把所有 youshi.fun 替换成你的真实域名
 sudo vim /etc/nginx/sites-available/youshi
 sudo ln -s /etc/nginx/sites-available/youshi /etc/nginx/sites-enabled/
 sudo rm /etc/nginx/sites-enabled/default
@@ -164,7 +164,7 @@ sudo nginx -t && sudo systemctl reload nginx
 
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d youshi.app -d www.youshi.app \
+sudo certbot --nginx -d youshi.fun -d www.youshi.fun \
   --non-interactive --agree-tos -m you@example.com
 ```
 
@@ -183,16 +183,16 @@ certbot 会自动：
 # HTTPS 重定向
 server {
     listen 80;
-    server_name youshi.app www.youshi.app;
+    server_name youshi.fun www.youshi.fun;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl http2;
-    server_name youshi.app www.youshi.app;
+    server_name youshi.fun www.youshi.fun;
 
-    ssl_certificate     /etc/letsencrypt/live/youshi.app/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/youshi.app/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/youshi.fun/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/youshi.fun/privkey.pem;
 
     # 静态资源长缓存
     location /assets/ {
@@ -233,19 +233,19 @@ server {
 
 ```bash
 # 健康
-curl https://youshi.app/api/health
+curl https://youshi.fun/api/health
 # {"status":"ok",...}
 
 # 静态资源长缓存
-curl -I https://youshi.app/assets/index-*.js | grep -i cache-control
+curl -I https://youshi.fun/assets/index-*.js | grep -i cache-control
 # cache-control: public, max-age=31536000, immutable
 
 # HTTPS 重定向
-curl -I http://youshi.app
-# 301 Moved Permanently -> https://youshi.app/
+curl -I http://youshi.fun
+# 301 Moved Permanently -> https://youshi.fun/
 
 # SSL 证书有效期
-echo | openssl s_client -servername youshi.app -connect youshi.app:443 2>/dev/null \
+echo | openssl s_client -servername youshi.fun -connect youshi.fun:443 2>/dev/null \
   | openssl x509 -noout -dates
 ```
 

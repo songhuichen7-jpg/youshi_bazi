@@ -186,7 +186,7 @@ export const HepanCard = forwardRef(function HepanCard({ hepan }, ref) {
 
           <div className="hepan-foot">
             <span className="hepan-foot-brand">有時合盤</span>
-            <span>PAIR EDITION · youshi.app</span>
+            <span>PAIR EDITION · youshi.fun</span>
           </div>
         </article>
 
@@ -226,7 +226,7 @@ export const HepanCard = forwardRef(function HepanCard({ hepan }, ref) {
 
           <div className="hepan-foot">
             <span className="hepan-foot-brand">有時合盤</span>
-            <span>youshi.app · 雙人圖鑑</span>
+            <span>youshi.fun · 雙人圖鑑</span>
           </div>
         </article>
       </div>

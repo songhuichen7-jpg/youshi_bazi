@@ -393,7 +393,7 @@ export function CardWorkspace() {
                       </div>
                       <div className="specimen-foot">
                         <span className="specimen-foot-brand">有時</span>
-                        <span>youshi.app</span>
+                        <span>youshi.fun</span>
                       </div>
                     </div>
                   </div>

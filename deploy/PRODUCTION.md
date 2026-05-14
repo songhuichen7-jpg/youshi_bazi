@@ -97,14 +97,14 @@ vite.config.ts 的 proxy 块只在 dev 生效,生产 nginx 直接路由,不冲�
 ```bash
 sudo cp deploy/nginx.conf /etc/nginx/sites-available/youshi
 sudo ln -s /etc/nginx/sites-available/youshi /etc/nginx/sites-enabled/
-# 改域名: 把 youshi.app 全局换成你的域名
+# 改域名: 把 youshi.fun 全局换成你的域名
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
 申请证书:
 ```bash
 sudo apt install certbot python3-certbot-nginx
-sudo certbot --nginx -d youshi.app -d www.youshi.app
+sudo certbot --nginx -d youshi.fun -d www.youshi.fun
 ```
 
 ## 7. 验收
@@ -113,11 +113,11 @@ sudo certbot --nginx -d youshi.app -d www.youshi.app
 
 ```bash
 # 1) 健康 + 配置
-curl https://youshi.app/api/health
-curl https://youshi.app/api/config
+curl https://youshi.fun/api/health
+curl https://youshi.fun/api/config
 
 # 2) 静态资源 200 + 长 cache
-curl -I https://youshi.app/assets/index-*.js | grep -i cache-control
+curl -I https://youshi.fun/assets/index-*.js | grep -i cache-control
 
 # 3) SSE 长连接不被中断 — 手工开浏览器,聊一条长问题(>30s),
 #    用 DevTools Network 看 EventStream tab 持续收 chunk 不被切

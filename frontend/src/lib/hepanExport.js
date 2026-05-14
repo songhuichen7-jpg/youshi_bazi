@@ -86,7 +86,7 @@ export function composeHepanMarkdown({
 
   lines.push('---');
   lines.push('');
-  lines.push('— 有时 · youshi.app');
+  lines.push('— 有时 · youshi.fun');
   lines.push('');
   return lines.join('\n');
 }
