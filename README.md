@@ -221,7 +221,7 @@ system role
 + user_message
 ```
 
-### Vibe 思路
+### Prompt 设计原则（产品 prompt）
 
 1. **byte-level 引经据典**：不让 LLM 编出"古书有云"，所有引用都来自 `classics/` 真本，引用要带书名 + 卷次 + 原文
 2. **去 hedging**：早期 LLM 输出充斥"或许 / 可能 / 推测"，shard + intent guide 强约束让回答变成"用神是 X，因为 Y；大运壬寅这十年的关键是 Z"
@@ -232,6 +232,104 @@ system role
 更详细的方法论：[ARCHITECTURE.md](docs/ARCHITECTURE.md) 第 5 节。
 
 ---
+
+## Vibe Coding 思路（开发方法论）
+
+> 这一节讲我**怎么和 Claude Code 协作**完成这个项目——是 vibe coding 的工作流，不是产品 prompt 的设计。
+
+整个项目 90%+ 的代码由 Claude Code（Opus / Sonnet）vibe 编程产出，我作为 architect + reviewer。下面是踩出来、且每天还在用的几条规则：
+
+### 1. Plan-first，不 plan 不写代码
+
+复杂特性必须先落三件东西，再开 implementation：
+
+```
+docs/superpowers/<topic>/
+├── spec.md         先把"要解决什么问题、不解决什么、边界在哪"写清楚
+├── plan.md         再把"分几步、每步 acceptance criteria 是什么"写清楚
+└── checklist.md    最后把"代码层面要动哪些文件、写哪些测试"列出来
+```
+
+只有 checklist 全部勾选 = feature done。这条规则把"vibe 出来一堆看似 work 实际埋雷"的风险压到最低。每个 Plan 7.x 子版本（命理引擎跃升）都是这样跑的——见 `docs/release-notes/2026-04-21-plan-7.x-*.md`。
+
+> ⚠️ `docs/superpowers/` 在公开仓库中已脱敏（属于内部规划文档），但 `docs/release-notes/` 完整保留——里面能看到 spec → plan → 实施过程的完整轨迹。
+
+### 2. TDD 是底线，不是装饰
+
+Paipan 引擎 632 个测试、Server 439 个测试，**绝大多数都是先写测试再写实现**。
+LLM 协作最大的风险是"它给的代码看起来对、跑起来也对、但改坏了别的"——只有红/绿/重构循环能压住这个风险。
+
+具体做法：
+
+- **写新功能**：先让 Claude 写出 pytest 用例 + golden case，我 review 测试是否真的测到了关键路径，再让它写实现
+- **修 bug**：先写一个能复现 bug 的失败测试，再让 Claude 改实现把它变绿。这样修复后这个 bug 永远不会回归
+- **重构**：用现有测试做 safety net，重构完跑 632 + 439 + 51 全套，绿了才合并
+
+### 3. Multi-worktree 并行开发
+
+复杂项目同时有 2-3 个独立特性在进展时，用 `git worktree` 给每个特性开独立工作目录：
+
+```bash
+git worktree add ../bazi-retrieval3 claude/retrieval3-rebuild
+git worktree add ../bazi-chat-resume claude/chat-resume-experience
+```
+
+每个 worktree 跑独立的 Claude Code 会话，互不阻塞主分支。retrieval3 重建（8 个 retriever 家族化）和 chat 续写体验（流式停止/重答/截断）就是这样**同一周内并行落地**的。
+
+### 4. Commit-per-slice + Conventional prefix
+
+每个**能独立 review 的最小切片**一个 commit。commit message 强约束：
+
+```
+feat(chart): 拉高命局能量图绘图区
+fix(card): 单卡/合盘卡"保存为图"被 oklch 卡死 — 渲染前先把色值转 rgb 再喂 html2canvas
+chore(eval): 把 hehua 接入 phase_a eval 框架
+refactor(retrieval): 拆 retrieval3.composer 的家族化调度
+docs: 更新系统架构文档至 2026-05-12 现状
+```
+
+好处：
+
+- `git log --oneline` 直接当 release notes 用
+- 出问题 `git bisect` 能秒级定位
+- AI review 时上下文清晰，不会把 5 个无关变更打包成"看起来都对"
+
+### 5. 回归保护永远先行
+
+LLM 协作最隐蔽的失败模式：**"我刚才让你修 A，你顺手把 B 改坏了，因为 B 没测试。"**
+对策有两条：
+
+1. **每个修复都附测试**：哪怕只是 1 个 unit test，先确认它能复现这个失败，再让 Claude 改
+2. **改完跑全套**：`npm run test`（632 + 439 + 51 = 1122 测试），绿了才 commit
+
+### 6. 用 AI 做 second opinion，不让一个 AI 拍板
+
+关键设计、关键算法、关键 bug 用**两套上下文**评审一遍：
+
+- 主开发用 Claude Code
+- 复杂决策点用 Codex CLI 做一次独立 review（`/codex:rescue` 风格的盲评）
+- 偶尔互相 catch 出对方 miss 的边界 case
+
+这条对 Plan 7.x 命理引擎（涉及大量边界判断：极弱/极强/中庸/transmutation/cross interaction）尤其有效。
+
+### 7. Skills / 知识库工程化
+
+项目中**人能写的方法论文档，都写成 LLM 也能直接读懂的格式**：
+
+- 命理方法论 → `docs/skills/SKILL.md`，runtime 加载到 LLM prompt
+- 对话节奏约束 → `docs/skills/conversation-guide.md`，runtime 加载
+- 古籍引用路径表 → `docs/skills/classical-references.md`
+- 项目里坑过的 bug 模式 → `docs/skills/synthesizer-bug-prevention.md`
+
+这些既是 LLM 在 runtime 用的知识库，也是我开 Claude Code 会话时让它读的"项目入门 onboarding"。一份文档，两个用户。
+
+### 8. 不藏分支历史
+
+`git log --all` 看得到 `claude/<topic>-<hash>` 风格的实验分支——失败的尝试不删，让它和成功路径一起留在历史里。比如曾在 `claude/modest-faraday-946e30` 分支试过 tool-calling agent loop，跑下来发现"router + 检索"已经够用且更稳定，于是没合主线，但分支保留。
+
+---
+
+
 
 ## 部署（DNS / HTTPS / 监控）
 
@@ -404,18 +502,6 @@ npm run test                  # 全部
 | **OpenAI-compatible LLM** | 客户端写一次，DeepSeek / MiMo / OpenAI 都能切；后期可上多 provider 路由 |
 | **uv** | Python 包管理速度 ~10× pip；workspace 让 paipan + server 共用依赖一目了然 |
 | **Docker + 腾讯云 Lighthouse** | 国内访问稳定、价格友好、Docker 一行 deploy |
-
----
-
-## AI 协作开发说明
-
-整个项目用 **Claude Code** 做主要开发工具。流程上：
-
-1. **plan-first**：复杂特性先在 `docs/superpowers/` 落 spec → plan → checklist，确认后再 implementation
-2. **TDD discipline**：新功能（特别是 paipan 引擎）先写 pytest 用例再写实现，632 + 439 测试基本上都是这样积累出来的
-3. **commit per slice**：每个可独立 review 的小切片一个 commit，commit message 用 `feat / fix / chore / refactor / docs` 前缀 + 中文短描述
-4. **multi-worktree 并行**：用 `git worktree` 同时开 2-3 个分支处理独立特性（如 retrieval3 重建 + chat 续写体验互不阻塞）
-5. **回归保护**：每个修复都补对应单测，避免 LLM 协作产生的"看起来对了其实改坏"
 
 ---
 
