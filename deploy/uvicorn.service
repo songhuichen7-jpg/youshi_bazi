@@ -1,0 +1,63 @@
+# systemd 单元 — 生产 uvicorn 后端服务
+#
+# 安装:
+#   sudo cp deploy/uvicorn.service /etc/systemd/system/youshi.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now youshi
+#
+# 日志:
+#   journalctl -u youshi -f
+#
+# Worker 数量:
+#   --workers 数量按 CPU 核数 + IO 并发量决定。规则:
+#     · 1 vCPU  → workers=1 (太多反而争抢)
+#     · 2 vCPU  → workers=2
+#     · 4 vCPU  → workers=4
+#   每个 worker 自己一份 DB pool,所以 workers × pool_size 不能超过
+#   PG max_connections × 0.7 (典型 70 / 100)。
+#
+# 多 worker 必须设 REDIS_URL — 否则 rate-limit 跨 worker 失效,锁也只
+# 在单 worker 内有效。
+
+[Unit]
+Description=Youshi backend (uvicorn)
+After=network.target postgresql.service redis.service
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=youshi
+Group=youshi
+WorkingDirectory=/opt/youshi/server
+
+# 用 uv 跑 — 部署机要装 uv (curl -LsSf https://astral.sh/uv/install.sh | sh)
+# 或者改成直接 .venv/bin/uvicorn
+ExecStart=/usr/local/bin/uv run --package server \
+    python -m uvicorn app.main:app \
+    --host 127.0.0.1 \
+    --port 3101 \
+    --workers 4 \
+    --log-config /opt/youshi/server/deploy/log_config.yaml \
+    --access-log
+
+# 环境变量从 .env 读 (要在 WorkingDirectory 同目录),pydantic-settings
+# 会自动加载。也可以在这里 Environment="DATABASE_URL=..." 显式列。
+EnvironmentFile=/opt/youshi/server/.env
+
+# 优雅停止 — 给 30s 让 in-flight 请求 (尤其 SSE 长流) 跑完
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+# 崩溃自动重启
+Restart=on-failure
+RestartSec=5s
+
+# 安全加固
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/youshi/server/var
+
+[Install]
+WantedBy=multi-user.target

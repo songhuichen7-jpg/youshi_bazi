@@ -1,0 +1,27 @@
+ARG PYTHON_BASE_IMAGE=python:3.12-slim
+FROM ${PYTHON_BASE_IMAGE}
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    UV_LINK_MODE=copy \
+    PATH="/app/.venv/bin:${PATH}"
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install --no-cache-dir uv
+
+COPY pyproject.toml uv.lock ./
+COPY paipan ./paipan
+COPY server ./server
+COPY classics ./classics
+COPY shards ./shards
+
+RUN uv sync --frozen --package server --no-dev
+
+WORKDIR /app/server
+EXPOSE 3101
+
+CMD ["sh", "-c", "alembic -c alembic.ini upgrade head && exec python -m uvicorn app.main:app --host 0.0.0.0 --port 3101 --workers ${WEB_CONCURRENCY:-2}"]
