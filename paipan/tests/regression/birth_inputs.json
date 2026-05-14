@@ -1,0 +1,5471 @@
+[
+  {
+    "case_id": "basic-001-1990-05-15-beijing-male-truesolar",
+    "birth_input": {
+      "year": 1990,
+      "month": 5,
+      "day": 15,
+      "hour": 10,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "basic-002-1995-06-15-shanghai-male-truesolar",
+    "birth_input": {
+      "year": 1995,
+      "month": 6,
+      "day": 15,
+      "hour": 14,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "basic-003-1993-12-26-shaoshan-male-truesolar",
+    "birth_input": {
+      "year": 1893,
+      "month": 12,
+      "day": 26,
+      "hour": 8,
+      "minute": 0,
+      "city": "韶山",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "basic-004-1980-02-10-guangzhou-female-truesolar",
+    "birth_input": {
+      "year": 1980,
+      "month": 2,
+      "day": 10,
+      "hour": 15,
+      "minute": 0,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "basic-005-2000-08-08-beijing-male-no-truesolar",
+    "birth_input": {
+      "year": 2000,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-001-2024-02-04-1627-boundary",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 27,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-002-2024-02-04-1620-before",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 20,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-003-2024-02-04-1635-after",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 35,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-004-lichun-2020",
+    "birth_input": {
+      "year": 2020,
+      "month": 2,
+      "day": 4,
+      "hour": 17,
+      "minute": 3,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-005-jingzhe-2023",
+    "birth_input": {
+      "year": 2023,
+      "month": 3,
+      "day": 6,
+      "hour": 4,
+      "minute": 36,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-001-2024-03-15-2330-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 3,
+      "day": 15,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-002-2024-03-15-2330-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 3,
+      "day": 15,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-003-2024-03-16-0030-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 3,
+      "day": 16,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-004-2024-03-16-0030-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 3,
+      "day": 16,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-005-2024-03-15-2359-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 3,
+      "day": 15,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dst-001-1988-07-15-beijing-male",
+    "birth_input": {
+      "year": 1988,
+      "month": 7,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-002-1989-08-20-shanghai-female",
+    "birth_input": {
+      "year": 1989,
+      "month": 8,
+      "day": 20,
+      "hour": 14,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-003-1991-09-14-beijing-just-before-end",
+    "birth_input": {
+      "year": 1991,
+      "month": 9,
+      "day": 14,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-004-1986-05-04-entry-day",
+    "birth_input": {
+      "year": 1986,
+      "month": 5,
+      "day": 4,
+      "hour": 3,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-005-1987-outside-summer",
+    "birth_input": {
+      "year": 1987,
+      "month": 12,
+      "day": 15,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-001-urumqi-western",
+    "birth_input": {
+      "year": 1985,
+      "month": 6,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "city": "乌鲁木齐",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-002-kashgar-extreme-west",
+    "birth_input": {
+      "year": 1992,
+      "month": 4,
+      "day": 1,
+      "hour": 9,
+      "minute": 0,
+      "city": "喀什",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-003-lhasa",
+    "birth_input": {
+      "year": 1998,
+      "month": 7,
+      "day": 1,
+      "hour": 12,
+      "minute": 0,
+      "city": "拉萨",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-004-xining",
+    "birth_input": {
+      "year": 2001,
+      "month": 10,
+      "day": 20,
+      "hour": 7,
+      "minute": 30,
+      "city": "西宁",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-005-harbin-east",
+    "birth_input": {
+      "year": 1993,
+      "month": 1,
+      "day": 5,
+      "hour": 6,
+      "minute": 0,
+      "city": "哈尔滨",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "female-001-1997-03-08-beijing",
+    "birth_input": {
+      "year": 1997,
+      "month": 3,
+      "day": 8,
+      "hour": 9,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "female-002-2005-09-10-chengdu",
+    "birth_input": {
+      "year": 2005,
+      "month": 9,
+      "day": 10,
+      "hour": 20,
+      "minute": 15,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "female-003-1975-11-22-xian",
+    "birth_input": {
+      "year": 1975,
+      "month": 11,
+      "day": 22,
+      "hour": 23,
+      "minute": 45,
+      "city": "西安",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "male-001-1970-04-01-shenzhen",
+    "birth_input": {
+      "year": 1970,
+      "month": 4,
+      "day": 1,
+      "hour": 4,
+      "minute": 15,
+      "city": "深圳",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "male-002-1950-01-01-beijing",
+    "birth_input": {
+      "year": 1950,
+      "month": 1,
+      "day": 1,
+      "hour": 0,
+      "minute": 5,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "hour-unknown-001",
+    "birth_input": {
+      "year": 1990,
+      "month": 5,
+      "day": 15,
+      "hour": -1,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "hour-unknown-002",
+    "birth_input": {
+      "year": 1985,
+      "month": 12,
+      "day": 25,
+      "hour": -1,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "city-unknown-001",
+    "birth_input": {
+      "year": 1995,
+      "month": 6,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "city": "某小县城",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "city-provided-lng-001",
+    "birth_input": {
+      "year": 1995,
+      "month": 6,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "longitude": 121.47,
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "leap-month-001-2023-agricultural",
+    "birth_input": {
+      "year": 2023,
+      "month": 3,
+      "day": 23,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-month-002-2020-april-leap",
+    "birth_input": {
+      "year": 2020,
+      "month": 5,
+      "day": 15,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "extreme-001-1900-01-01",
+    "birth_input": {
+      "year": 1900,
+      "month": 1,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "extreme-002-2050-12-31",
+    "birth_input": {
+      "year": 2050,
+      "month": 12,
+      "day": 31,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "extreme-003-midnight-exact",
+    "birth_input": {
+      "year": 2000,
+      "month": 1,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "extreme-004-noon-exact",
+    "birth_input": {
+      "year": 2000,
+      "month": 6,
+      "day": 21,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dayun-001-boy-yang-year",
+    "birth_input": {
+      "year": 1984,
+      "month": 3,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-002-boy-yin-year",
+    "birth_input": {
+      "year": 1985,
+      "month": 3,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-003-girl-yang-year",
+    "birth_input": {
+      "year": 1984,
+      "month": 3,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-004-girl-yin-year",
+    "birth_input": {
+      "year": 1985,
+      "month": 3,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-005-early-start-age",
+    "birth_input": {
+      "year": 1990,
+      "month": 5,
+      "day": 20,
+      "hour": 14,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "misc-001-2000-baby",
+    "birth_input": {
+      "year": 2000,
+      "month": 2,
+      "day": 29,
+      "hour": 14,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "misc-002-feb-29-leap",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 29,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "misc-003-new-years-eve",
+    "birth_input": {
+      "year": 1999,
+      "month": 12,
+      "day": 31,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "misc-004-new-years-eve-late",
+    "birth_input": {
+      "year": 1999,
+      "month": 12,
+      "day": 31,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "misc-005-mao-zedong-no-solar",
+    "birth_input": {
+      "year": 1893,
+      "month": 12,
+      "day": 26,
+      "hour": 8,
+      "minute": 0,
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lichun-1995-before",
+    "birth_input": {
+      "year": 1995,
+      "month": 2,
+      "day": 4,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lichun-1995-noon",
+    "birth_input": {
+      "year": 1995,
+      "month": 2,
+      "day": 4,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lichun-1995-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 2,
+      "day": 4,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-yushui-2000-before",
+    "birth_input": {
+      "year": 2000,
+      "month": 2,
+      "day": 19,
+      "hour": 0,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-yushui-2000-noon",
+    "birth_input": {
+      "year": 2000,
+      "month": 2,
+      "day": 19,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-yushui-2000-late",
+    "birth_input": {
+      "year": 2000,
+      "month": 2,
+      "day": 19,
+      "hour": 23,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-jingzhe-2010-before",
+    "birth_input": {
+      "year": 2010,
+      "month": 3,
+      "day": 6,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-jingzhe-2010-noon",
+    "birth_input": {
+      "year": 2010,
+      "month": 3,
+      "day": 6,
+      "hour": 12,
+      "minute": 0,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-jingzhe-2010-late",
+    "birth_input": {
+      "year": 2010,
+      "month": 3,
+      "day": 6,
+      "hour": 23,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-chunfen-2018-before",
+    "birth_input": {
+      "year": 2018,
+      "month": 3,
+      "day": 21,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-chunfen-2018-noon",
+    "birth_input": {
+      "year": 2018,
+      "month": 3,
+      "day": 21,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-chunfen-2018-late",
+    "birth_input": {
+      "year": 2018,
+      "month": 3,
+      "day": 21,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-qingming-1995-before",
+    "birth_input": {
+      "year": 1995,
+      "month": 4,
+      "day": 5,
+      "hour": 0,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-qingming-1995-noon",
+    "birth_input": {
+      "year": 1995,
+      "month": 4,
+      "day": 5,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-qingming-1995-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 4,
+      "day": 5,
+      "hour": 23,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-guyu-2000-before",
+    "birth_input": {
+      "year": 2000,
+      "month": 4,
+      "day": 20,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-guyu-2000-noon",
+    "birth_input": {
+      "year": 2000,
+      "month": 4,
+      "day": 20,
+      "hour": 12,
+      "minute": 0,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-guyu-2000-late",
+    "birth_input": {
+      "year": 2000,
+      "month": 4,
+      "day": 20,
+      "hour": 23,
+      "minute": 30,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lixia-2010-before",
+    "birth_input": {
+      "year": 2010,
+      "month": 5,
+      "day": 6,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lixia-2010-noon",
+    "birth_input": {
+      "year": 2010,
+      "month": 5,
+      "day": 6,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lixia-2010-late",
+    "birth_input": {
+      "year": 2010,
+      "month": 5,
+      "day": 6,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoman-2018-before",
+    "birth_input": {
+      "year": 2018,
+      "month": 5,
+      "day": 21,
+      "hour": 0,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoman-2018-noon",
+    "birth_input": {
+      "year": 2018,
+      "month": 5,
+      "day": 21,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoman-2018-late",
+    "birth_input": {
+      "year": 2018,
+      "month": 5,
+      "day": 21,
+      "hour": 23,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-mangzhong-1995-before",
+    "birth_input": {
+      "year": 1995,
+      "month": 6,
+      "day": 6,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-mangzhong-1995-noon",
+    "birth_input": {
+      "year": 1995,
+      "month": 6,
+      "day": 6,
+      "hour": 12,
+      "minute": 0,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-mangzhong-1995-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 6,
+      "day": 6,
+      "hour": 23,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiazhi-2000-before",
+    "birth_input": {
+      "year": 2000,
+      "month": 6,
+      "day": 21,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiazhi-2000-noon",
+    "birth_input": {
+      "year": 2000,
+      "month": 6,
+      "day": 21,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiazhi-2000-late",
+    "birth_input": {
+      "year": 2000,
+      "month": 6,
+      "day": 21,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoshu-2010-before",
+    "birth_input": {
+      "year": 2010,
+      "month": 7,
+      "day": 7,
+      "hour": 0,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoshu-2010-noon",
+    "birth_input": {
+      "year": 2010,
+      "month": 7,
+      "day": 7,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoshu-2010-late",
+    "birth_input": {
+      "year": 2010,
+      "month": 7,
+      "day": 7,
+      "hour": 23,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dashu-2018-before",
+    "birth_input": {
+      "year": 2018,
+      "month": 7,
+      "day": 23,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dashu-2018-noon",
+    "birth_input": {
+      "year": 2018,
+      "month": 7,
+      "day": 23,
+      "hour": 12,
+      "minute": 0,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dashu-2018-late",
+    "birth_input": {
+      "year": 2018,
+      "month": 7,
+      "day": 23,
+      "hour": 23,
+      "minute": 30,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-liqiu-1995-before",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 8,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-liqiu-1995-noon",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 8,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-liqiu-1995-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 8,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-chushu-2000-before",
+    "birth_input": {
+      "year": 2000,
+      "month": 8,
+      "day": 23,
+      "hour": 0,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-chushu-2000-noon",
+    "birth_input": {
+      "year": 2000,
+      "month": 8,
+      "day": 23,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-chushu-2000-late",
+    "birth_input": {
+      "year": 2000,
+      "month": 8,
+      "day": 23,
+      "hour": 23,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-bailu-2010-before",
+    "birth_input": {
+      "year": 2010,
+      "month": 9,
+      "day": 8,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-bailu-2010-noon",
+    "birth_input": {
+      "year": 2010,
+      "month": 9,
+      "day": 8,
+      "hour": 12,
+      "minute": 0,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-bailu-2010-late",
+    "birth_input": {
+      "year": 2010,
+      "month": 9,
+      "day": 8,
+      "hour": 23,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-qiufen-2018-before",
+    "birth_input": {
+      "year": 2018,
+      "month": 9,
+      "day": 23,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-qiufen-2018-noon",
+    "birth_input": {
+      "year": 2018,
+      "month": 9,
+      "day": 23,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-qiufen-2018-late",
+    "birth_input": {
+      "year": 2018,
+      "month": 9,
+      "day": 23,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-hanlu-1995-before",
+    "birth_input": {
+      "year": 1995,
+      "month": 10,
+      "day": 8,
+      "hour": 0,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-hanlu-1995-noon",
+    "birth_input": {
+      "year": 1995,
+      "month": 10,
+      "day": 8,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-hanlu-1995-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 10,
+      "day": 8,
+      "hour": 23,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-shuangjiang-2000-before",
+    "birth_input": {
+      "year": 2000,
+      "month": 10,
+      "day": 23,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-shuangjiang-2000-noon",
+    "birth_input": {
+      "year": 2000,
+      "month": 10,
+      "day": 23,
+      "hour": 12,
+      "minute": 0,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-shuangjiang-2000-late",
+    "birth_input": {
+      "year": 2000,
+      "month": 10,
+      "day": 23,
+      "hour": 23,
+      "minute": 30,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lidong-2010-before",
+    "birth_input": {
+      "year": 2010,
+      "month": 11,
+      "day": 7,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lidong-2010-noon",
+    "birth_input": {
+      "year": 2010,
+      "month": 11,
+      "day": 7,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-lidong-2010-late",
+    "birth_input": {
+      "year": 2010,
+      "month": 11,
+      "day": 7,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoxue-2018-before",
+    "birth_input": {
+      "year": 2018,
+      "month": 11,
+      "day": 22,
+      "hour": 0,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoxue-2018-noon",
+    "birth_input": {
+      "year": 2018,
+      "month": 11,
+      "day": 22,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaoxue-2018-late",
+    "birth_input": {
+      "year": 2018,
+      "month": 11,
+      "day": 22,
+      "hour": 23,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-daxue-1995-before",
+    "birth_input": {
+      "year": 1995,
+      "month": 12,
+      "day": 7,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-daxue-1995-noon",
+    "birth_input": {
+      "year": 1995,
+      "month": 12,
+      "day": 7,
+      "hour": 12,
+      "minute": 0,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-daxue-1995-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 12,
+      "day": 7,
+      "hour": 23,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dongzhi-2000-before",
+    "birth_input": {
+      "year": 2000,
+      "month": 12,
+      "day": 22,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dongzhi-2000-noon",
+    "birth_input": {
+      "year": 2000,
+      "month": 12,
+      "day": 22,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dongzhi-2000-late",
+    "birth_input": {
+      "year": 2000,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaohan-2010-before",
+    "birth_input": {
+      "year": 2010,
+      "month": 1,
+      "day": 6,
+      "hour": 0,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaohan-2010-noon",
+    "birth_input": {
+      "year": 2010,
+      "month": 1,
+      "day": 6,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-xiaohan-2010-late",
+    "birth_input": {
+      "year": 2010,
+      "month": 1,
+      "day": 6,
+      "hour": 23,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dahan-2018-before",
+    "birth_input": {
+      "year": 2018,
+      "month": 1,
+      "day": 20,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dahan-2018-noon",
+    "birth_input": {
+      "year": 2018,
+      "month": 1,
+      "day": 20,
+      "hour": 12,
+      "minute": 0,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-ex-dahan-2018-late",
+    "birth_input": {
+      "year": 2018,
+      "month": 1,
+      "day": 20,
+      "hour": 23,
+      "minute": 30,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-01-15-h23m00-early",
+    "birth_input": {
+      "year": 2020,
+      "month": 1,
+      "day": 15,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-01-15-h23m30-late",
+    "birth_input": {
+      "year": 2020,
+      "month": 1,
+      "day": 15,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-01-15-h00m59-early",
+    "birth_input": {
+      "year": 2020,
+      "month": 1,
+      "day": 15,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-01-15-h00m00-late",
+    "birth_input": {
+      "year": 2020,
+      "month": 1,
+      "day": 15,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-06-20-h23m30-early",
+    "birth_input": {
+      "year": 2020,
+      "month": 6,
+      "day": 20,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-06-20-h23m59-late",
+    "birth_input": {
+      "year": 2020,
+      "month": 6,
+      "day": 20,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-06-20-h00m00-early",
+    "birth_input": {
+      "year": 2020,
+      "month": 6,
+      "day": 20,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-06-20-h00m30-late",
+    "birth_input": {
+      "year": 2020,
+      "month": 6,
+      "day": 20,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-12-31-h23m59-early",
+    "birth_input": {
+      "year": 2020,
+      "month": 12,
+      "day": 31,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-12-31-h23m00-late",
+    "birth_input": {
+      "year": 2020,
+      "month": 12,
+      "day": 31,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-12-31-h00m30-early",
+    "birth_input": {
+      "year": 2020,
+      "month": 12,
+      "day": 31,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2020-12-31-h00m59-late",
+    "birth_input": {
+      "year": 2020,
+      "month": 12,
+      "day": 31,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2015-05-10-h23m00-early",
+    "birth_input": {
+      "year": 2015,
+      "month": 5,
+      "day": 10,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2015-05-10-h23m30-late",
+    "birth_input": {
+      "year": 2015,
+      "month": 5,
+      "day": 10,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2015-05-10-h00m59-early",
+    "birth_input": {
+      "year": 2015,
+      "month": 5,
+      "day": 10,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2015-05-10-h00m00-late",
+    "birth_input": {
+      "year": 2015,
+      "month": 5,
+      "day": 10,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2015-10-05-h23m30-early",
+    "birth_input": {
+      "year": 2015,
+      "month": 10,
+      "day": 5,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2015-10-05-h23m59-late",
+    "birth_input": {
+      "year": 2015,
+      "month": 10,
+      "day": 5,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2015-10-05-h00m00-early",
+    "birth_input": {
+      "year": 2015,
+      "month": 10,
+      "day": 5,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2015-10-05-h00m30-late",
+    "birth_input": {
+      "year": 2015,
+      "month": 10,
+      "day": 5,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2005-03-17-h23m59-early",
+    "birth_input": {
+      "year": 2005,
+      "month": 3,
+      "day": 17,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2005-03-17-h23m00-late",
+    "birth_input": {
+      "year": 2005,
+      "month": 3,
+      "day": 17,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2005-03-17-h00m30-early",
+    "birth_input": {
+      "year": 2005,
+      "month": 3,
+      "day": 17,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2005-03-17-h00m59-late",
+    "birth_input": {
+      "year": 2005,
+      "month": 3,
+      "day": 17,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2005-11-23-h23m00-early",
+    "birth_input": {
+      "year": 2005,
+      "month": 11,
+      "day": 23,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2005-11-23-h23m30-late",
+    "birth_input": {
+      "year": 2005,
+      "month": 11,
+      "day": 23,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2005-11-23-h00m59-early",
+    "birth_input": {
+      "year": 2005,
+      "month": 11,
+      "day": 23,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2005-11-23-h00m00-late",
+    "birth_input": {
+      "year": 2005,
+      "month": 11,
+      "day": 23,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1995-07-07-h23m30-early",
+    "birth_input": {
+      "year": 1995,
+      "month": 7,
+      "day": 7,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1995-07-07-h23m59-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 7,
+      "day": 7,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1995-07-07-h00m00-early",
+    "birth_input": {
+      "year": 1995,
+      "month": 7,
+      "day": 7,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1995-07-07-h00m30-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 7,
+      "day": 7,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1995-08-31-h23m59-early",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 31,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1995-08-31-h23m00-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 31,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1995-08-31-h00m30-early",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 31,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1995-08-31-h00m59-late",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 31,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1985-02-15-h23m00-early",
+    "birth_input": {
+      "year": 1985,
+      "month": 2,
+      "day": 15,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1985-02-15-h23m30-late",
+    "birth_input": {
+      "year": 1985,
+      "month": 2,
+      "day": 15,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1985-02-15-h00m59-early",
+    "birth_input": {
+      "year": 1985,
+      "month": 2,
+      "day": 15,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1985-02-15-h00m00-late",
+    "birth_input": {
+      "year": 1985,
+      "month": 2,
+      "day": 15,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1985-09-01-h23m30-early",
+    "birth_input": {
+      "year": 1985,
+      "month": 9,
+      "day": 1,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1985-09-01-h23m59-late",
+    "birth_input": {
+      "year": 1985,
+      "month": 9,
+      "day": 1,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1985-09-01-h00m00-early",
+    "birth_input": {
+      "year": 1985,
+      "month": 9,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1985-09-01-h00m30-late",
+    "birth_input": {
+      "year": 1985,
+      "month": 9,
+      "day": 1,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1975-04-04-h23m59-early",
+    "birth_input": {
+      "year": 1975,
+      "month": 4,
+      "day": 4,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1975-04-04-h23m00-late",
+    "birth_input": {
+      "year": 1975,
+      "month": 4,
+      "day": 4,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1975-04-04-h00m30-early",
+    "birth_input": {
+      "year": 1975,
+      "month": 4,
+      "day": 4,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1975-04-04-h00m59-late",
+    "birth_input": {
+      "year": 1975,
+      "month": 4,
+      "day": 4,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1975-06-30-h23m00-early",
+    "birth_input": {
+      "year": 1975,
+      "month": 6,
+      "day": 30,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1975-06-30-h23m30-late",
+    "birth_input": {
+      "year": 1975,
+      "month": 6,
+      "day": 30,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1975-06-30-h00m59-early",
+    "birth_input": {
+      "year": 1975,
+      "month": 6,
+      "day": 30,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-1975-06-30-h00m00-late",
+    "birth_input": {
+      "year": 1975,
+      "month": 6,
+      "day": 30,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2022-02-28-h23m30-early",
+    "birth_input": {
+      "year": 2022,
+      "month": 2,
+      "day": 28,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2022-02-28-h23m59-late",
+    "birth_input": {
+      "year": 2022,
+      "month": 2,
+      "day": 28,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2022-02-28-h00m00-early",
+    "birth_input": {
+      "year": 2022,
+      "month": 2,
+      "day": 28,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2022-02-28-h00m30-late",
+    "birth_input": {
+      "year": 2022,
+      "month": 2,
+      "day": 28,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2022-10-01-h23m59-early",
+    "birth_input": {
+      "year": 2022,
+      "month": 10,
+      "day": 1,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2022-10-01-h23m00-late",
+    "birth_input": {
+      "year": 2022,
+      "month": 10,
+      "day": 1,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2022-10-01-h00m30-early",
+    "birth_input": {
+      "year": 2022,
+      "month": 10,
+      "day": 1,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2022-10-01-h00m59-late",
+    "birth_input": {
+      "year": 2022,
+      "month": 10,
+      "day": 1,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2024-02-28-h23m00-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 28,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2024-02-28-h23m30-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 28,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2024-02-28-h00m59-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 28,
+      "hour": 0,
+      "minute": 59,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2024-02-28-h00m00-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 28,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2024-12-31-h23m30-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 31,
+      "hour": 23,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2024-12-31-h23m59-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 31,
+      "hour": 23,
+      "minute": 59,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2024-12-31-h00m00-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 31,
+      "hour": 0,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "zi-ex-2024-12-31-h00m30-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 31,
+      "hour": 0,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dst-ex-1986-05-04-h01m30-北京",
+    "birth_input": {
+      "year": 1986,
+      "month": 5,
+      "day": 4,
+      "hour": 1,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1986-05-04-h02m00-上海",
+    "birth_input": {
+      "year": 1986,
+      "month": 5,
+      "day": 4,
+      "hour": 2,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1986-05-04-h02m30-广州",
+    "birth_input": {
+      "year": 1986,
+      "month": 5,
+      "day": 4,
+      "hour": 2,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1986-05-04-h03m30-成都",
+    "birth_input": {
+      "year": 1986,
+      "month": 5,
+      "day": 4,
+      "hour": 3,
+      "minute": 30,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1986-07-15-h10m00-北京",
+    "birth_input": {
+      "year": 1986,
+      "month": 7,
+      "day": 15,
+      "hour": 10,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1986-09-14-h12m00-上海",
+    "birth_input": {
+      "year": 1986,
+      "month": 9,
+      "day": 14,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1987-04-12-h05m00-广州",
+    "birth_input": {
+      "year": 1987,
+      "month": 4,
+      "day": 12,
+      "hour": 5,
+      "minute": 0,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1987-06-01-h08m00-成都",
+    "birth_input": {
+      "year": 1987,
+      "month": 6,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1987-07-20-h14m00-北京",
+    "birth_input": {
+      "year": 1987,
+      "month": 7,
+      "day": 20,
+      "hour": 14,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1987-09-13-h23m59-上海",
+    "birth_input": {
+      "year": 1987,
+      "month": 9,
+      "day": 13,
+      "hour": 23,
+      "minute": 59,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1988-04-10-h03m00-广州",
+    "birth_input": {
+      "year": 1988,
+      "month": 4,
+      "day": 10,
+      "hour": 3,
+      "minute": 0,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1988-06-15-h11m00-成都",
+    "birth_input": {
+      "year": 1988,
+      "month": 6,
+      "day": 15,
+      "hour": 11,
+      "minute": 0,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1988-09-11-h02m30-北京",
+    "birth_input": {
+      "year": 1988,
+      "month": 9,
+      "day": 11,
+      "hour": 2,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1989-04-16-h04m15-上海",
+    "birth_input": {
+      "year": 1989,
+      "month": 4,
+      "day": 16,
+      "hour": 4,
+      "minute": 15,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1989-07-04-h10m00-广州",
+    "birth_input": {
+      "year": 1989,
+      "month": 7,
+      "day": 4,
+      "hour": 10,
+      "minute": 0,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1989-09-17-h01m00-成都",
+    "birth_input": {
+      "year": 1989,
+      "month": 9,
+      "day": 17,
+      "hour": 1,
+      "minute": 0,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1990-04-15-h08m00-北京",
+    "birth_input": {
+      "year": 1990,
+      "month": 4,
+      "day": 15,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1990-06-21-h12m00-上海",
+    "birth_input": {
+      "year": 1990,
+      "month": 6,
+      "day": 21,
+      "hour": 12,
+      "minute": 0,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1990-09-16-h22m30-广州",
+    "birth_input": {
+      "year": 1990,
+      "month": 9,
+      "day": 16,
+      "hour": 22,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1991-04-14-h06m00-成都",
+    "birth_input": {
+      "year": 1991,
+      "month": 4,
+      "day": 14,
+      "hour": 6,
+      "minute": 0,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1991-07-07-h15m45-北京",
+    "birth_input": {
+      "year": 1991,
+      "month": 7,
+      "day": 7,
+      "hour": 15,
+      "minute": 45,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1991-09-15-h03m30-上海",
+    "birth_input": {
+      "year": 1991,
+      "month": 9,
+      "day": 15,
+      "hour": 3,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1986-01-10-h08m00-广州",
+    "birth_input": {
+      "year": 1986,
+      "month": 1,
+      "day": 10,
+      "hour": 8,
+      "minute": 0,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1991-11-05-h09m00-成都",
+    "birth_input": {
+      "year": 1991,
+      "month": 11,
+      "day": 5,
+      "hour": 9,
+      "minute": 0,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "dst-ex-1992-07-15-h12m00-北京",
+    "birth_input": {
+      "year": 1992,
+      "month": 7,
+      "day": 15,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-乌鲁木齐-1988-morning",
+    "birth_input": {
+      "year": 1988,
+      "month": 3,
+      "day": 10,
+      "hour": 7,
+      "minute": 30,
+      "city": "乌鲁木齐",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-乌鲁木齐-1993-evening",
+    "birth_input": {
+      "year": 1993,
+      "month": 9,
+      "day": 5,
+      "hour": 20,
+      "minute": 15,
+      "city": "乌鲁木齐",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-喀什-1991-morning",
+    "birth_input": {
+      "year": 1991,
+      "month": 4,
+      "day": 11,
+      "hour": 7,
+      "minute": 30,
+      "city": "喀什",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-喀什-1996-evening",
+    "birth_input": {
+      "year": 1996,
+      "month": 8,
+      "day": 6,
+      "hour": 20,
+      "minute": 15,
+      "city": "喀什",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-拉萨-1994-morning",
+    "birth_input": {
+      "year": 1994,
+      "month": 5,
+      "day": 12,
+      "hour": 7,
+      "minute": 30,
+      "city": "拉萨",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-拉萨-1999-evening",
+    "birth_input": {
+      "year": 1999,
+      "month": 7,
+      "day": 7,
+      "hour": 20,
+      "minute": 15,
+      "city": "拉萨",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-西宁-1997-morning",
+    "birth_input": {
+      "year": 1997,
+      "month": 6,
+      "day": 13,
+      "hour": 7,
+      "minute": 30,
+      "city": "西宁",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-西宁-2002-evening",
+    "birth_input": {
+      "year": 2002,
+      "month": 6,
+      "day": 8,
+      "hour": 20,
+      "minute": 15,
+      "city": "西宁",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-兰州-2000-morning",
+    "birth_input": {
+      "year": 2000,
+      "month": 7,
+      "day": 14,
+      "hour": 7,
+      "minute": 30,
+      "city": "兰州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-兰州-2005-evening",
+    "birth_input": {
+      "year": 2005,
+      "month": 9,
+      "day": 9,
+      "hour": 20,
+      "minute": 15,
+      "city": "兰州",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-昆明-2003-morning",
+    "birth_input": {
+      "year": 2003,
+      "month": 8,
+      "day": 15,
+      "hour": 7,
+      "minute": 30,
+      "city": "昆明",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-昆明-2008-evening",
+    "birth_input": {
+      "year": 2008,
+      "month": 8,
+      "day": 10,
+      "hour": 20,
+      "minute": 15,
+      "city": "昆明",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-成都-2006-morning",
+    "birth_input": {
+      "year": 2006,
+      "month": 9,
+      "day": 16,
+      "hour": 7,
+      "minute": 30,
+      "city": "成都",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-成都-2011-evening",
+    "birth_input": {
+      "year": 2011,
+      "month": 7,
+      "day": 11,
+      "hour": 20,
+      "minute": 15,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-重庆-2009-morning",
+    "birth_input": {
+      "year": 2009,
+      "month": 10,
+      "day": 17,
+      "hour": 7,
+      "minute": 30,
+      "city": "重庆",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "tz-ex-重庆-2014-evening",
+    "birth_input": {
+      "year": 2014,
+      "month": 6,
+      "day": 12,
+      "hour": 20,
+      "minute": 15,
+      "city": "重庆",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-newyork-1990",
+    "birth_input": {
+      "year": 1990,
+      "month": 1,
+      "day": 1,
+      "hour": 10,
+      "minute": 15,
+      "longitude": -74.0,
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-sanfrancisco-1992",
+    "birth_input": {
+      "year": 1992,
+      "month": 4,
+      "day": 8,
+      "hour": 11,
+      "minute": 15,
+      "longitude": -122.4,
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-london-1994",
+    "birth_input": {
+      "year": 1994,
+      "month": 7,
+      "day": 15,
+      "hour": 12,
+      "minute": 15,
+      "longitude": -0.1,
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-paris-1996",
+    "birth_input": {
+      "year": 1996,
+      "month": 10,
+      "day": 22,
+      "hour": 13,
+      "minute": 15,
+      "longitude": 2.35,
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-berlin-1998",
+    "birth_input": {
+      "year": 1998,
+      "month": 1,
+      "day": 1,
+      "hour": 14,
+      "minute": 15,
+      "longitude": 13.4,
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-dubai-2000",
+    "birth_input": {
+      "year": 2000,
+      "month": 4,
+      "day": 8,
+      "hour": 15,
+      "minute": 15,
+      "longitude": 55.3,
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-tokyo-2002",
+    "birth_input": {
+      "year": 2002,
+      "month": 7,
+      "day": 15,
+      "hour": 16,
+      "minute": 15,
+      "longitude": 139.7,
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-sydney-2004",
+    "birth_input": {
+      "year": 2004,
+      "month": 10,
+      "day": 22,
+      "hour": 17,
+      "minute": 15,
+      "longitude": 151.2,
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-bangkok-2006",
+    "birth_input": {
+      "year": 2006,
+      "month": 1,
+      "day": 1,
+      "hour": 18,
+      "minute": 15,
+      "longitude": 100.5,
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "overseas-singapore-2008",
+    "birth_input": {
+      "year": 2008,
+      "month": 4,
+      "day": 8,
+      "hour": 19,
+      "minute": 15,
+      "longitude": 103.8,
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "leap-ex-2012-05-10",
+    "birth_input": {
+      "year": 2012,
+      "month": 5,
+      "day": 10,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2012-05-22",
+    "birth_input": {
+      "year": 2012,
+      "month": 5,
+      "day": 22,
+      "hour": 13,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2012-06-05",
+    "birth_input": {
+      "year": 2012,
+      "month": 6,
+      "day": 5,
+      "hour": 14,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2012-06-18",
+    "birth_input": {
+      "year": 2012,
+      "month": 6,
+      "day": 18,
+      "hour": 15,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2014-10-15",
+    "birth_input": {
+      "year": 2014,
+      "month": 10,
+      "day": 15,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2014-10-28",
+    "birth_input": {
+      "year": 2014,
+      "month": 10,
+      "day": 28,
+      "hour": 17,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2014-11-05",
+    "birth_input": {
+      "year": 2014,
+      "month": 11,
+      "day": 5,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2014-11-18",
+    "birth_input": {
+      "year": 2014,
+      "month": 11,
+      "day": 18,
+      "hour": 13,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2017-07-05",
+    "birth_input": {
+      "year": 2017,
+      "month": 7,
+      "day": 5,
+      "hour": 14,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2017-07-18",
+    "birth_input": {
+      "year": 2017,
+      "month": 7,
+      "day": 18,
+      "hour": 15,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2017-07-25",
+    "birth_input": {
+      "year": 2017,
+      "month": 7,
+      "day": 25,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2017-08-10",
+    "birth_input": {
+      "year": 2017,
+      "month": 8,
+      "day": 10,
+      "hour": 17,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2020-05-10",
+    "birth_input": {
+      "year": 2020,
+      "month": 5,
+      "day": 10,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2020-05-22",
+    "birth_input": {
+      "year": 2020,
+      "month": 5,
+      "day": 22,
+      "hour": 13,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2020-06-05",
+    "birth_input": {
+      "year": 2020,
+      "month": 6,
+      "day": 5,
+      "hour": 14,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2020-06-18",
+    "birth_input": {
+      "year": 2020,
+      "month": 6,
+      "day": 18,
+      "hour": 15,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2023-03-25",
+    "birth_input": {
+      "year": 2023,
+      "month": 3,
+      "day": 25,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2023-04-10",
+    "birth_input": {
+      "year": 2023,
+      "month": 4,
+      "day": 10,
+      "hour": 17,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2023-04-25",
+    "birth_input": {
+      "year": 2023,
+      "month": 4,
+      "day": 25,
+      "hour": 12,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "leap-ex-2023-05-05",
+    "birth_input": {
+      "year": 2023,
+      "month": 5,
+      "day": 5,
+      "hour": 13,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "wuxing-000-2000-02-01",
+    "birth_input": {
+      "year": 2000,
+      "month": 2,
+      "day": 1,
+      "hour": 23,
+      "minute": 30,
+      "city": "成都",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-001-1968-12-04",
+    "birth_input": {
+      "year": 1968,
+      "month": 12,
+      "day": 4,
+      "hour": 21,
+      "minute": 0,
+      "city": "武汉",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-002-1961-02-07",
+    "birth_input": {
+      "year": 1961,
+      "month": 2,
+      "day": 7,
+      "hour": 7,
+      "minute": 0,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-003-1974-08-19",
+    "birth_input": {
+      "year": 1974,
+      "month": 8,
+      "day": 19,
+      "hour": 8,
+      "minute": 0,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-004-1981-05-05",
+    "birth_input": {
+      "year": 1981,
+      "month": 5,
+      "day": 5,
+      "hour": 6,
+      "minute": 30,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-005-1984-02-12",
+    "birth_input": {
+      "year": 1984,
+      "month": 2,
+      "day": 12,
+      "hour": 11,
+      "minute": 30,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-006-1994-02-13",
+    "birth_input": {
+      "year": 1994,
+      "month": 2,
+      "day": 13,
+      "hour": 2,
+      "minute": 30,
+      "city": "杭州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-007-2005-02-02",
+    "birth_input": {
+      "year": 2005,
+      "month": 2,
+      "day": 2,
+      "hour": 21,
+      "minute": 15,
+      "city": "西安",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-008-2014-04-28",
+    "birth_input": {
+      "year": 2014,
+      "month": 4,
+      "day": 28,
+      "hour": 3,
+      "minute": 45,
+      "city": "西安",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-009-2000-06-06",
+    "birth_input": {
+      "year": 2000,
+      "month": 6,
+      "day": 6,
+      "hour": 11,
+      "minute": 30,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-010-2004-11-21",
+    "birth_input": {
+      "year": 2004,
+      "month": 11,
+      "day": 21,
+      "hour": 2,
+      "minute": 15,
+      "city": "成都",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-011-1989-07-09",
+    "birth_input": {
+      "year": 1989,
+      "month": 7,
+      "day": 9,
+      "hour": 20,
+      "minute": 15,
+      "city": "杭州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-012-1974-01-26",
+    "birth_input": {
+      "year": 1974,
+      "month": 1,
+      "day": 26,
+      "hour": 10,
+      "minute": 45,
+      "city": "西安",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-013-1973-10-23",
+    "birth_input": {
+      "year": 1973,
+      "month": 10,
+      "day": 23,
+      "hour": 10,
+      "minute": 15,
+      "city": "南京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-014-2016-11-15",
+    "birth_input": {
+      "year": 2016,
+      "month": 11,
+      "day": 15,
+      "hour": 4,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-015-2007-09-18",
+    "birth_input": {
+      "year": 2007,
+      "month": 9,
+      "day": 18,
+      "hour": 8,
+      "minute": 45,
+      "city": "武汉",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-016-1974-03-17",
+    "birth_input": {
+      "year": 1974,
+      "month": 3,
+      "day": 17,
+      "hour": 15,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-017-1969-11-06",
+    "birth_input": {
+      "year": 1969,
+      "month": 11,
+      "day": 6,
+      "hour": 21,
+      "minute": 45,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-018-1984-10-15",
+    "birth_input": {
+      "year": 1984,
+      "month": 10,
+      "day": 15,
+      "hour": 16,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-019-2003-09-25",
+    "birth_input": {
+      "year": 2003,
+      "month": 9,
+      "day": 25,
+      "hour": 8,
+      "minute": 30,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-020-1987-03-15",
+    "birth_input": {
+      "year": 1987,
+      "month": 3,
+      "day": 15,
+      "hour": 0,
+      "minute": 30,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-021-2015-11-10",
+    "birth_input": {
+      "year": 2015,
+      "month": 11,
+      "day": 10,
+      "hour": 20,
+      "minute": 15,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-022-2008-03-18",
+    "birth_input": {
+      "year": 2008,
+      "month": 3,
+      "day": 18,
+      "hour": 16,
+      "minute": 0,
+      "city": "杭州",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-023-1961-02-12",
+    "birth_input": {
+      "year": 1961,
+      "month": 2,
+      "day": 12,
+      "hour": 9,
+      "minute": 15,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-024-2016-10-03",
+    "birth_input": {
+      "year": 2016,
+      "month": 10,
+      "day": 3,
+      "hour": 2,
+      "minute": 45,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-025-1968-11-16",
+    "birth_input": {
+      "year": 1968,
+      "month": 11,
+      "day": 16,
+      "hour": 17,
+      "minute": 15,
+      "city": "西安",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-026-1973-09-25",
+    "birth_input": {
+      "year": 1973,
+      "month": 9,
+      "day": 25,
+      "hour": 23,
+      "minute": 15,
+      "city": "西安",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-027-2002-11-12",
+    "birth_input": {
+      "year": 2002,
+      "month": 11,
+      "day": 12,
+      "hour": 14,
+      "minute": 45,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-028-1974-02-11",
+    "birth_input": {
+      "year": 1974,
+      "month": 2,
+      "day": 11,
+      "hour": 0,
+      "minute": 15,
+      "city": "成都",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-029-1964-12-21",
+    "birth_input": {
+      "year": 1964,
+      "month": 12,
+      "day": 21,
+      "hour": 1,
+      "minute": 15,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-030-2015-06-03",
+    "birth_input": {
+      "year": 2015,
+      "month": 6,
+      "day": 3,
+      "hour": 16,
+      "minute": 15,
+      "city": "西安",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-031-1973-09-05",
+    "birth_input": {
+      "year": 1973,
+      "month": 9,
+      "day": 5,
+      "hour": 23,
+      "minute": 45,
+      "city": "成都",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-032-2011-07-07",
+    "birth_input": {
+      "year": 2011,
+      "month": 7,
+      "day": 7,
+      "hour": 3,
+      "minute": 0,
+      "city": "武汉",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-033-1987-07-15",
+    "birth_input": {
+      "year": 1987,
+      "month": 7,
+      "day": 15,
+      "hour": 23,
+      "minute": 0,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-034-1985-12-11",
+    "birth_input": {
+      "year": 1985,
+      "month": 12,
+      "day": 11,
+      "hour": 3,
+      "minute": 15,
+      "city": "成都",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-035-1994-08-05",
+    "birth_input": {
+      "year": 1994,
+      "month": 8,
+      "day": 5,
+      "hour": 13,
+      "minute": 15,
+      "city": "西安",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-036-1975-02-15",
+    "birth_input": {
+      "year": 1975,
+      "month": 2,
+      "day": 15,
+      "hour": 17,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-037-1965-04-06",
+    "birth_input": {
+      "year": 1965,
+      "month": 4,
+      "day": 6,
+      "hour": 13,
+      "minute": 45,
+      "city": "南京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-038-2015-07-02",
+    "birth_input": {
+      "year": 2015,
+      "month": 7,
+      "day": 2,
+      "hour": 5,
+      "minute": 45,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "wuxing-039-1976-08-10",
+    "birth_input": {
+      "year": 1976,
+      "month": 8,
+      "day": 10,
+      "hour": 13,
+      "minute": 45,
+      "city": "广州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-000-1956-05-03",
+    "birth_input": {
+      "year": 1956,
+      "month": 5,
+      "day": 3,
+      "hour": 13,
+      "minute": 20,
+      "city": "天津",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-001-2018-09-11",
+    "birth_input": {
+      "year": 2018,
+      "month": 9,
+      "day": 11,
+      "hour": 10,
+      "minute": 0,
+      "city": "济南",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-002-2021-06-23",
+    "birth_input": {
+      "year": 2021,
+      "month": 6,
+      "day": 23,
+      "hour": 7,
+      "minute": 10,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-003-1998-02-01",
+    "birth_input": {
+      "year": 1998,
+      "month": 2,
+      "day": 1,
+      "hour": 10,
+      "minute": 50,
+      "city": "厦门",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-004-1961-11-05",
+    "birth_input": {
+      "year": 1961,
+      "month": 11,
+      "day": 5,
+      "hour": 4,
+      "minute": 0,
+      "city": "重庆",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-005-1983-08-27",
+    "birth_input": {
+      "year": 1983,
+      "month": 8,
+      "day": 27,
+      "hour": 1,
+      "minute": 20,
+      "city": "长沙",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-006-2017-10-26",
+    "birth_input": {
+      "year": 2017,
+      "month": 10,
+      "day": 26,
+      "hour": 10,
+      "minute": 0,
+      "city": "福州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-007-2016-11-14",
+    "birth_input": {
+      "year": 2016,
+      "month": 11,
+      "day": 14,
+      "hour": 11,
+      "minute": 40,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-008-2012-11-09",
+    "birth_input": {
+      "year": 2012,
+      "month": 11,
+      "day": 9,
+      "hour": 5,
+      "minute": 20,
+      "city": "长沙",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-009-2008-07-19",
+    "birth_input": {
+      "year": 2008,
+      "month": 7,
+      "day": 19,
+      "hour": 10,
+      "minute": 0,
+      "city": "沈阳",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-010-1951-06-08",
+    "birth_input": {
+      "year": 1951,
+      "month": 6,
+      "day": 8,
+      "hour": 12,
+      "minute": 40,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-011-1979-09-16",
+    "birth_input": {
+      "year": 1979,
+      "month": 9,
+      "day": 16,
+      "hour": 5,
+      "minute": 10,
+      "city": "厦门",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-012-1955-01-05",
+    "birth_input": {
+      "year": 1955,
+      "month": 1,
+      "day": 5,
+      "hour": 14,
+      "minute": 10,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-013-1984-07-21",
+    "birth_input": {
+      "year": 1984,
+      "month": 7,
+      "day": 21,
+      "hour": 13,
+      "minute": 0,
+      "city": "天津",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-014-1961-02-14",
+    "birth_input": {
+      "year": 1961,
+      "month": 2,
+      "day": 14,
+      "hour": 0,
+      "minute": 40,
+      "city": "福州",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-015-1953-06-09",
+    "birth_input": {
+      "year": 1953,
+      "month": 6,
+      "day": 9,
+      "hour": 15,
+      "minute": 0,
+      "city": "长沙",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-016-1953-11-21",
+    "birth_input": {
+      "year": 1953,
+      "month": 11,
+      "day": 21,
+      "hour": 5,
+      "minute": 30,
+      "city": "天津",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-017-1980-12-03",
+    "birth_input": {
+      "year": 1980,
+      "month": 12,
+      "day": 3,
+      "hour": 20,
+      "minute": 0,
+      "city": "福州",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-018-1987-07-12",
+    "birth_input": {
+      "year": 1987,
+      "month": 7,
+      "day": 12,
+      "hour": 4,
+      "minute": 40,
+      "city": "长沙",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-019-2025-07-14",
+    "birth_input": {
+      "year": 2025,
+      "month": 7,
+      "day": 14,
+      "hour": 1,
+      "minute": 50,
+      "city": "济南",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-020-1994-08-28",
+    "birth_input": {
+      "year": 1994,
+      "month": 8,
+      "day": 28,
+      "hour": 23,
+      "minute": 50,
+      "city": "厦门",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-021-1953-03-17",
+    "birth_input": {
+      "year": 1953,
+      "month": 3,
+      "day": 17,
+      "hour": 10,
+      "minute": 40,
+      "city": "济南",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-022-2019-12-12",
+    "birth_input": {
+      "year": 2019,
+      "month": 12,
+      "day": 12,
+      "hour": 7,
+      "minute": 40,
+      "city": "长沙",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-023-2014-04-07",
+    "birth_input": {
+      "year": 2014,
+      "month": 4,
+      "day": 7,
+      "hour": 10,
+      "minute": 20,
+      "city": "福州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-024-1975-09-07",
+    "birth_input": {
+      "year": 1975,
+      "month": 9,
+      "day": 7,
+      "hour": 0,
+      "minute": 10,
+      "city": "重庆",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-025-1990-02-11",
+    "birth_input": {
+      "year": 1990,
+      "month": 2,
+      "day": 11,
+      "hour": 17,
+      "minute": 40,
+      "city": "济南",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-026-2013-12-13",
+    "birth_input": {
+      "year": 2013,
+      "month": 12,
+      "day": 13,
+      "hour": 0,
+      "minute": 20,
+      "city": "厦门",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-027-1978-09-05",
+    "birth_input": {
+      "year": 1978,
+      "month": 9,
+      "day": 5,
+      "hour": 19,
+      "minute": 50,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-028-2024-02-23",
+    "birth_input": {
+      "year": 2024,
+      "month": 2,
+      "day": 23,
+      "hour": 1,
+      "minute": 20,
+      "city": "厦门",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-029-1990-06-07",
+    "birth_input": {
+      "year": 1990,
+      "month": 6,
+      "day": 7,
+      "hour": 14,
+      "minute": 20,
+      "city": "沈阳",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-030-1957-07-13",
+    "birth_input": {
+      "year": 1957,
+      "month": 7,
+      "day": 13,
+      "hour": 16,
+      "minute": 20,
+      "city": "济南",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-031-1958-05-04",
+    "birth_input": {
+      "year": 1958,
+      "month": 5,
+      "day": 4,
+      "hour": 8,
+      "minute": 40,
+      "city": "长沙",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-032-1956-10-13",
+    "birth_input": {
+      "year": 1956,
+      "month": 10,
+      "day": 13,
+      "hour": 9,
+      "minute": 0,
+      "city": "厦门",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-033-2007-05-27",
+    "birth_input": {
+      "year": 2007,
+      "month": 5,
+      "day": 27,
+      "hour": 14,
+      "minute": 40,
+      "city": "长沙",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-034-2014-10-09",
+    "birth_input": {
+      "year": 2014,
+      "month": 10,
+      "day": 9,
+      "hour": 10,
+      "minute": 0,
+      "city": "济南",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "geju-035-2004-11-16",
+    "birth_input": {
+      "year": 2004,
+      "month": 11,
+      "day": 16,
+      "hour": 23,
+      "minute": 10,
+      "city": "厦门",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-036-2019-03-11",
+    "birth_input": {
+      "year": 2019,
+      "month": 3,
+      "day": 11,
+      "hour": 11,
+      "minute": 10,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-037-2024-01-11",
+    "birth_input": {
+      "year": 2024,
+      "month": 1,
+      "day": 11,
+      "hour": 23,
+      "minute": 30,
+      "city": "沈阳",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-038-1986-03-14",
+    "birth_input": {
+      "year": 1986,
+      "month": 3,
+      "day": 14,
+      "hour": 11,
+      "minute": 30,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "geju-039-1971-04-02",
+    "birth_input": {
+      "year": 1971,
+      "month": 4,
+      "day": 2,
+      "hour": 8,
+      "minute": 40,
+      "city": "济南",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1960-02-04-h16-male",
+    "birth_input": {
+      "year": 1960,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1960-08-08-h08-male",
+    "birth_input": {
+      "year": 1960,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1960-12-22-h23-male",
+    "birth_input": {
+      "year": 1960,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1960-02-04-h16-female",
+    "birth_input": {
+      "year": 1960,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1960-08-08-h08-female",
+    "birth_input": {
+      "year": 1960,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1960-12-22-h23-female",
+    "birth_input": {
+      "year": 1960,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1975-02-04-h16-male",
+    "birth_input": {
+      "year": 1975,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1975-08-08-h08-male",
+    "birth_input": {
+      "year": 1975,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1975-12-22-h23-male",
+    "birth_input": {
+      "year": 1975,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1975-02-04-h16-female",
+    "birth_input": {
+      "year": 1975,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1975-08-08-h08-female",
+    "birth_input": {
+      "year": 1975,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1975-12-22-h23-female",
+    "birth_input": {
+      "year": 1975,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1995-02-04-h16-male",
+    "birth_input": {
+      "year": 1995,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1995-08-08-h08-male",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1995-12-22-h23-male",
+    "birth_input": {
+      "year": 1995,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1995-02-04-h16-female",
+    "birth_input": {
+      "year": 1995,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1995-08-08-h08-female",
+    "birth_input": {
+      "year": 1995,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-1995-12-22-h23-female",
+    "birth_input": {
+      "year": 1995,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-2010-02-04-h16-male",
+    "birth_input": {
+      "year": 2010,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-2010-08-08-h08-male",
+    "birth_input": {
+      "year": 2010,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-2010-12-22-h23-male",
+    "birth_input": {
+      "year": 2010,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-2010-02-04-h16-female",
+    "birth_input": {
+      "year": 2010,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-2010-08-08-h08-female",
+    "birth_input": {
+      "year": 2010,
+      "month": 8,
+      "day": 8,
+      "hour": 8,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "dayun-ex-2010-12-22-h23-female",
+    "birth_input": {
+      "year": 2010,
+      "month": 12,
+      "day": 22,
+      "hour": 23,
+      "minute": 0,
+      "city": "北京",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-000-1961-03-13",
+    "birth_input": {
+      "year": 1961,
+      "month": 3,
+      "day": 13,
+      "hour": 20,
+      "minute": 3,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-001-1994-01-17",
+    "birth_input": {
+      "year": 1994,
+      "month": 1,
+      "day": 17,
+      "hour": 6,
+      "minute": 2,
+      "city": "上海",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-002-1928-04-03",
+    "birth_input": {
+      "year": 1928,
+      "month": 4,
+      "day": 3,
+      "hour": 17,
+      "minute": 27,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-003-2000-11-19",
+    "birth_input": {
+      "year": 2000,
+      "month": 11,
+      "day": 19,
+      "hour": 1,
+      "minute": 36,
+      "city": "长沙",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-004-1948-01-18",
+    "birth_input": {
+      "year": 1948,
+      "month": 1,
+      "day": 18,
+      "hour": 4,
+      "minute": 18,
+      "city": "武汉",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-005-1993-05-18",
+    "birth_input": {
+      "year": 1993,
+      "month": 5,
+      "day": 18,
+      "hour": 21,
+      "minute": 11,
+      "city": "上海",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-006-1932-09-23",
+    "birth_input": {
+      "year": 1932,
+      "month": 9,
+      "day": 23,
+      "hour": 2,
+      "minute": 36,
+      "city": "北京",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-007-2007-09-14",
+    "birth_input": {
+      "year": 2007,
+      "month": 9,
+      "day": 14,
+      "hour": 10,
+      "minute": 29,
+      "city": "长沙",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-008-1958-04-26",
+    "birth_input": {
+      "year": 1958,
+      "month": 4,
+      "day": 26,
+      "hour": 5,
+      "minute": 44,
+      "city": "哈尔滨",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-009-1993-05-17",
+    "birth_input": {
+      "year": 1993,
+      "month": 5,
+      "day": 17,
+      "hour": 15,
+      "minute": 56,
+      "city": "杭州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-010-1997-02-04",
+    "birth_input": {
+      "year": 1997,
+      "month": 2,
+      "day": 4,
+      "hour": 16,
+      "minute": 26,
+      "city": "广州",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-011-1982-07-02",
+    "birth_input": {
+      "year": 1982,
+      "month": 7,
+      "day": 2,
+      "hour": 21,
+      "minute": 4,
+      "city": "哈尔滨",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-012-2008-06-20",
+    "birth_input": {
+      "year": 2008,
+      "month": 6,
+      "day": 20,
+      "hour": 15,
+      "minute": 37,
+      "city": "哈尔滨",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-013-2027-02-09",
+    "birth_input": {
+      "year": 2027,
+      "month": 2,
+      "day": 9,
+      "hour": 15,
+      "minute": 44,
+      "city": "郑州",
+      "gender": "male",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-014-2013-12-10",
+    "birth_input": {
+      "year": 2013,
+      "month": 12,
+      "day": 10,
+      "hour": 20,
+      "minute": 36,
+      "city": "郑州",
+      "gender": "female",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-015-2011-07-22",
+    "birth_input": {
+      "year": 2011,
+      "month": 7,
+      "day": 22,
+      "hour": 11,
+      "minute": 1,
+      "city": "南京",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-016-1998-02-16",
+    "birth_input": {
+      "year": 1998,
+      "month": 2,
+      "day": 16,
+      "hour": 1,
+      "minute": 13,
+      "city": "哈尔滨",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-017-2014-04-13",
+    "birth_input": {
+      "year": 2014,
+      "month": 4,
+      "day": 13,
+      "hour": 12,
+      "minute": 58,
+      "city": "大连",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "random-018-1941-08-13",
+    "birth_input": {
+      "year": 1941,
+      "month": 8,
+      "day": 13,
+      "hour": 17,
+      "minute": 17,
+      "city": "青岛",
+      "gender": "male",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "random-019-2030-09-09",
+    "birth_input": {
+      "year": 2030,
+      "month": 9,
+      "day": 9,
+      "hour": 22,
+      "minute": 26,
+      "city": "杭州",
+      "gender": "female",
+      "useTrueSolarTime": true
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1984-before5-early",
+    "birth_input": {
+      "year": 1984,
+      "month": 2,
+      "day": 4,
+      "hour": 23,
+      "minute": 13,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1984-before5-late",
+    "birth_input": {
+      "year": 1984,
+      "month": 2,
+      "day": 4,
+      "hour": 23,
+      "minute": 13,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1984-on-early",
+    "birth_input": {
+      "year": 1984,
+      "month": 2,
+      "day": 4,
+      "hour": 23,
+      "minute": 18,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1984-on-late",
+    "birth_input": {
+      "year": 1984,
+      "month": 2,
+      "day": 4,
+      "hour": 23,
+      "minute": 18,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1984-after5-early",
+    "birth_input": {
+      "year": 1984,
+      "month": 2,
+      "day": 4,
+      "hour": 23,
+      "minute": 23,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1984-after5-late",
+    "birth_input": {
+      "year": 1984,
+      "month": 2,
+      "day": 4,
+      "hour": 23,
+      "minute": 23,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1980-before5-early",
+    "birth_input": {
+      "year": 1980,
+      "month": 2,
+      "day": 5,
+      "hour": 0,
+      "minute": 4,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1980-before5-late",
+    "birth_input": {
+      "year": 1980,
+      "month": 2,
+      "day": 5,
+      "hour": 0,
+      "minute": 4,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1980-on-early",
+    "birth_input": {
+      "year": 1980,
+      "month": 2,
+      "day": 5,
+      "hour": 0,
+      "minute": 9,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1980-on-late",
+    "birth_input": {
+      "year": 1980,
+      "month": 2,
+      "day": 5,
+      "hour": 0,
+      "minute": 9,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1980-after5-early",
+    "birth_input": {
+      "year": 1980,
+      "month": 2,
+      "day": 5,
+      "hour": 0,
+      "minute": 14,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-lichun-1980-after5-late",
+    "birth_input": {
+      "year": 1980,
+      "month": 2,
+      "day": 5,
+      "hour": 0,
+      "minute": 14,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-hanlu-1982-before5-early",
+    "birth_input": {
+      "year": 1982,
+      "month": 10,
+      "day": 8,
+      "hour": 22,
+      "minute": 57,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-hanlu-1982-before5-late",
+    "birth_input": {
+      "year": 1982,
+      "month": 10,
+      "day": 8,
+      "hour": 22,
+      "minute": 57,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-hanlu-1982-on-early",
+    "birth_input": {
+      "year": 1982,
+      "month": 10,
+      "day": 8,
+      "hour": 23,
+      "minute": 2,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-hanlu-1982-on-late",
+    "birth_input": {
+      "year": 1982,
+      "month": 10,
+      "day": 8,
+      "hour": 23,
+      "minute": 2,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-hanlu-1982-after5-early",
+    "birth_input": {
+      "year": 1982,
+      "month": 10,
+      "day": 8,
+      "hour": 23,
+      "minute": 7,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-hanlu-1982-after5-late",
+    "birth_input": {
+      "year": 1982,
+      "month": 10,
+      "day": 8,
+      "hour": 23,
+      "minute": 7,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-jingzhe-1981-before5-early",
+    "birth_input": {
+      "year": 1981,
+      "month": 3,
+      "day": 6,
+      "hour": 0,
+      "minute": 0,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-jingzhe-1981-before5-late",
+    "birth_input": {
+      "year": 1981,
+      "month": 3,
+      "day": 6,
+      "hour": 0,
+      "minute": 0,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-jingzhe-1981-on-early",
+    "birth_input": {
+      "year": 1981,
+      "month": 3,
+      "day": 6,
+      "hour": 0,
+      "minute": 5,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-jingzhe-1981-on-late",
+    "birth_input": {
+      "year": 1981,
+      "month": 3,
+      "day": 6,
+      "hour": 0,
+      "minute": 5,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-jingzhe-1981-after5-early",
+    "birth_input": {
+      "year": 1981,
+      "month": 3,
+      "day": 6,
+      "hour": 0,
+      "minute": 10,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-jingzhe-1981-after5-late",
+    "birth_input": {
+      "year": 1981,
+      "month": 3,
+      "day": 6,
+      "hour": 0,
+      "minute": 10,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-daxue-2024-before5-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 6,
+      "hour": 23,
+      "minute": 12,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-daxue-2024-before5-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 6,
+      "hour": 23,
+      "minute": 12,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-daxue-2024-on-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 6,
+      "hour": 23,
+      "minute": 17,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-daxue-2024-on-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 6,
+      "hour": 23,
+      "minute": 17,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-daxue-2024-after5-early",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 6,
+      "hour": 23,
+      "minute": 22,
+      "gender": "male",
+      "ziConvention": "early",
+      "useTrueSolarTime": false
+    }
+  },
+  {
+    "case_id": "jieqi-zi-daxue-2024-after5-late",
+    "birth_input": {
+      "year": 2024,
+      "month": 12,
+      "day": 6,
+      "hour": 23,
+      "minute": 22,
+      "gender": "male",
+      "ziConvention": "late",
+      "useTrueSolarTime": false
+    }
+  }
+]

@@ -1,0 +1,574 @@
+{
+  "case_id": "tz-ex-喀什-1996-evening",
+  "birth_input": {
+    "year": 1996,
+    "month": 8,
+    "day": 6,
+    "hour": 20,
+    "minute": 15,
+    "city": "喀什",
+    "gender": "male",
+    "useTrueSolarTime": true
+  },
+  "expected": {
+    "sizhu": {
+      "year": "丙子",
+      "month": "乙未",
+      "day": "乙亥",
+      "hour": "乙酉"
+    },
+    "rizhu": "乙",
+    "shishen": {
+      "year": "伤官",
+      "month": "比肩",
+      "hour": "比肩"
+    },
+    "cangGan": {
+      "year": [
+        "癸"
+      ],
+      "month": [
+        "己",
+        "丁",
+        "乙"
+      ],
+      "day": [
+        "壬",
+        "甲"
+      ],
+      "hour": [
+        "辛"
+      ]
+    },
+    "naYin": {
+      "year": "涧下水",
+      "month": "沙中金",
+      "day": "山头火",
+      "hour": "泉中水"
+    },
+    "dayun": {
+      "startSolar": "1996-11-16",
+      "startAge": 0.2773972602739726,
+      "startYearsDesc": "0年3月10天后起运",
+      "list": [
+        {
+          "index": 1,
+          "ganzhi": "丙申",
+          "startAge": 1,
+          "startYear": 1996,
+          "endYear": 2005,
+          "liunian": [
+            {
+              "year": 1996,
+              "ganzhi": "丙子",
+              "age": 1
+            },
+            {
+              "year": 1997,
+              "ganzhi": "丁丑",
+              "age": 2
+            },
+            {
+              "year": 1998,
+              "ganzhi": "戊寅",
+              "age": 3
+            },
+            {
+              "year": 1999,
+              "ganzhi": "己卯",
+              "age": 4
+            },
+            {
+              "year": 2000,
+              "ganzhi": "庚辰",
+              "age": 5
+            },
+            {
+              "year": 2001,
+              "ganzhi": "辛巳",
+              "age": 6
+            },
+            {
+              "year": 2002,
+              "ganzhi": "壬午",
+              "age": 7
+            },
+            {
+              "year": 2003,
+              "ganzhi": "癸未",
+              "age": 8
+            },
+            {
+              "year": 2004,
+              "ganzhi": "甲申",
+              "age": 9
+            },
+            {
+              "year": 2005,
+              "ganzhi": "乙酉",
+              "age": 10
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "ganzhi": "丁酉",
+          "startAge": 11,
+          "startYear": 2006,
+          "endYear": 2015,
+          "liunian": [
+            {
+              "year": 2006,
+              "ganzhi": "丙戌",
+              "age": 11
+            },
+            {
+              "year": 2007,
+              "ganzhi": "丁亥",
+              "age": 12
+            },
+            {
+              "year": 2008,
+              "ganzhi": "戊子",
+              "age": 13
+            },
+            {
+              "year": 2009,
+              "ganzhi": "己丑",
+              "age": 14
+            },
+            {
+              "year": 2010,
+              "ganzhi": "庚寅",
+              "age": 15
+            },
+            {
+              "year": 2011,
+              "ganzhi": "辛卯",
+              "age": 16
+            },
+            {
+              "year": 2012,
+              "ganzhi": "壬辰",
+              "age": 17
+            },
+            {
+              "year": 2013,
+              "ganzhi": "癸巳",
+              "age": 18
+            },
+            {
+              "year": 2014,
+              "ganzhi": "甲午",
+              "age": 19
+            },
+            {
+              "year": 2015,
+              "ganzhi": "乙未",
+              "age": 20
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "ganzhi": "戊戌",
+          "startAge": 21,
+          "startYear": 2016,
+          "endYear": 2025,
+          "liunian": [
+            {
+              "year": 2016,
+              "ganzhi": "丙申",
+              "age": 21
+            },
+            {
+              "year": 2017,
+              "ganzhi": "丁酉",
+              "age": 22
+            },
+            {
+              "year": 2018,
+              "ganzhi": "戊戌",
+              "age": 23
+            },
+            {
+              "year": 2019,
+              "ganzhi": "己亥",
+              "age": 24
+            },
+            {
+              "year": 2020,
+              "ganzhi": "庚子",
+              "age": 25
+            },
+            {
+              "year": 2021,
+              "ganzhi": "辛丑",
+              "age": 26
+            },
+            {
+              "year": 2022,
+              "ganzhi": "壬寅",
+              "age": 27
+            },
+            {
+              "year": 2023,
+              "ganzhi": "癸卯",
+              "age": 28
+            },
+            {
+              "year": 2024,
+              "ganzhi": "甲辰",
+              "age": 29
+            },
+            {
+              "year": 2025,
+              "ganzhi": "乙巳",
+              "age": 30
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "ganzhi": "己亥",
+          "startAge": 31,
+          "startYear": 2026,
+          "endYear": 2035,
+          "liunian": [
+            {
+              "year": 2026,
+              "ganzhi": "丙午",
+              "age": 31
+            },
+            {
+              "year": 2027,
+              "ganzhi": "丁未",
+              "age": 32
+            },
+            {
+              "year": 2028,
+              "ganzhi": "戊申",
+              "age": 33
+            },
+            {
+              "year": 2029,
+              "ganzhi": "己酉",
+              "age": 34
+            },
+            {
+              "year": 2030,
+              "ganzhi": "庚戌",
+              "age": 35
+            },
+            {
+              "year": 2031,
+              "ganzhi": "辛亥",
+              "age": 36
+            },
+            {
+              "year": 2032,
+              "ganzhi": "壬子",
+              "age": 37
+            },
+            {
+              "year": 2033,
+              "ganzhi": "癸丑",
+              "age": 38
+            },
+            {
+              "year": 2034,
+              "ganzhi": "甲寅",
+              "age": 39
+            },
+            {
+              "year": 2035,
+              "ganzhi": "乙卯",
+              "age": 40
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "ganzhi": "庚子",
+          "startAge": 41,
+          "startYear": 2036,
+          "endYear": 2045,
+          "liunian": [
+            {
+              "year": 2036,
+              "ganzhi": "丙辰",
+              "age": 41
+            },
+            {
+              "year": 2037,
+              "ganzhi": "丁巳",
+              "age": 42
+            },
+            {
+              "year": 2038,
+              "ganzhi": "戊午",
+              "age": 43
+            },
+            {
+              "year": 2039,
+              "ganzhi": "己未",
+              "age": 44
+            },
+            {
+              "year": 2040,
+              "ganzhi": "庚申",
+              "age": 45
+            },
+            {
+              "year": 2041,
+              "ganzhi": "辛酉",
+              "age": 46
+            },
+            {
+              "year": 2042,
+              "ganzhi": "壬戌",
+              "age": 47
+            },
+            {
+              "year": 2043,
+              "ganzhi": "癸亥",
+              "age": 48
+            },
+            {
+              "year": 2044,
+              "ganzhi": "甲子",
+              "age": 49
+            },
+            {
+              "year": 2045,
+              "ganzhi": "乙丑",
+              "age": 50
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "ganzhi": "辛丑",
+          "startAge": 51,
+          "startYear": 2046,
+          "endYear": 2055,
+          "liunian": [
+            {
+              "year": 2046,
+              "ganzhi": "丙寅",
+              "age": 51
+            },
+            {
+              "year": 2047,
+              "ganzhi": "丁卯",
+              "age": 52
+            },
+            {
+              "year": 2048,
+              "ganzhi": "戊辰",
+              "age": 53
+            },
+            {
+              "year": 2049,
+              "ganzhi": "己巳",
+              "age": 54
+            },
+            {
+              "year": 2050,
+              "ganzhi": "庚午",
+              "age": 55
+            },
+            {
+              "year": 2051,
+              "ganzhi": "辛未",
+              "age": 56
+            },
+            {
+              "year": 2052,
+              "ganzhi": "壬申",
+              "age": 57
+            },
+            {
+              "year": 2053,
+              "ganzhi": "癸酉",
+              "age": 58
+            },
+            {
+              "year": 2054,
+              "ganzhi": "甲戌",
+              "age": 59
+            },
+            {
+              "year": 2055,
+              "ganzhi": "乙亥",
+              "age": 60
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "ganzhi": "壬寅",
+          "startAge": 61,
+          "startYear": 2056,
+          "endYear": 2065,
+          "liunian": [
+            {
+              "year": 2056,
+              "ganzhi": "丙子",
+              "age": 61
+            },
+            {
+              "year": 2057,
+              "ganzhi": "丁丑",
+              "age": 62
+            },
+            {
+              "year": 2058,
+              "ganzhi": "戊寅",
+              "age": 63
+            },
+            {
+              "year": 2059,
+              "ganzhi": "己卯",
+              "age": 64
+            },
+            {
+              "year": 2060,
+              "ganzhi": "庚辰",
+              "age": 65
+            },
+            {
+              "year": 2061,
+              "ganzhi": "辛巳",
+              "age": 66
+            },
+            {
+              "year": 2062,
+              "ganzhi": "壬午",
+              "age": 67
+            },
+            {
+              "year": 2063,
+              "ganzhi": "癸未",
+              "age": 68
+            },
+            {
+              "year": 2064,
+              "ganzhi": "甲申",
+              "age": 69
+            },
+            {
+              "year": 2065,
+              "ganzhi": "乙酉",
+              "age": 70
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "ganzhi": "癸卯",
+          "startAge": 71,
+          "startYear": 2066,
+          "endYear": 2075,
+          "liunian": [
+            {
+              "year": 2066,
+              "ganzhi": "丙戌",
+              "age": 71
+            },
+            {
+              "year": 2067,
+              "ganzhi": "丁亥",
+              "age": 72
+            },
+            {
+              "year": 2068,
+              "ganzhi": "戊子",
+              "age": 73
+            },
+            {
+              "year": 2069,
+              "ganzhi": "己丑",
+              "age": 74
+            },
+            {
+              "year": 2070,
+              "ganzhi": "庚寅",
+              "age": 75
+            },
+            {
+              "year": 2071,
+              "ganzhi": "辛卯",
+              "age": 76
+            },
+            {
+              "year": 2072,
+              "ganzhi": "壬辰",
+              "age": 77
+            },
+            {
+              "year": 2073,
+              "ganzhi": "癸巳",
+              "age": 78
+            },
+            {
+              "year": 2074,
+              "ganzhi": "甲午",
+              "age": 79
+            },
+            {
+              "year": 2075,
+              "ganzhi": "乙未",
+              "age": 80
+            }
+          ]
+        }
+      ]
+    },
+    "lunar": "一九九六年六月廿二",
+    "solarCorrected": "1996-08-06 17:11",
+    "warnings": [],
+    "meta": {
+      "input": {
+        "year": 1996,
+        "month": 8,
+        "day": 6,
+        "hour": 20,
+        "minute": 15
+      },
+      "corrections": [
+        {
+          "type": "true_solar_time",
+          "longitude": 75.59,
+          "longitudeMinutes": -177.6,
+          "eotMinutes": -5.5,
+          "shiftMinutes": -183.1,
+          "resolvedCity": "喀什",
+          "from": "1996-8-6 20:15",
+          "to": "1996-8-6 17:11"
+        }
+      ],
+      "jieqiCheck": {
+        "isNearBoundary": false,
+        "jieqi": "立秋",
+        "jieqiTime": {
+          "_p": {
+            "year": 1996,
+            "month": 8,
+            "day": 7,
+            "hour": 13,
+            "minute": 48,
+            "second": 49
+          }
+        },
+        "minutesDiff": 1238,
+        "hint": null
+      }
+    },
+    "hourUnknown": false,
+    "todayYearGz": "丙午",
+    "todayMonthGz": "壬辰",
+    "todayDayGz": "辛酉",
+    "todayYmd": "2026-04-17"
+  }
+}
