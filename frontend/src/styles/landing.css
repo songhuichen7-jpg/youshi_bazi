@@ -1,0 +1,1920 @@
+/*
+ * Landing home — 编辑设计 / 留白主导 / 大字宋体
+ *
+ * 设计取向（参考用户提供视觉稿）:
+ *   - 大字宋体衬线作为主标题，字号克制但分量重
+ *   - 副标题用很轻的灰色，行距宽松
+ *   - 全页 chrome 几乎是黑/灰/米白，不抢卡片色彩
+ *   - 大留白做节奏，不依赖色块切分 section
+ *   - CTA 用深黑方角，不是胶囊
+ *
+ * --landing-ink:    主体黑色
+ * --landing-mute:   副标题灰
+ * --landing-rule:   极细分隔线 / mockup 边框
+ * --landing-paper:  米白页面底
+ * --landing-grid:   细网格底纹
+ */
+
+.landing-home {
+  /* 白纸冷调: 几乎纯白底, 中性灰文字, 极细中性分隔 */
+  --landing-ink: #1a1a1a;
+  --landing-mute: #8a8a85;
+  --landing-rule: #ececec;
+  --landing-paper: #fcfcfa;
+  --landing-grid: rgba(0, 0, 0, 0.035);
+
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Noto Sans SC", sans-serif;
+  color: var(--landing-ink);
+  background: var(--landing-paper);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Title family — 衬线宋体, 用于所有 display 标题
+ * 字重 400 (regular) 配适中字号 — 让字"刚刚好"地立在白纸上, 不抢戏不发力 */
+.landing-home h1,
+.landing-home h2,
+.landing-home .landing-display-title,
+.landing-home .landing-section-title,
+.landing-home .landing-final-title {
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+  font-weight: 400;
+  color: var(--landing-ink);
+}
+
+/* ── Eyebrow (命 · 盘 · 读 风格小标识) ────────────────────────────── */
+.landing-eyebrow {
+  margin: 0 0 36px;
+  color: var(--landing-mute);
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* ── Section frame ────────────────────────────────────────────────── */
+.landing-hero,
+.landing-section,
+.landing-final {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 140px 32px 120px;
+  text-align: center;
+}
+
+.landing-hero {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.landing-brand-masthead {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 34px;
+}
+
+.landing-hero-logo {
+  color: var(--landing-ink);
+}
+
+.landing-hero-logo .brand-logo-mark {
+  width: 38px;
+  height: 38px;
+}
+
+.landing-hero-logo .brand-logo-cn {
+  font-size: 21px;
+}
+
+.landing-hero-logo .brand-logo-roman {
+  font-size: 9px;
+}
+
+.landing-section + .landing-section,
+.landing-section + .landing-final,
+.landing-hero + .landing-section {
+  border-top: 1px solid var(--landing-rule);
+}
+
+/* 副 CTA 平滑滚到 #intro 时,落点上方留 24px 透气 — section 自带
+ * 140px padding-top 已经很足,但浏览器 scrollIntoView 默认贴顶,
+ * scroll-margin-top 把"逻辑顶"上推 24px,让 eyebrow 不被卡边。*/
+#intro {
+  scroll-margin-top: 24px;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+.landing-display-title {
+  margin: 0 0 40px;
+  font-size: 60px;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* "理性"两字做对比灰 — 让标题里有阴阳层次 */
+.landing-title-muted {
+  color: #c0bdb4;
+}
+
+.landing-display-sub {
+  max-width: 520px;
+  margin: 0 auto 48px;
+  color: var(--landing-mute);
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+}
+
+.landing-display-sub em {
+  color: var(--landing-ink);
+  font-style: normal;
+  font-weight: 400;
+  border-bottom: 1px solid var(--landing-ink);
+  padding-bottom: 1px;
+}
+
+.landing-cta-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.landing-cta-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing-cta-primary {
+  display: inline-block;
+  padding: 16px 38px;
+  background: #1a1a1a;
+  color: #fbfbf7;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  font-weight: 400;
+  font-family: -apple-system, "PingFang SC", sans-serif;
+  transition: background 0.2s, transform 0.08s;
+}
+
+.landing-cta-primary:hover {
+  background: #000;
+}
+
+.landing-cta-primary:active {
+  transform: translateY(1px);
+}
+
+/* 新访客 secondary CTA — primary 是"看看怎么读你 (探索)",
+ * secondary 是"或 直接开始排盘 (跳过)"。给已知道想干嘛的人
+ * 一个直达出口,但权重要明显轻于 primary,避免抢戏。
+ * 用 button 而不是 a,因为它触发 navigate 而非 anchor 跳转。*/
+.landing-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #8a8479;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: -apple-system, "PingFang SC", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  padding: 6px 8px;
+  transition: color 0.2s;
+}
+
+.landing-cta-secondary:hover {
+  color: #1a1a1a;
+}
+
+.landing-cta-secondary-arrow {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.landing-cta-secondary:hover .landing-cta-secondary-arrow {
+  transform: translateX(2px);
+}
+
+/* Hero mockup — 命盘档案 + 对话 双框 (复刻参考稿底部双 panel) */
+.landing-hero-mockup {
+  margin-top: 96px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--landing-rule);
+  background:
+    linear-gradient(90deg, var(--landing-grid) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(180deg, var(--landing-grid) 1px, transparent 1px) 0 0 / 28px 28px,
+    #ffffff;
+  text-align: left;
+  border-radius: 2px;
+}
+
+.landing-mockup-panel {
+  padding: 28px 32px;
+}
+
+.landing-mockup-panel + .landing-mockup-panel {
+  border-left: 1px solid var(--landing-rule);
+}
+
+.landing-mockup-kicker {
+  color: var(--landing-mute);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  margin-bottom: 22px;
+}
+
+.landing-mockup-pillars {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.landing-mockup-cell {
+  width: 62px;
+  height: 62px;
+  border: 1px solid var(--landing-rule);
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--landing-ink);
+  letter-spacing: 0.02em;
+}
+
+.landing-mockup-cell.landing-mockup-wide {
+  flex: 1 1 0;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: var(--landing-mute);
+  font-family: -apple-system, "PingFang SC", sans-serif;
+}
+
+.landing-mockup-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.landing-mockup-lines span {
+  display: block;
+  height: 1px;
+  background: var(--landing-rule);
+}
+
+.landing-mockup-lines span:nth-child(1) { width: 92%; }
+.landing-mockup-lines span:nth-child(2) { width: 76%; }
+
+.landing-mockup-bubble {
+  margin: 0;
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+  font-size: 15px;
+  line-height: 2.05;
+  color: var(--landing-ink);
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  /* 锁定两行高度，避免一行 ↔ 两行问题导致面板跳高 */
+  min-height: calc(2.05em * 2);
+}
+
+/* ── Hero mockup 轮播动画 ──────────────────────────────────────────
+ * data-phase="out": 内容淡出（透明 + 上飘 + 微模糊）
+ * data-phase="in":  新内容淡入（从下飘上来 + 解模糊）
+ * 节奏使用 ease-out（出场快、入场缓），让切换"软"而不"散"。 */
+.landing-mockup-pillars[data-phase],
+.landing-mockup-bubble[data-phase] {
+  transition:
+    opacity 460ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 460ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    filter 460ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.landing-mockup-bubble[data-phase='out'] {
+  opacity: 0;
+  transform: translateY(-6px);
+  filter: blur(2px);
+}
+
+.landing-mockup-bubble[data-phase='in'] {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* 三个干支格子分别独立动画，再用 --cell-delay 错峰
+ * 让 (干 → 支 → 格局) 像被一只手轻轻摆上去。 */
+.landing-mockup-pillars[data-phase] .landing-mockup-cell {
+  transition:
+    opacity 460ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 460ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    filter 460ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--cell-delay, 0ms);
+}
+
+.landing-mockup-pillars[data-phase='out'] .landing-mockup-cell {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.985);
+  filter: blur(2px);
+  /* out 阶段反向错峰（最后一格先走），避免 in/out 看起来对称死板 */
+  transition-delay: calc(140ms - var(--cell-delay, 0ms));
+}
+
+.landing-mockup-pillars[data-phase='in'] .landing-mockup-cell {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-mockup-pillars[data-phase],
+  .landing-mockup-bubble[data-phase],
+  .landing-mockup-pillars[data-phase] .landing-mockup-cell {
+    transition: opacity 180ms linear;
+    transform: none !important;
+    filter: none !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+
+/* ── 手牌扇 (二十种人格 section) ───────────────────────────────────
+ * 9 张真实命盘卡按扇形铺开, 替代原来的 PersonaMarquee 横向轮播。
+ * transform-origin 放在卡片下方一个虚拟点 (50% 200%), 旋转后自然成扇,
+ * 远卡的底边比中心卡低一点, 看起来不是一条直线。
+ *
+ * data-pos: -4..+4, 0 最显眼, ±4 边缘。
+ * 阶梯: ±14/±28/±42/±55 (总跨度 110°)。
+ *
+ * 入场动画 fan-deal: 卡片从中心叠成一摞 → 错峰展开到各自位置。一次性,
+ * mount 完后稳定。
+ */
+.landing-hero-fan {
+  /* 负 margin 把扇往上拉, 收掉副标 (margin-bottom: 64px) 留下的大空白 */
+  margin-top: -56px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  /* flex-end 把卡贴到容器底, 容器越矮卡越往上 */
+  height: clamp(190px, 22vw, 290px);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 两侧暖白渐变盖 — 强化"边缘卡淡出"的错觉, 比单靠 opacity 更连续 */
+.landing-hero-fan::before,
+.landing-hero-fan::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18%;
+  pointer-events: none;
+  z-index: 10;
+}
+.landing-hero-fan::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--landing-paper, #fcfcfa) 0%, transparent 100%);
+}
+.landing-hero-fan::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--landing-paper, #fcfcfa) 0%, transparent 100%);
+}
+
+.landing-fan-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* 外层: 只做定位。所有动画都交给内层, 这一层稳定不动。 */
+.landing-fan-card {
+  --card-accent: #b07a3c;
+  --rot: 0deg;
+  --target-opacity: 1;
+  --target-filter: none;
+  --deal-delay: 80ms;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: clamp(120px, 14vw, 180px);
+  aspect-ratio: 3 / 4;
+  transform: translateX(-50%);
+}
+
+/* 内层: deal-in 旋转 + 透明度 + 滤镜。默认 (无 .is-dealt) 处于初始状态
+   (堆在中心 / 全透明), 等父级 .landing-hero-fan 拿到 .is-dealt 类才触发
+   动画 — 这样 IntersectionObserver 控制扇真正进入视口时才播入场, 不会
+   被用户错过。 */
+.landing-fan-card-inner {
+  width: 100%;
+  height: 100%;
+  /* 旋转支点在卡片下方一段距离 — 小旋转角就能弧开成扇。 */
+  transform-origin: 50% 200%;
+  /* 初始状态: 旋转 0, 略低, 全透明 → 叠成一摞 */
+  transform: rotate(0deg) translateY(28px);
+  opacity: 0;
+  filter: none;
+}
+
+.landing-hero-fan.is-dealt .landing-fan-card-inner {
+  animation: fan-deal 720ms cubic-bezier(.16, 1, .3, 1) var(--deal-delay) forwards;
+}
+
+/* 旋转 / 不透明度 / 模糊 / z-index 按 pos 设定. 阶梯 ±14/±28/±42/±55,
+   总跨度 110° — 比 80° 更"开", 配 transform-origin: 50% 200% 的远支点,
+   远卡的底边自然往下沉, 不再是一条直线。 */
+.landing-fan-card[data-pos="0"]  { --rot:   0deg; --target-opacity: 1;    --target-filter: none;                       z-index: 9; }
+.landing-fan-card[data-pos="-1"] { --rot: -14deg; --target-opacity: 0.95; --target-filter: none;                       z-index: 8; }
+.landing-fan-card[data-pos="1"]  { --rot:  14deg; --target-opacity: 0.95; --target-filter: none;                       z-index: 8; }
+.landing-fan-card[data-pos="-2"] { --rot: -28deg; --target-opacity: 0.72; --target-filter: saturate(0.92);             z-index: 7; }
+.landing-fan-card[data-pos="2"]  { --rot:  28deg; --target-opacity: 0.72; --target-filter: saturate(0.92);             z-index: 7; }
+.landing-fan-card[data-pos="-3"] { --rot: -42deg; --target-opacity: 0.42; --target-filter: saturate(0.85) blur(0.5px); z-index: 6; }
+.landing-fan-card[data-pos="3"]  { --rot:  42deg; --target-opacity: 0.42; --target-filter: saturate(0.85) blur(0.5px); z-index: 6; }
+.landing-fan-card[data-pos="-4"] { --rot: -55deg; --target-opacity: 0.18; --target-filter: saturate(0.7) blur(1px);    z-index: 5; }
+.landing-fan-card[data-pos="4"]  { --rot:  55deg; --target-opacity: 0.18; --target-filter: saturate(0.7) blur(1px);    z-index: 5; }
+
+/* Deal-in: 内层卡从 rotate(0)+translateY(28)+opacity(0) 滑到 rotate(--rot)+
+   translateY(0)+opacity(--target-opacity)。每张按 --deal-delay 错峰。 */
+@keyframes fan-deal {
+  to {
+    transform: rotate(var(--rot)) translateY(0);
+    opacity: var(--target-opacity);
+    filter: var(--target-filter);
+  }
+}
+
+/* 每个 pos 的 deal 入场延迟。中心先入场, 越往两侧越晚, 像一张张抽开。
+   中心卡每隔 3.5s 通过 React key 变化重新挂载, 也会重跑这条 fan-deal
+   动画 (delay 仍是 80ms), 视觉上就是中心位的卡平滑换张。 */
+.landing-fan-card[data-pos="0"]  { --deal-delay:  80ms; }
+.landing-fan-card[data-pos="-1"],
+.landing-fan-card[data-pos="1"]  { --deal-delay: 180ms; }
+.landing-fan-card[data-pos="-2"],
+.landing-fan-card[data-pos="2"]  { --deal-delay: 290ms; }
+.landing-fan-card[data-pos="-3"],
+.landing-fan-card[data-pos="3"]  { --deal-delay: 410ms; }
+.landing-fan-card[data-pos="-4"],
+.landing-fan-card[data-pos="4"]  { --deal-delay: 540ms; }
+
+/* ── 单卡内部 — 简化版 specimen ─────────────────────────────────── */
+.landing-fan-face {
+  --paper:     oklch(96.5% 0.012 80);
+  --ink-1:     oklch(22%   0.018 50);
+  --ink-2:     oklch(40%   0.015 50);
+  --ink-3:     oklch(58%   0.012 50);
+  --hairline:  oklch(80%   0.015 60);
+
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+  color: var(--ink-1);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  padding: 10px 11px 8px;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto auto;
+  gap: 4px;
+  position: relative;
+  isolation: isolate;
+  box-shadow:
+    0 0 0 1px oklch(85% 0.02 70),
+    0 18px 38px -20px oklch(20% 0.04 60 / 0.45),
+    0 6px 14px -10px oklch(20% 0.04 60 / 0.25);
+}
+
+/* Risograph 印刷颗粒 — 跟工作台真卡同源 */
+.landing-fan-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(oklch(45% 0.05 70 / 0.07) 0.5px, transparent 1px),
+    radial-gradient(oklch(45% 0.05 70 / 0.05) 0.5px, transparent 1.5px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+/* Accent strip — per-type 强调色挂在顶部 */
+.landing-fan-face::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--card-accent);
+  z-index: 2;
+}
+
+.landing-fan-top,
+.landing-fan-foot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Fragment Mono", ui-monospace, "SF Mono", "Menlo", monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.landing-fan-foot {
+  border-top: 1px solid var(--hairline);
+  padding-top: 4px;
+}
+
+.landing-fan-foot-brand {
+  font-family: "LXGW WenKai", "霞鹜文楷", serif;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--ink-1);
+}
+
+.landing-fan-art {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.landing-fan-art img {
+  max-width: 88%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px oklch(20% 0.04 60 / 0.16));
+}
+
+.landing-fan-name {
+  position: relative;
+  z-index: 2;
+  font-family: "LXGW WenKai", "霞鹜文楷", "Songti SC", serif;
+  font-size: clamp(13px, 1.4vw, 18px);
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.16em;
+  color: var(--ink-1);
+  line-height: 1.2;
+}
+
+.landing-fan-suffix {
+  position: relative;
+  z-index: 2;
+  font-family: "Fragment Mono", ui-monospace, monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--card-accent);
+  text-transform: uppercase;
+}
+
+/* 移动端: 缩成 5 张, 隐藏 ±3 / ±4, 收紧整体 */
+@media (max-width: 720px) {
+  .landing-hero-fan {
+    margin-top: 56px;
+    height: clamp(220px, 60vw, 320px);
+  }
+  .landing-fan-stage { width: 100%; }
+  .landing-fan-card { width: clamp(96px, 26vw, 140px); }
+  .landing-fan-card[data-pos="-4"],
+  .landing-fan-card[data-pos="4"],
+  .landing-fan-card[data-pos="-3"],
+  .landing-fan-card[data-pos="3"] { display: none; }
+  /* 中心 + ±1 + ±2 共 5 张, 角度也收小一点免得碰边 */
+  .landing-fan-card[data-pos="-2"] { --rot: -16deg; }
+  .landing-fan-card[data-pos="2"]  { --rot:  16deg; }
+  .landing-fan-card[data-pos="-1"] { --rot: -8deg; }
+  .landing-fan-card[data-pos="1"]  { --rot:  8deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* 跳过 deal-in (即便父级有 .is-dealt 也强行覆盖), 中心轮播也吃掉
+     (重新挂载时不再动). 直接落到终态。 */
+  .landing-hero-fan.is-dealt .landing-fan-card-inner,
+  .landing-fan-card-inner {
+    animation: none;
+    transform: rotate(var(--rot));
+    opacity: var(--target-opacity);
+    filter: var(--target-filter);
+  }
+}
+
+/* ── Section title (所有非 hero 的大字标题) ───────────────────────── */
+.landing-section-title {
+  margin: 0 0 32px;
+  font-size: 44px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+}
+
+.landing-section-sub {
+  max-width: 480px;
+  margin: 0 auto 64px;
+  color: var(--landing-mute);
+  font-family: -apple-system, "PingFang SC", sans-serif;
+  font-size: 13px;
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+}
+
+/* ── 2. Gallery (二十种人格) — 高级走马灯 ──────────────────────────
+ *
+ * 三层动画叠加，避免"扁平 logo 墙"感：
+ *
+ *   1. 轨道 (.landing-persona-track) 90s 线性平移 → 整列水平流动
+ *   2. 每个 item 按 lane 走 8s 的 Y-bob + 微 rotate → 5 条错峰呼吸
+ *   3. 中央 spotlight 浮层 → 经过中心的人格被柔光"提亮"一层
+ *
+ * 两端 mask 渐隐 + 中心高光 = 一种"舞台聚光"语义，远比单纯横向
+ * 滚动有重量感。 */
+.landing-persona-marquee {
+  position: relative;
+  margin-top: 64px;
+  padding: 24px 0;
+  overflow: hidden;
+  /* 两端各留 12% 渐隐区，比之前更宽，"远处来远处去"感更强 */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+/* 中央 spotlight — 一束柔光，宽度约视口的 28%，落在轨道上方
+ * 充当"舞台中心"。pointer-events:none 不挡 hover。 */
+.landing-persona-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 28% 78% at 50% 52%,
+    rgba(255, 248, 230, 0.32) 0%,
+    rgba(255, 248, 230, 0.10) 38%,
+    transparent 72%
+  );
+  mix-blend-mode: soft-light;
+}
+
+.landing-persona-track {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 64px;
+  width: max-content;
+  /* 慢一档：90s 一周 → 平均每张约 4.5s 在视野中央，足够沉淀 */
+  animation: persona-marquee 90s linear infinite;
+  will-change: transform;
+}
+
+.landing-persona-marquee:hover .landing-persona-track {
+  animation-play-state: paused;
+}
+
+@keyframes persona-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* item 本体不携带任何动画，把动画放到子元素上，避免和 marquee
+ * 的 transform 打架。bob/rotate 都给到 .landing-persona-halo。 */
+.landing-persona-item {
+  --persona-accent: #b07a3c;
+  --lane: 0;
+  flex-shrink: 0;
+  width: 156px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  /* 每条 lane 的额外起点 Y 偏移（不动画，只是错位）。
+   * 用 calc 把 lane 0..4 映射到 -10/-3/+4/-6/+8 一类的小幅 */
+  padding-top: calc(var(--lane) * 6px);
+}
+/* 5 条 lane 的具体起始 Y，让 5 行人格不在同一水平直线上 */
+.landing-persona-item[style*="--lane:0"] { padding-top: 0; }
+.landing-persona-item[style*="--lane:1"] { padding-top: 28px; }
+.landing-persona-item[style*="--lane:2"] { padding-top: 10px; }
+.landing-persona-item[style*="--lane:3"] { padding-top: 38px; }
+.landing-persona-item[style*="--lane:4"] { padding-top: 18px; }
+
+/* halo —— 真正承载"内部呼吸"的层 */
+.landing-persona-halo {
+  width: 144px;
+  height: 144px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  /* 双层光晕：里层亮、外层晕开 — 比单层 radial 更"有空气" */
+  background:
+    radial-gradient(
+      closest-side,
+      color-mix(in srgb, var(--persona-accent) 28%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 50% 56%,
+      color-mix(in srgb, var(--persona-accent) 14%, transparent) 0%,
+      transparent 78%
+    );
+  /* 8s 的 Y-bob + 微旋转，每条 lane 起始相位错开 → 整列波动 */
+  animation:
+    persona-halo-bob 8.4s ease-in-out infinite,
+    persona-halo-tilt 11s ease-in-out infinite;
+  animation-delay:
+    calc(var(--lane) * -1.7s),
+    calc(var(--lane) * -2.3s);
+  transition: transform 520ms cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+
+/* 高光环 — 在 halo 外围加一圈极淡的描边光，提升精致感 */
+.landing-persona-halo::before {
+  content: '';
+  position: absolute;
+  inset: -8%;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    transparent 65%,
+    color-mix(in srgb, var(--persona-accent) 8%, transparent) 78%,
+    transparent 92%
+  );
+  pointer-events: none;
+}
+
+.landing-persona-illust {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-persona-illust img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  /* 让插画轮廓投出一层与主题色同源的暖光，比 box-shadow 更贴形状 */
+  filter: drop-shadow(
+    0 6px 14px color-mix(in srgb, var(--persona-accent) 32%, transparent)
+  );
+}
+
+@keyframes persona-halo-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+@keyframes persona-halo-tilt {
+  0%, 100% { rotate: -1.2deg; }
+  50%      { rotate:  1.2deg; }
+}
+
+/* hover —— 不放大，反而"把 spotlight 拉到这一项上"：halo 增强 +
+ * 文案抬头。比单纯 scale(1.06) 更有"被点名"的仪式感。 */
+.landing-persona-item:hover .landing-persona-halo {
+  transform: translateY(-4px) scale(1.04);
+}
+
+.landing-persona-name {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--landing-ink);
+  line-height: 1.1;
+  transition: opacity .4s ease;
+}
+
+.landing-persona-suffix {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: var(--landing-mute);
+  /* 全大写感的轴心字号，和大字宋体的名字形成"主题 / 注脚"层次 */
+  text-transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-persona-track,
+  .landing-persona-halo {
+    animation: none;
+  }
+.landing-persona-halo,
+.landing-persona-name { transition: none; }
+}
+
+/* ── 3. Gua intro ─────────────────────────────────────────────────── */
+.landing-gua-section {
+  max-width: 980px;
+}
+
+.landing-gua-grid {
+  max-width: 820px;
+  margin: 56px auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 48px;
+  align-items: center;
+  text-align: left;
+}
+
+.landing-gua-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.landing-gua-block {
+  padding: 22px 0;
+  border-top: 1px solid rgba(26, 26, 26, 0.12);
+}
+
+.landing-gua-block h3 {
+  margin: 0 0 12px;
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: var(--landing-ink);
+}
+
+.landing-gua-block p {
+  margin: 0;
+  color: #6e675e;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+.landing-gua-card {
+  width: 100%;
+  justify-self: end;
+}
+
+.landing-gua-card .gua-card {
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0 18px 34px rgba(28, 24, 19, 0.055);
+}
+
+/* ── 4. Play cards ────────────────────────────────────────────────── */
+.landing-play-section {
+  max-width: 980px;
+}
+
+.landing-play-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 54px;
+  text-align: left;
+}
+
+.landing-play-card {
+  min-width: 0;
+  min-height: 314px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid var(--landing-rule);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 34px rgba(28, 24, 19, 0.045);
+}
+
+.landing-play-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #9a948a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+}
+
+.landing-play-prompt {
+  min-height: 66px;
+  margin: 22px 0 10px;
+  color: #332c23;
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+}
+
+.landing-play-object {
+  min-height: 136px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.landing-visual-artifact {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.landing-play-note {
+  margin: auto 0 0;
+  padding-top: 14px;
+  color: #6e675e;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+
+.landing-play-card .media-card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 8px;
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 14px 12px 14px 10px;
+  box-shadow:
+    0 14px 26px rgba(31, 24, 18, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.landing-play-card .media-card-thumb {
+  width: 58px;
+  height: 58px;
+  border-radius: 8px;
+}
+
+.landing-play-card .media-card-title {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.landing-play-card .media-card-sub {
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.landing-play-card .media-card-cta {
+  grid-column: auto;
+  justify-self: end;
+  max-width: 86px;
+  padding: 5px 8px;
+  font-size: 10.5px;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+/* Landing 是预览上下文 — book 卡片在 chat 里有"豆瓣搜索"CTA,但首页
+ * 三张氛围卡 (weather/scent/book) 应该是同一种语言:封面 + 题目 + 副题。
+ * 把 book 的 CTA 也隐掉,跟 weather/scent 视觉权重对齐。*/
+.landing-play-card .media-card-book .media-card-cta {
+  display: none;
+}
+.landing-play-card .media-card-book {
+  grid-template-columns: 58px minmax(0, 1fr);
+}
+
+/* ── 4. Hepan ─────────────────────────────────────────────────────── */
+.landing-hepan-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 360px);
+  gap: 56px;
+  align-items: center;
+  text-align: left;
+  max-width: 760px;
+  margin: 24px auto 0;
+}
+
+.landing-hepan-text p {
+  margin: 0 0 28px;
+  color: var(--landing-mute);
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 15px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+}
+
+.landing-hepan-text p strong,
+.landing-hepan-text p em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--landing-ink);
+}
+
+.landing-relation-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.landing-relation-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--landing-rule);
+  color: var(--landing-ink);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  background: transparent;
+}
+
+.landing-relation-chip em {
+  color: var(--landing-mute);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+.landing-relation-chip span {
+  margin-left: 0;
+}
+
+/* ── 5. Trust ─────────────────────────────────────────────────────── */
+.landing-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 24px 0 56px;
+  border-top: 1px solid var(--landing-rule);
+  border-bottom: 1px solid var(--landing-rule);
+}
+
+.landing-metric {
+  padding: 36px 18px;
+  border-right: 1px solid var(--landing-rule);
+  text-align: center;
+}
+
+.landing-metric:last-child {
+  border-right: none;
+}
+
+.landing-metric-value {
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--landing-ink);
+  letter-spacing: 0.04em;
+}
+
+.landing-metric-label {
+  margin-top: 14px;
+  color: var(--landing-mute);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  line-height: 1.7;
+}
+
+.landing-trust-note {
+  max-width: 520px;
+  margin: 0 auto;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 16px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+  color: var(--landing-ink);
+}
+
+/* ── 6. Final CTA ─────────────────────────────────────────────────── */
+.landing-final {
+  padding-top: 160px;
+  padding-bottom: 140px;
+  border-top: 1px solid var(--landing-rule);
+}
+
+.landing-final-title {
+  margin: 0 0 56px;
+  font-size: 52px;
+  line-height: 1.28;
+  letter-spacing: 0.04em;
+}
+
+/* 收尾段的低声 CTA — 不抢风头但给"看完想动手"的访客一个出口 */
+.landing-final-cta {
+  margin: 24px 0 0;
+}
+
+.landing-cta-quiet {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border: 1px solid var(--landing-ink);
+  background: transparent;
+  color: var(--landing-ink);
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .12s ease;
+}
+.landing-cta-quiet:hover {
+  background: var(--landing-ink);
+  color: #fff;
+}
+.landing-cta-quiet:active { transform: translateY(1px); }
+
+.landing-final-footer {
+  margin: 62px auto 0;
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+
+.landing-final-brand {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.landing-footer-logo {
+  color: var(--landing-mute);
+}
+
+.landing-final-brand p {
+  margin: 0;
+  color: var(--landing-mute);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+
+.landing-final-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2px 18px;
+}
+
+.landing-final-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: #8f8b84;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: color .18s ease;
+}
+
+.landing-final-links a:hover {
+  color: var(--landing-ink);
+}
+
+.landing-final-links a:focus-visible {
+  outline: 1px solid var(--landing-ink);
+  outline-offset: 4px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .landing-hero,
+  .landing-section,
+  .landing-final {
+    padding: 96px 28px 80px;
+  }
+
+  .landing-display-title {
+    font-size: 56px;
+  }
+
+  .landing-section-title,
+  .landing-final-title {
+    font-size: 44px;
+  }
+
+  .landing-hero-mockup {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-mockup-panel + .landing-mockup-panel {
+    border-left: none;
+    border-top: 1px solid var(--landing-rule);
+  }
+
+  .landing-hepan-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .landing-gua-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .landing-gua-card {
+    justify-self: center;
+    max-width: 420px;
+  }
+
+  .landing-play-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-play-card {
+    min-height: auto;
+  }
+
+  .landing-persona-track { gap: 40px; animation-duration: 70s; }
+  .landing-persona-item { width: 124px; gap: 12px; }
+  .landing-persona-halo { width: 112px; height: 112px; }
+  .landing-persona-name { font-size: 17px; }
+  .landing-persona-suffix { letter-spacing: 0.2em; }
+
+  .landing-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--landing-rule);
+  }
+
+  .landing-metric {
+    border-right: 1px solid var(--landing-rule);
+    border-bottom: 1px solid var(--landing-rule);
+  }
+
+  .landing-metric:nth-child(2n) {
+    border-right: none;
+  }
+
+  .landing-metric:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .landing-play-grid {
+    gap: 12px;
+  }
+
+  .landing-play-card {
+    padding: 16px;
+  }
+
+  .landing-play-card .media-card {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .landing-play-card .media-card-thumb {
+    width: 48px;
+    height: 48px;
+  }
+
+  .landing-play-card .media-card-cta {
+    grid-column: 1 / -1;
+    justify-self: start;
+    max-width: none;
+  }
+
+  .landing-play-object {
+    min-height: 124px;
+  }
+}
+
+/* ── Card preview shared styles (展品款) ──────────────────────────── */
+.landing-card-preview {
+  --card-accent: var(--theme, #b07a3c);
+  --card-ink: #1f1610;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  background:
+    radial-gradient(120% 80% at 50% -10%, color-mix(in srgb, var(--card-accent) 12%, transparent) 0%, #fffdf7 55%),
+    #fffdf7;
+  color: var(--card-ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, "PingFang SC", sans-serif;
+}
+
+.landing-card-hero {
+  width: 240px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 22px 42px rgba(60, 36, 14, 0.18);
+}
+
+.landing-card-small {
+  width: 100%;
+  padding: 14px 12px 10px;
+  box-shadow: 0 18px 36px rgba(40, 28, 14, 0.10);
+  border: 1px solid rgba(40, 28, 14, 0.04);
+}
+
+.landing-card-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: #8b7858;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+}
+
+.landing-card-typeid {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--card-accent);
+}
+
+.landing-card-typeid em {
+  color: #b8a482;
+  font-style: normal;
+  font-size: 9px;
+}
+
+.landing-card-illustration {
+  margin: 12px 0 6px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  background: transparent;
+}
+
+.landing-card-hero .landing-card-illustration {
+  width: 50%;
+}
+
+.landing-card-small .landing-card-illustration {
+  width: 48%;
+}
+
+.landing-card-illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: saturate(.98) contrast(1.03);
+}
+
+.landing-card-name {
+  margin: 0;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+.landing-card-hero .landing-card-name {
+  font-size: 28px;
+}
+
+.landing-card-small .landing-card-name {
+  font-size: 22px;
+}
+
+.landing-card-suffix {
+  margin: 5px 0 0;
+  color: var(--card-accent);
+  letter-spacing: 0.06em;
+}
+
+.landing-card-hero .landing-card-suffix {
+  font-size: 12px;
+}
+
+.landing-card-small .landing-card-suffix {
+  font-size: 9px;
+}
+
+.landing-card-oneliner {
+  margin: 10px 0 0;
+  font-family: "Songti SC", "STSong", serif;
+  line-height: 1.5;
+  color: #3a2c1d;
+}
+
+.landing-card-hero .landing-card-oneliner {
+  font-size: 13px;
+}
+
+.landing-card-small .landing-card-oneliner {
+  font-size: 11px;
+}
+
+.landing-card-subtags {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.landing-card-subtags li {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 5px 3px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--card-accent) 9%, #fffaf0);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 28%, transparent);
+  color: #2a1d10;
+  font-size: 9px;
+  line-height: 1.3;
+  text-align: center;
+  white-space: normal;
+}
+
+.landing-card-golden {
+  margin: 10px 0 0;
+  padding: 0 8px;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #1f1610;
+}
+
+.landing-card-quote {
+  display: inline-block;
+  margin-right: 4px;
+  color: var(--card-accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 0;
+  vertical-align: -5px;
+}
+
+.landing-card-foot {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  color: #9a8866;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+/* ── Hepan preview (landing 第 3 段) — Specimen Edition ─────────────
+ * Scaled-down dual-stub specimen card for the landing showcase. Lives in
+ * a ~340px wide grid column; 3:4 portrait fills the column naturally.
+ * Mirrors the live HepanCard visual language so the landing promise matches
+ * what users actually receive.
+ */
+.landing-hepan-preview {
+  --lp-paper:        oklch(96.5% 0.012 80);
+  --lp-ink-1:        oklch(22%   0.018 50);
+  --lp-ink-2:        oklch(40%   0.015 50);
+  --lp-ink-3:        oklch(58%   0.012 50);
+  --lp-hairline:     oklch(82%   0.015 60);
+  --lp-hairline-bold: oklch(70% 0.018 60);
+  --pair-mid:        color-mix(in oklch, var(--side-a) 50%, var(--side-b));
+  --side-a-paper:    color-mix(in oklch, var(--side-a) 18%, var(--lp-paper));
+  --side-b-paper:    color-mix(in oklch, var(--side-b) 18%, var(--lp-paper));
+  --side-a-deep:     color-mix(in oklch, var(--side-a) 70%, oklch(20% 0.05 200));
+  --side-b-deep:     color-mix(in oklch, var(--side-b) 70%, oklch(20% 0.05 200));
+
+  --lp-font-cn: "LXGW WenKai", "霞鹜文楷", "Songti SC", "STSong", "Noto Serif SC", serif;
+  --lp-font-en-serif: "Spectral", "Iowan Old Style", "Hoefler Text", Georgia, serif;
+  --lp-font-en-mono: "Fragment Mono", ui-monospace, "SF Mono", "Menlo", monospace;
+  --lp-font-cn-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  position: relative;
+  background: var(--lp-paper);
+  color: var(--lp-ink-1);
+  font-family: var(--lp-font-cn-body);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow:
+    0 0 0 1px oklch(85% 0.02 70),
+    0 18px 38px -18px oklch(20% 0.04 60 / 0.32);
+}
+
+.landing-hepan-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(oklch(45% 0.05 70 / 0.08) 0.5px, transparent 1px),
+    radial-gradient(oklch(45% 0.05 70 / 0.06) 0.5px, transparent 1.5px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+.landing-hepan-preview::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--lp-hairline-bold), var(--lp-hairline-bold)) top left/10px 1px no-repeat,
+    linear-gradient(var(--lp-hairline-bold), var(--lp-hairline-bold)) top left/1px 10px no-repeat,
+    linear-gradient(var(--lp-hairline-bold), var(--lp-hairline-bold)) top right/10px 1px no-repeat,
+    linear-gradient(var(--lp-hairline-bold), var(--lp-hairline-bold)) top right/1px 10px no-repeat,
+    linear-gradient(var(--lp-hairline-bold), var(--lp-hairline-bold)) bottom left/10px 1px no-repeat,
+    linear-gradient(var(--lp-hairline-bold), var(--lp-hairline-bold)) bottom left/1px 10px no-repeat,
+    linear-gradient(var(--lp-hairline-bold), var(--lp-hairline-bold)) bottom right/10px 1px no-repeat,
+    linear-gradient(var(--lp-hairline-bold), var(--lp-hairline-bold)) bottom right/1px 10px no-repeat;
+  z-index: 6;
+}
+
+.landing-hepan-side-a { color: var(--side-a-deep); }
+.landing-hepan-side-b { color: var(--side-b-deep); }
+.landing-hepan-x {
+  color: var(--lp-ink-3);
+  font-family: var(--lp-font-en-mono);
+  font-style: normal;
+  margin: 0 4px;
+  font-size: 0.78em;
+  letter-spacing: 0.16em;
+}
+
+.landing-hepan-top {
+  flex: 0 0 auto;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 11px 18px 0;
+  font-family: var(--lp-font-en-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lp-ink-3);
+}
+.landing-hepan-top-left { justify-self: start; }
+.landing-hepan-top-center {
+  justify-self: center;
+  display: flex;
+  align-items: baseline;
+  letter-spacing: 0.18em;
+}
+.landing-hepan-top-right {
+  justify-self: end;
+  font-family: var(--lp-font-cn);
+  letter-spacing: 0.22em;
+}
+
+.landing-hepan-hero {
+  flex: 1 1 0;
+  min-height: 0;
+  position: relative;
+  z-index: 2;
+  margin: 7px 18px 0;
+  border: 1px solid var(--lp-hairline-bold);
+  background:
+    linear-gradient(90deg,
+      var(--side-a-paper) 0%,
+      var(--side-a-paper) 49%,
+      transparent 49%, transparent 51%,
+      var(--side-b-paper) 51%,
+      var(--side-b-paper) 100%);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  overflow: visible;
+}
+.landing-hepan-hero::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  bottom: 6%;
+  width: 1px;
+  background-image: linear-gradient(180deg, var(--lp-hairline-bold) 50%, transparent 50%);
+  background-size: 1px 6px;
+  transform: translateX(-0.5px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.landing-hepan-anno {
+  position: absolute;
+  top: 9px;
+  left: 11px;
+  right: 11px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  font-family: var(--lp-font-en-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.landing-hepan-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 18px 12px 0;
+  min-height: 0;
+}
+.landing-hepan-pair-illustration {
+  display: block;
+  width: 88%;
+  max-height: 100%;
+  max-width: 240px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 6px 10px rgba(34, 27, 20, 0.08));
+  user-select: none;
+}
+
+.landing-hepan-hero-foot {
+  position: relative;
+  z-index: 3;
+  border-top: 1px solid var(--lp-hairline-bold);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  font-family: var(--lp-font-en-serif);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  background: color-mix(in oklch, var(--pair-mid) 8%, var(--lp-paper));
+}
+.landing-hepan-hero-foot > * { padding: 6px 10px; align-self: center; }
+.landing-hepan-hero-foot .landing-hepan-side-a { text-align: left; font-style: italic; }
+.landing-hepan-hero-foot .landing-hepan-side-b { text-align: right; font-style: italic; }
+.landing-hepan-hero-foot em { font-style: italic; }
+.landing-hepan-state-pill {
+  justify-self: center;
+  align-self: center;
+  color: var(--lp-ink-1);
+  padding: 3px 7px;
+  border: 1px solid var(--lp-hairline-bold);
+  background: var(--lp-paper);
+  font-family: var(--lp-font-en-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  margin: 3px 0;
+  white-space: nowrap;
+}
+
+.landing-hepan-seal {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  transform: translate(-50%, 0) rotate(-4deg);
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.2px solid var(--pair-mid);
+  background: color-mix(in oklch, var(--pair-mid) 6%, var(--lp-paper));
+  display: grid;
+  place-items: center;
+  color: var(--pair-mid);
+  font-family: var(--lp-font-cn);
+  font-size: 16px;
+  line-height: 1;
+}
+.landing-hepan-seal::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px solid var(--pair-mid);
+  opacity: 0.42;
+}
+
+.landing-hepan-label-row {
+  flex: 0 0 auto;
+  z-index: 2;
+  margin: 10px 18px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 10px;
+}
+.landing-hepan-label-stack { display: grid; gap: 3px; }
+.landing-hepan-label-kicker {
+  font-family: var(--lp-font-en-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.28em;
+  color: var(--lp-ink-3);
+  text-transform: uppercase;
+}
+.landing-hepan-label-name {
+  font-family: var(--lp-font-cn);
+  font-size: 30px;
+  line-height: 0.98;
+  letter-spacing: 0.04em;
+  color: var(--lp-ink-1);
+  margin: 0;
+  font-weight: 400;
+}
+.landing-hepan-nicks {
+  align-self: end;
+  display: flex;
+  gap: 3px;
+  align-items: baseline;
+  font-family: var(--lp-font-en-serif);
+  font-style: italic;
+  font-size: 10.5px;
+  padding-bottom: 3px;
+}
+.landing-hepan-nicks .landing-hepan-x { font-style: normal; font-family: var(--lp-font-en-mono); font-size: 8.5px; margin: 0 3px; }
+
+.landing-hepan-tags {
+  flex: 0 0 auto;
+  z-index: 2;
+  list-style: none;
+  margin: 9px 18px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--lp-hairline);
+  border-bottom: 1px solid var(--lp-hairline);
+}
+.landing-hepan-tags li {
+  padding: 7px 7px;
+  border-right: 1px solid var(--lp-hairline);
+  display: grid;
+  gap: 3px;
+}
+.landing-hepan-tags li:last-child { border-right: 0; }
+.landing-hepan-tag-no {
+  font-family: var(--lp-font-en-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.22em;
+  color: var(--pair-mid);
+}
+.landing-hepan-tags li > span:last-child {
+  font-family: var(--lp-font-cn);
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--lp-ink-1);
+}
+
+.landing-hepan-cta {
+  flex: 0 0 auto;
+  z-index: 2;
+  margin: 10px 18px 0;
+  font-family: var(--lp-font-cn);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--lp-ink-1);
+  text-indent: -0.35em;
+}
+
+.landing-hepan-foot {
+  flex: 0 0 auto;
+  z-index: 2;
+  margin: auto 18px 10px;
+  padding-top: 7px;
+  border-top: 1px solid var(--lp-hairline-bold);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  font-family: var(--lp-font-en-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lp-ink-3);
+}
+.landing-hepan-foot-brand {
+  font-family: var(--lp-font-cn);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: none;
+  color: var(--lp-ink-1);
+}
+
+/* ── 隐私保护 section ─────────────────────────────────────────────── */
+.landing-privacy-section {
+  border-top: 1px solid var(--landing-rule);
+}
+
+.landing-privacy-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 40px 0 48px;
+  border-top: 1px solid var(--landing-rule);
+  border-bottom: 1px solid var(--landing-rule);
+}
+
+.landing-privacy-item {
+  padding: 40px 24px;
+  border-right: 1px solid var(--landing-rule);
+}
+
+.landing-privacy-item:last-child {
+  border-right: none;
+}
+
+.landing-privacy-icon {
+  font-size: 20px;
+  color: var(--landing-mute);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.landing-privacy-item h3 {
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--landing-ink);
+  letter-spacing: 0.06em;
+  margin: 0 0 12px;
+}
+
+.landing-privacy-item p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--landing-mute);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.landing-privacy-link-row {
+  text-align: center;
+  margin: 0;
+}
+
+.landing-privacy-link-row a {
+  font-size: 13px;
+  color: var(--landing-mute);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--landing-rule);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.landing-privacy-link-row a:hover {
+  color: var(--landing-ink);
+  border-color: var(--landing-ink);
+}
+
+@media (max-width: 768px) {
+  .landing-privacy-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .landing-privacy-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .landing-privacy-item:nth-child(3) {
+    border-top: 1px solid var(--landing-rule);
+  }
+
+  .landing-privacy-item:nth-child(4) {
+    border-top: 1px solid var(--landing-rule);
+    border-right: none;
+  }
+}

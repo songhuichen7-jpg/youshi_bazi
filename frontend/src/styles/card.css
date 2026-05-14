@@ -1,0 +1,2133 @@
+/*
+ * Share card visual system.
+ *
+ * Spec: PM/specs/03_卡片与分享系统.md v4.0
+ *   - 3:4 竖版 (1080×1440 @2x export)
+ *   - 温暖手绘感 × 现代排版 × 留白呼吸
+ *   - 圆角 12-16px
+ *   - 圆体/手写体标题，正文无衬线
+ *   - 每型主题色锚点 (天干 × 绽/蓄)
+ *   - 卡片正面无裸命理术语 (质检 #4)
+ *
+ * --theme is set inline by Card.jsx from CardResponse.theme_color.
+ */
+
+/* ── Desktop workspace shell ───────────────────────────────────────── */
+/* 跟着左栏铺满；CardWorkspace 内部用预览区 / 操作区的工作台布局 */
+
+.card-workspace {
+  width: 100%;
+}
+
+.card-workspace-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ecdfc8;
+}
+
+.card-workspace-head h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 1.25;
+}
+
+.card-workspace-head .btn-primary {
+  min-width: 112px;
+  min-height: 40px;
+}
+
+.card-workspace-head .btn-primary:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.card-workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 360px);
+  gap: 22px;
+  align-items: start;
+}
+
+.card-document-stage {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 18px;
+  min-width: 0;
+}
+
+.card-stage-rail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 0;
+  padding: 4px 0;
+  color: #b3a48a;
+  font-size: 10px;
+  letter-spacing: .18em;
+  writing-mode: vertical-rl;
+}
+
+.card-stage-mat {
+  min-height: 0;
+  padding: 24px 18px;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f6f7f8 100%);
+  border: 1px solid rgba(18, 18, 18, .06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-side-panel {
+  padding-left: 22px;
+  border-left: 1px solid #ecdfc8;
+  min-width: 0;
+}
+
+.card-side-group {
+  margin: 16px 0 22px;
+}
+
+.card-side-kicker {
+  color: #9a8866;
+  font-size: 10px;
+  letter-spacing: .24em;
+  line-height: 1.8;
+}
+
+.card-facts {
+  margin: 12px 0 0;
+  border-top: 1px solid #ecdfc8;
+}
+
+.card-facts div {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px solid #ecdfc8;
+}
+
+.card-facts dt {
+  color: #9a8866;
+  font-size: 11px;
+  letter-spacing: .16em;
+}
+
+.card-facts dd {
+  margin: 0;
+  color: #2a1f12;
+  font-size: 13px;
+  line-height: 1.6;
+  /* 防止"1993-07-15"被侧栏宽度挤断；min-width:0 给 grid 子元素一个可缩界 */
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.share-link-box {
+  margin-top: 16px;
+  padding: 10px 0 0;
+  border-top: 1px solid #ecdfc8;
+  color: #9a8866;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  /* 长 URL 优先显示前 + 后两段，中间省略；用 css mask 实现"右端柔和淡出" */
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 80%, transparent 100%);
+  /* 兜底：极窄屏下还是允许换行 */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.card-notice {
+  margin-top: 12px;
+  padding: 9px 0 0;
+  border-top: 1px solid #d9c08e;
+  color: #6e4c10;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.card-mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 18px;
+  padding: 4px;
+  border: 1px solid #e5d8c3;
+  border-radius: 999px;
+  background: #fffdf8;
+}
+
+.card-mode-switch button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #7b6b55;
+  font-size: 13px;
+  letter-spacing: .06em;
+  cursor: pointer;
+}
+
+.card-mode-switch button.active {
+  background: #2a1f12;
+  color: #fffaf2;
+}
+
+.card-mode-switch button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--card-accent, #b07a3c) 30%, transparent);
+  outline-offset: 2px;
+}
+
+/* ── Specimen Edition card (v6) ───────────────────────────────────────
+ * 3:4 portrait specimen plate — base 540×720 on screen, 1080×1440 export.
+ * Workspace caps display via a viewport-aware calc so the card always fits
+ * one screen on short viewports.
+ *
+ * Front = the museum specimen plate (illustration + binomial + name + tags
+ * + field note). Back = a uniform brand mark (sundial + 有時 wordmark +
+ * type reference) — like a Pokémon / trading-card back. The back is the
+ * same shape per card; only the bottom reference and the gnomon hand
+ * pick up the per-type accent color, so the deck of 20 reads as one set.
+ * The mascot illustration sits on a solid accent color panel; everything
+ * around it (small caps mono labels, italic Latin binomial, curator seal,
+ * numbered FEAT tags, FIELD NOTE quote) is editorial scholarship, on warm
+ * cream paper with hairline grain.
+ *
+ * v6 drops the 3D flip-to-back catalog entry. The back duplicated 90% of
+ * the front and its unique content (reconstruction / background_desc) is
+ * surfaced in the right-side chat reading. Removing the flip lets the
+ * front be the sole social-share artifact.
+ *
+ * Class hooks kept for saveImage.js compatibility: .card-scene, .card-body,
+ * .card-face, .card-front, .card-front-dust (now empty), and the --theme
+ * inline var. --card-bg / --glow stay accepted but are not used.
+ */
+
+.card-scene {
+  /* Specimen color + type system, scoped here so .card-actions etc. can
+   * keep using the app's neutral palette. */
+  --spec-paper:        oklch(96.5% 0.012 80);
+  --spec-paper-edge:   oklch(93%   0.018 80);
+  --spec-ink-1:        oklch(22%   0.018 50);
+  --spec-ink-2:        oklch(40%   0.015 50);
+  --spec-ink-3:        oklch(58%   0.012 50);
+  --spec-hairline:     oklch(82%   0.015 60);
+  --spec-hairline-bold: oklch(70% 0.018 60);
+
+  /* Per-type accent — color-mix derivations from --theme (set by JSX). */
+  --spec-accent: var(--theme, #b07a3c);
+  --spec-accent-deep:  color-mix(in oklch, var(--spec-accent) 70%, oklch(20% 0.05 60));
+  --spec-accent-soft:  color-mix(in oklch, var(--spec-accent) 22%, var(--spec-paper));
+  --spec-accent-paper: color-mix(in oklch, var(--spec-accent) 14%, var(--spec-paper));
+
+  --spec-font-cn: "LXGW WenKai", "霞鹜文楷", "Songti SC", "STSong", "Noto Serif SC", serif;
+  --spec-font-en-serif: "Spectral", "Iowan Old Style", "Hoefler Text", Georgia, serif;
+  --spec-font-en-mono: "Fragment Mono", ui-monospace, "SF Mono", "Menlo", monospace;
+  --spec-font-cn-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+
+  width: 540px;
+  aspect-ratio: 3 / 4;
+  perspective: 1200px;
+  cursor: pointer;
+}
+.card-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease;
+}
+.card-body.is-flipped { transform: rotateY(180deg); }
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: var(--spec-paper);
+  color: var(--spec-ink-1);
+  font-family: var(--spec-font-cn-body);
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  box-shadow:
+    0 0 0 1px oklch(85% 0.02 70),
+    0 28px 60px -28px oklch(20% 0.04 60 / 0.4),
+    0 8px 18px -10px oklch(20% 0.04 60 / 0.22);
+}
+.card-back { transform: rotateY(180deg); }
+
+/* Risograph print grain overlay — barely visible, but kills the "rendered"
+ * feel by giving the paper a printed micro-texture. */
+.card-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(oklch(45% 0.05 70 / 0.09) 0.5px, transparent 1px),
+    radial-gradient(oklch(45% 0.05 70 / 0.07) 0.5px, transparent 1.5px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+/* Registration corner marks — print-shop / archival cue at the 4 corners. */
+.card-face::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--spec-hairline-bold), var(--spec-hairline-bold)) top left/12px 1px no-repeat,
+    linear-gradient(var(--spec-hairline-bold), var(--spec-hairline-bold)) top left/1px 12px no-repeat,
+    linear-gradient(var(--spec-hairline-bold), var(--spec-hairline-bold)) top right/12px 1px no-repeat,
+    linear-gradient(var(--spec-hairline-bold), var(--spec-hairline-bold)) top right/1px 12px no-repeat,
+    linear-gradient(var(--spec-hairline-bold), var(--spec-hairline-bold)) bottom left/12px 1px no-repeat,
+    linear-gradient(var(--spec-hairline-bold), var(--spec-hairline-bold)) bottom left/1px 12px no-repeat,
+    linear-gradient(var(--spec-hairline-bold), var(--spec-hairline-bold)) bottom right/12px 1px no-repeat,
+    linear-gradient(var(--spec-hairline-bold), var(--spec-hairline-bold)) bottom right/1px 12px no-repeat;
+  z-index: 6;
+}
+
+/* saveImage.js still queries .card-front-dust to find the (now removed)
+ * particle canvas. Keep the selector matching with an empty zero-sized div
+ * so the absence doesn't throw — querySelector just returns null, which the
+ * export code already handles. */
+.card-front-dust { display: none; }
+
+/* ── Top / foot rails ──────────────────────────────────────────────── */
+.specimen-top {
+  flex: 0 0 auto;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 14px 28px 0;
+  font-family: var(--spec-font-en-mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--spec-ink-3);
+}
+.specimen-top-left { justify-self: start; }
+.specimen-top-center { justify-self: center; color: var(--spec-ink-1); font-weight: 500; }
+.specimen-top-right { justify-self: end; }
+
+.specimen-foot {
+  flex: 0 0 auto;
+  z-index: 2;
+  margin: auto 28px 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--spec-hairline-bold);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  font-family: var(--spec-font-en-mono);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--spec-ink-3);
+}
+.specimen-foot-brand {
+  font-family: var(--spec-font-cn);
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: none;
+  color: var(--spec-ink-1);
+}
+
+/* ── Hero zone (front face) ─────────────────────────────────────────── */
+.specimen-hero {
+  flex: 1 1 0;
+  min-height: 0;
+  position: relative;
+  z-index: 2;
+  margin: 10px 28px 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background:
+    linear-gradient(180deg,
+      var(--spec-accent-paper) 0%,
+      var(--spec-accent-paper) 70%,
+      var(--spec-accent-soft) 70%,
+      var(--spec-accent-soft) 100%);
+  border: 1px solid color-mix(in oklch, var(--spec-accent) 32%, var(--spec-hairline-bold));
+  overflow: visible;
+}
+
+.specimen-anno {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  font-family: var(--spec-font-en-mono);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--spec-accent-deep);
+  z-index: 2;
+}
+.specimen-anno span {
+  background: color-mix(in oklch, var(--spec-paper) 78%, transparent);
+  padding: 2px 6px;
+}
+
+/* Clip the illustration to the art cell so taller mascots (橡子, 树懒, etc.)
+ * cannot bleed into the binomial bar or the name row below. The stamp lives
+ * outside this element so it still overhangs via .specimen-hero's overflow.
+ *
+ * IMPORTANT: the image must fill the cell with width+height AND use
+ * object-fit: contain to letterbox. If we only set max-width/max-height
+ * on the <img>, browsers honor max-width and re-compute height from the
+ * intrinsic aspect, silently ignoring max-height — tall mascots leak. */
+.specimen-hero-art {
+  position: relative;
+  padding: 18px 16px 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.specimen-illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 280px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 6px 0 rgba(0, 0, 0, 0.04));
+}
+
+.specimen-binomial {
+  font-family: var(--spec-font-en-serif);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--spec-accent-deep);
+  text-align: center;
+  padding: 6px 12px 14px;
+  border-top: 1px solid color-mix(in oklch, var(--spec-accent) 28%, var(--spec-paper));
+  background: color-mix(in oklch, var(--spec-accent) 18%, var(--spec-paper));
+}
+.specimen-binomial em { font-style: italic; }
+.specimen-binomial-sep { font-style: normal; }
+
+/* Curator seal — tucked into the bottom-right corner of the hero, lightly
+ * overhanging onto the binomial strip. Reads as "stamped after the species
+ * name was written," without crashing into the SUFFIX kicker label below. */
+.specimen-stamp {
+  position: absolute;
+  bottom: -10px;
+  right: 14px;
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid var(--spec-accent-deep);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  grid-auto-flow: row;
+  color: var(--spec-accent-deep);
+  font-family: var(--spec-font-cn);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  line-height: 1.05;
+  transform: rotate(-7deg);
+  opacity: 0.86;
+  z-index: 5;
+  background: color-mix(in oklch, var(--spec-paper) 92%, var(--spec-accent) 8%);
+}
+.specimen-stamp::before,
+.specimen-stamp::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 0.8px solid var(--spec-accent-deep);
+  border-radius: 50%;
+  opacity: 0.55;
+}
+.specimen-stamp::after { inset: 8px; opacity: 0.32; }
+
+/* ── Type stack (front face) ───────────────────────────────────────── */
+.specimen-type {
+  flex: 0 0 auto;
+  z-index: 2;
+  margin: 14px 28px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 14px;
+}
+.specimen-name {
+  font-family: var(--spec-font-cn);
+  font-size: 52px;
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--spec-ink-1);
+  margin: 0;
+}
+.specimen-suffix-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 4px;
+  padding-bottom: 4px;
+  min-width: 120px;
+}
+.specimen-suffix-kicker {
+  font-family: var(--spec-font-en-mono);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--spec-ink-3);
+  text-transform: uppercase;
+}
+.specimen-suffix {
+  font-family: var(--spec-font-cn);
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: var(--spec-accent-deep);
+}
+
+.specimen-oneliner {
+  flex: 0 0 auto;
+  z-index: 2;
+  margin: 10px 28px 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--spec-hairline);
+  font-family: var(--spec-font-cn-body);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--spec-ink-2);
+}
+
+/* ── FEAT tag row (front face) ─────────────────────────────────────── */
+.specimen-tags {
+  flex: 0 0 auto;
+  z-index: 2;
+  list-style: none;
+  margin: 12px 28px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--spec-hairline);
+  border-bottom: 1px solid var(--spec-hairline);
+}
+.specimen-tag {
+  padding: 10px 10px;
+  border-right: 1px solid var(--spec-hairline);
+  display: grid;
+  gap: 4px;
+}
+.specimen-tag:last-child { border-right: 0; }
+.specimen-tag-no {
+  font-family: var(--spec-font-en-mono);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  color: var(--spec-accent-deep);
+}
+.specimen-tag-text {
+  font-family: var(--spec-font-cn);
+  font-size: 14px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: var(--spec-ink-1);
+}
+
+/* ── FIELD NOTE (front face) ───────────────────────────────────────── */
+.specimen-quote {
+  flex: 0 0 auto;
+  z-index: 2;
+  margin: 14px 28px 0;
+  display: grid;
+  gap: 6px;
+}
+.specimen-quote-kicker {
+  font-family: var(--spec-font-en-mono);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--spec-ink-3);
+  text-transform: uppercase;
+}
+.specimen-quote-body {
+  font-family: var(--spec-font-cn);
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--spec-ink-1);
+  margin: 0;
+  font-weight: 400;
+  text-indent: -0.4em;
+  padding-left: 0;
+}
+
+/* ── Back face: brand mark (Pokémon-style uniform card back) ──────────
+ * The back is the same shape on every card — a sundial 有時 brand mark
+ * centered on accent-tinted paper, with a small type reference at the
+ * bottom so cards remain identifiable when face-down. The gnomon hand
+ * and bottom rule pick up the per-type --theme accent so the deck of
+ * 20 still reads as one set with subtle color variation.
+ */
+.specimen-back-stage {
+  flex: 1 1 0;
+  min-height: 0;
+  position: relative;
+  z-index: 2;
+  margin: 12px 28px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background:
+    radial-gradient(70% 60% at 50% 45%,
+      color-mix(in oklch, var(--spec-accent) 8%, var(--spec-paper)) 0%,
+      color-mix(in oklch, var(--spec-accent) 14%, var(--spec-paper)) 100%);
+  border: 1px solid color-mix(in oklch, var(--spec-accent) 26%, var(--spec-hairline-bold));
+  overflow: hidden;
+}
+
+/* Concentric ring decoration behind the mark — like a planetary chart */
+.specimen-back-stage::before,
+.specimen-back-stage::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklch, var(--spec-accent) 22%, transparent);
+  pointer-events: none;
+}
+.specimen-back-stage::before {
+  width: 76%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+.specimen-back-stage::after {
+  width: 58%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-style: dashed;
+  opacity: 0.62;
+}
+
+.specimen-back-mark {
+  width: 38%;
+  max-width: 180px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+}
+.specimen-back-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* Override the SVG strokes to pick up the spec accent. The asset has
+ * #1A1A1A for body strokes and #C9A96B for the gnomon hand; we re-color
+ * the gnomon hand specifically via a CSS-attribute selector. */
+.specimen-back-mark svg [stroke="#C9A96B"] { stroke: var(--spec-accent-deep); }
+.specimen-back-mark svg [fill="#C9A96B"]   { fill:   var(--spec-accent-deep); }
+
+.specimen-back-wordmark {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  text-align: center;
+}
+.specimen-back-wordmark-cn {
+  font-family: var(--spec-font-cn);
+  font-size: 30px;
+  letter-spacing: 0.42em;
+  color: var(--spec-ink-1);
+  padding-left: 0.42em;
+}
+.specimen-back-wordmark-en {
+  font-family: var(--spec-font-en-mono);
+  font-size: 10px;
+  letter-spacing: 0.46em;
+  color: var(--spec-ink-3);
+  text-transform: uppercase;
+  padding-left: 0.46em;
+}
+.specimen-back-tagline {
+  font-family: var(--spec-font-en-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--spec-accent-deep);
+  position: relative;
+  z-index: 1;
+}
+
+.specimen-back-ref {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+  margin-top: 4px;
+  padding: 8px 16px 0;
+  border-top: 1px solid color-mix(in oklch, var(--spec-accent) 28%, transparent);
+}
+.specimen-back-ref-no {
+  font-family: var(--spec-font-en-mono);
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  color: var(--spec-ink-3);
+}
+.specimen-back-ref-name {
+  font-family: var(--spec-font-cn);
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  color: var(--spec-ink-1);
+}
+
+/* ── Empty / "click to generate" placeholder ──────────────────────── */
+.card-empty .card-empty-body {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  margin: 10px 28px 0;
+  border: 1px dashed var(--spec-hairline-bold);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 6px,
+      color-mix(in oklch, var(--spec-accent) 4%, transparent) 6px 7px
+    );
+}
+.card-empty .card-empty-kicker {
+  font-family: var(--spec-font-en-mono);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--spec-ink-3);
+}
+.card-empty .card-empty-prompt {
+  font-family: var(--spec-font-cn);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--spec-ink-1);
+}
+
+/* ── Card actions (right rail) ─────────────────────────────────────── */
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 12px;
+  border-top: 1px solid #ecdfc8;
+}
+
+.card-actions button {
+  min-height: 44px;
+  padding: 11px 0;
+  border-bottom: 1px solid #ecdfc8;
+  background: transparent;
+  color: #2a1f12;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: .1em;
+  transition: color .15s, padding-left .15s;
+}
+
+.card-actions button span {
+  color: #b8a482;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.card-actions button:hover:not(:disabled) {
+  color: var(--card-accent, #b07a3c);
+  padding-left: 6px;
+}
+
+.card-actions button.disabled,
+.card-actions button:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+
+.card-tool-panel,
+.card-hepan-panel {
+  padding-top: 18px;
+  border-top: 1px solid #ecdfc8;
+}
+
+.card-tool-head,
+.card-hepan-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.card-tool-head h3,
+.card-hepan-head h3 {
+  margin: 2px 0 0;
+  color: #2a1f12;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.card-tool-badge {
+  margin-top: 3px;
+  padding: 4px 8px;
+  border: 1px solid #d8c8a8;
+  border-radius: 999px;
+  color: #8a6b35;
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.card-primary-action {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #2a1f12;
+  border-radius: 999px;
+  background: #2a1f12;
+  color: #fffaf2;
+  font-size: 14px;
+  letter-spacing: .06em;
+  cursor: pointer;
+}
+
+.card-primary-action:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.card-inline-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.card-inline-actions button {
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid #d8c8a8;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, .8);
+  color: #2a1f12;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.card-inline-actions button:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+
+.card-hepan-form {
+  display: grid;
+  gap: 12px;
+}
+
+.card-hepan-form label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.card-hepan-date-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.card-hepan-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.card-field-label {
+  color: #8a7a61;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .08em;
+}
+
+.card-hepan-form input,
+.card-hepan-form select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #e1d2b9;
+  border-radius: 8px;
+  background: #fffdf8;
+  color: #2a1f12;
+  font-size: 15px;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.card-hepan-form input::placeholder {
+  color: #b2a58e;
+}
+
+.card-hepan-form input:focus,
+.card-hepan-form select:focus {
+  outline: 2px solid color-mix(in srgb, var(--card-accent, #b07a3c) 24%, transparent);
+  outline-offset: 1px;
+  border-color: color-mix(in srgb, var(--card-accent, #b07a3c) 34%, #e1d2b9);
+}
+
+.card-hepan-error {
+  color: #8b2f2f;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.card-hepan-primary {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: .06em;
+  cursor: pointer;
+}
+
+.card-hepan-secondary {
+  width: 100%;
+  min-height: 42px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+
+.card-hepan-primary {
+  border: 1px solid #2a1f12;
+  background: #2a1f12;
+  color: #fffaf2;
+}
+
+.card-hepan-actions {
+  margin-top: 12px;
+}
+
+.card-hepan-secondary {
+  margin-top: 8px;
+  border: 1px solid #d8c8a8;
+  background: transparent;
+  color: #6e5f48;
+}
+
+.card-hepan-primary:disabled,
+.card-hepan-secondary:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.card-hepan-result {
+  margin-top: 12px;
+  padding: 12px 0 0;
+  border-top: 1px solid #ecdfc8;
+  display: grid;
+  gap: 6px;
+}
+
+.card-hepan-result span {
+  color: #9a8866;
+  font-size: 10px;
+  letter-spacing: .18em;
+}
+
+.card-hepan-result strong {
+  color: #2a1f12;
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.card-hepan-result-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.card-hepan-result-actions button {
+  min-height: 36px;
+  padding: 8px 6px;
+  border: 1px solid #d8c8a8;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, .7);
+  color: #2a1f12;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* ── Save-overlay (mobile long-press to save) ──────────────────────── */
+.save-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 16, .72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.save-overlay-inner {
+  background: #fffdf8;
+  padding: 24px;
+  max-width: 90vw;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.save-overlay-inner img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 12px;
+}
+
+.save-overlay-inner .close {
+  margin-top: 12px;
+  padding: 8px 20px;
+  border: 1px solid var(--line);
+  background: white;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+/* ── Standalone share-link page (/card/:slug) ──────────────────────── */
+.card-screen {
+  max-width: 600px;
+  margin: 32px auto;
+  padding: 20px;
+}
+
+.card-screen .card-scene {
+  margin: 0 auto;
+}
+
+.card-error-screen {
+  min-height: 100vh;
+  width: min(620px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-error-screen h1 {
+  margin: 18px 0 14px;
+  color: #1f1610;
+  font-size: 38px;
+  font-weight: normal;
+  line-height: 1.25;
+}
+
+.card-error-screen p {
+  max-width: 420px;
+  margin: 0 auto 28px;
+  color: #746b5f;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.card-error-screen .primary-cta {
+  align-self: center;
+}
+
+.upgrade-cta {
+  width: min(540px, 100%);
+  margin: 22px auto 0;
+  padding: 18px 0 0;
+  border-top: 1px solid #ecdfc8;
+  text-align: center;
+}
+
+.upgrade-cta .hook {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.upgrade-cta .detail {
+  color: #746b5f;
+  margin: 6px 0 14px;
+  font-size: 12px;
+}
+
+.upgrade-cta .cta-link {
+  display: inline-block;
+  padding: 9px 18px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+.upgrade-cta .cta-link:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.card-preview {
+  max-width: 520px;
+  margin: 70px auto;
+  padding: 32px;
+  border: 1px solid #ecdfc8;
+  background: #fffdf8;
+  text-align: center;
+  border-radius: 18px;
+}
+
+.card-preview .preview-notice {
+  color: #9a8866;
+  font-size: 12px;
+  letter-spacing: .1em;
+  margin-bottom: 24px;
+}
+
+.card-preview img {
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+.card-preview h2 {
+  margin: 0;
+  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.card-preview .primary-cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 22px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+.card-preview .primary-cta:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.form-error {
+  color: #8b2f2f;
+  font-size: 13px;
+  padding: 10px 0 0;
+  border-top: 1px solid #d9aaa3;
+  margin: 14px 0;
+}
+
+/* ── Skeleton (loading state) ──────────────────────────────────────── */
+.card-skeleton {
+  width: min(540px, 100%);
+  aspect-ratio: 3 / 4;
+  margin: 32px auto;
+  padding: 36px 34px;
+  border-radius: 18px;
+  background: #fffdf7;
+  border: 1px solid #ecdfc8;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-skeleton .shimmer {
+  background: linear-gradient(90deg, #f5ebd5 0%, #f9f0dc 50%, #f5ebd5 100%);
+  background-size: 200% 100%;
+  animation: card-shimmer 1.4s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+.card-skeleton .shimmer-name {
+  width: 60%;
+  height: 56px;
+}
+
+.card-skeleton .shimmer-tags {
+  width: 80%;
+  height: 32px;
+}
+
+.card-skeleton .shimmer-line {
+  width: 70%;
+  height: 18px;
+}
+
+@keyframes card-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+@media (max-width: 1120px) {
+  .card-workspace-grid {
+    grid-template-columns: minmax(280px, 1fr) minmax(300px, 340px);
+    gap: 18px;
+  }
+
+  .card-stage-mat {
+    padding: 22px 14px;
+  }
+
+  .card-side-panel {
+    padding-left: 18px;
+  }
+}
+
+@media (max-width: 820px) {
+  .card-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-document-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .card-stage-rail {
+    min-height: auto;
+    flex-direction: row;
+    writing-mode: horizontal-tb;
+  }
+
+  .card-side-panel {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #ecdfc8;
+    padding-top: 20px;
+  }
+
+  .card-hepan-date-grid,
+  .card-hepan-row {
+    grid-template-columns: 1fr;
+  }
+
+}
+/* ── Card workspace v2: full-width controls, full-size preview ─────── */
+.card-workspace {
+  --card-ui-ink: var(--ink, #111);
+  --card-ui-muted: var(--mute, #6b6b6b);
+  --card-ui-line: var(--line, #e5e5e5);
+  --card-ui-bg: var(--bg-2, #fff);
+  --card-ui-soft: #f7f7f7;
+}
+
+.card-workspace-head {
+  margin-bottom: 18px;
+  border-bottom-color: var(--card-ui-line);
+}
+
+.card-workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.card-controls-panel {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+.card-mode-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--card-ui-line);
+  border-radius: 0;
+  background: var(--card-ui-bg);
+}
+
+.card-mode-switch button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--card-ui-muted);
+  font-size: 13px;
+  letter-spacing: .16em;
+}
+
+.card-mode-switch button + button {
+  border-left: 1px solid var(--card-ui-line);
+}
+
+.card-mode-switch button.active {
+  background: var(--card-ui-ink);
+  color: #fff;
+}
+
+.card-mode-switch button:focus-visible {
+  outline: 2px solid var(--card-ui-ink);
+  outline-offset: 2px;
+}
+
+.card-context-strip {
+  margin: 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--card-ui-line);
+  border-bottom: 1px solid var(--card-ui-line);
+}
+
+.card-side-kicker {
+  color: var(--card-ui-muted);
+}
+
+.card-context-strip .card-side-kicker {
+  margin-bottom: 8px;
+}
+
+.card-context-strip .card-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+  border-top: 0;
+}
+
+.card-context-strip .card-facts div {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.card-facts dt {
+  color: var(--card-ui-muted);
+}
+
+.card-facts dd {
+  color: var(--card-ui-ink);
+}
+
+.card-tool-panel,
+.card-hepan-panel {
+  max-width: 560px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.card-tool-head,
+.card-hepan-head {
+  margin-bottom: 18px;
+}
+
+.card-tool-head h3,
+.card-hepan-head h3 {
+  color: var(--card-ui-ink);
+  font-size: 20px;
+}
+
+.card-tool-badge {
+  border-color: var(--card-ui-line);
+  color: var(--card-ui-muted);
+  border-radius: 0;
+}
+
+.card-primary-action,
+.card-hepan-primary,
+.card-hepan-secondary,
+.card-inline-actions button,
+.card-hepan-result-actions button,
+.card-clear-choice {
+  border-radius: 0;
+}
+
+.card-primary-action,
+.card-hepan-primary {
+  min-height: 46px;
+  border: 1px solid var(--card-ui-ink);
+  background: var(--card-ui-ink);
+  color: #fff;
+}
+
+.card-hepan-secondary,
+.card-inline-actions button,
+.card-hepan-result-actions button,
+.card-clear-choice {
+  border: 1px solid var(--card-ui-line);
+  background: var(--card-ui-bg);
+  color: var(--card-ui-ink);
+}
+
+.card-inline-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.card-birth-form {
+  display: block;
+}
+
+.card-birth-form .form-row {
+  margin-bottom: 26px;
+}
+
+.card-birth-form .form-label {
+  color: var(--card-ui-muted);
+}
+
+.card-hepan-form input,
+.card-hepan-form select {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--card-ui-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--card-ui-ink);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card-hepan-form input:focus,
+.card-hepan-form select:focus {
+  outline: none;
+  border-color: var(--card-ui-ink);
+}
+
+.card-hepan-form input::placeholder {
+  color: #a7a7a7;
+}
+
+.card-hepan-form input[type="checkbox"],
+.card-hepan-form input[type="radio"] {
+  width: auto;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+}
+
+.card-birth-time-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: end;
+}
+
+.card-checkbox-line,
+.card-radio-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--card-ui-ink);
+  font-size: 14px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.card-checkbox-line {
+  padding-bottom: 10px;
+  white-space: nowrap;
+}
+
+.card-radio-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-top: 4px;
+  flex-wrap: wrap;
+}
+
+.card-clear-choice {
+  min-height: 30px;
+  padding: 5px 10px;
+  color: var(--card-ui-muted);
+  font-size: 12px;
+}
+
+.card-clear-choice:disabled {
+  opacity: .38;
+  cursor: not-allowed;
+}
+
+.card-form-note {
+  margin: -4px 0 18px;
+  color: #8b8b8b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.card-form-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.card-hepan-secondary {
+  margin-top: 0;
+  min-height: 46px;
+}
+
+.card-hepan-error {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-left: 3px solid #b04632;
+  background: #fbf3f1;
+  color: #6e2418;
+}
+
+.card-hepan-actions {
+  max-width: 560px;
+}
+
+.card-hepan-result {
+  max-width: 560px;
+  border-top-color: var(--card-ui-line);
+}
+
+.card-hepan-result span,
+.share-link-box,
+.card-notice {
+  color: var(--card-ui-muted);
+}
+
+.card-hepan-result strong {
+  color: var(--card-ui-ink);
+}
+
+.share-link-box {
+  border-top-color: var(--card-ui-line);
+}
+
+.card-notice {
+  border-top-color: var(--card-ui-line);
+}
+
+.card-document-stage {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 18px;
+  min-width: 0;
+}
+
+.card-stage-rail {
+  color: #9b9b9b;
+}
+
+.card-stage-mat {
+  padding: 30px 22px;
+  border: 1px solid var(--card-ui-line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff 0%, var(--card-ui-soft) 100%);
+}
+
+@media (max-width: 820px) {
+  .card-context-strip .card-facts {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card-birth-time-row,
+  .card-form-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .card-checkbox-line {
+    padding-bottom: 0;
+  }
+
+  .card-document-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .card-stage-rail {
+    min-height: auto;
+    flex-direction: row;
+    writing-mode: horizontal-tb;
+  }
+
+  .card-stage-mat {
+    padding: 22px 14px;
+  }
+}
+
+/* ── Card workspace v4: slim controls, card-first viewport ─────── */
+.card-workspace {
+  --card-controls-height: 90px;
+}
+
+.card-workspace[data-mode="single"] {
+  --card-controls-height: 42px;
+}
+
+.card-workspace-grid {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.card-controls-panel {
+  gap: 8px;
+}
+
+.card-compact-bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 34px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--card-ui-line);
+}
+
+.card-mode-switch {
+  width: auto;
+  min-width: 174px;
+  grid-template-columns: repeat(2, minmax(80px, 1fr));
+}
+
+.card-mode-switch button {
+  min-height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.card-current-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--card-ui-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.card-current-summary span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-current-summary em {
+  flex: none;
+  padding: 2px 6px;
+  border: 1px solid var(--card-ui-line);
+  color: var(--card-ui-muted);
+  font-size: 10px;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.card-top-actions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(52px, auto);
+  gap: 6px;
+  align-items: center;
+}
+
+.card-top-actions button,
+.card-top-actions a,
+.card-primary-action,
+.card-hepan-primary,
+.card-hepan-secondary,
+.card-inline-actions button {
+  min-height: 32px;
+  padding: 5px 9px;
+  border-radius: 0;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.card-top-actions button {
+  border: 1px solid var(--card-ui-line);
+  background: var(--card-ui-bg);
+  color: var(--card-ui-ink);
+  cursor: pointer;
+}
+
+.card-top-actions a {
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--card-ui-line);
+  background: var(--card-ui-bg);
+  color: var(--card-ui-ink);
+  text-decoration: none;
+}
+
+.card-top-actions button:disabled,
+.card-primary-action:disabled,
+.card-hepan-primary:disabled,
+.card-hepan-secondary:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+
+.card-top-actions .card-primary-action,
+.card-primary-action,
+.card-hepan-primary {
+  border-color: var(--card-ui-ink);
+  background: var(--card-ui-ink);
+  color: #fff;
+}
+
+.card-hepan-compact-form {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  gap: 6px 8px;
+  align-items: end;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--card-ui-line);
+}
+
+.card-compact-field {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.card-compact-field > span {
+  color: var(--card-ui-muted);
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: .14em;
+}
+
+.card-compact-date,
+.card-compact-time,
+.card-compact-city,
+.card-compact-nickname {
+  grid-column: span 2;
+}
+
+.card-compact-gender,
+.card-compact-unknown {
+  grid-column: span 1;
+}
+
+.card-compact-unknown {
+  align-self: end;
+  min-height: 32px;
+  padding-bottom: 7px;
+  font-size: 11px;
+}
+
+.card-hepan-form input,
+.card-hepan-form select {
+  min-height: 31px;
+  padding: 4px 2px;
+  font-size: 13px;
+}
+
+.card-hepan-form select {
+  background-position: right 2px center;
+}
+
+.card-form-actions {
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  gap: 6px;
+  margin-top: 0;
+}
+
+.card-hepan-error {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.card-workspace .share-link-box {
+  display: none;
+}
+
+.card-notice {
+  margin-top: 0;
+  padding-top: 4px;
+  font-size: 12px;
+}
+
+.card-document-stage {
+  display: block;
+}
+
+.card-stage-rail {
+  display: none;
+}
+
+.card-stage-mat {
+  padding: 6px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  /* Stage stretches to fill the remaining left-pane viewport so the card
+   * sits at the visual midline. The 200px subtractor accounts for: 52px
+   * left-topbar (sticky) + 80px left-content padding + workspace gap +
+   * --card-controls-height. flex centering on .card-stage-mat (defined at
+   * top of this file) then anchors the card to the middle of that block. */
+  min-height: calc(100vh - var(--card-controls-height) - 200px);
+}
+
+.card-workspace .card-stage-mat .card-scene,
+.card-workspace .card-stage-mat .hepan-scene {
+  width: min(460px, 90%, calc((100vh - var(--card-controls-height) - 78px) * 0.66));
+}
+
+/* ── 卡片揭示动画 — 像翻一张牌的仪式感 ─────────────────────────────
+ * 单人卡 (.card-scene) + 合盘卡 (.hepan-scene) 在挂载时跑一次 Y 轴翻转，
+ * cubic-bezier 是 easeOutBack 的克制版，避免抖动。
+ * 重生成靠 React key 变化重新挂载，让动画再跑一次。
+ * prefers-reduced-motion 下退化成纯淡入。 */
+@keyframes card-flip-in {
+  0% {
+    transform: perspective(1200px) rotateY(-92deg);
+    opacity: 0;
+  }
+  60% { opacity: 1; }
+  100% {
+    transform: perspective(1200px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes card-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.card-document-stage .card-scene,
+.hepan-scene {
+  animation: card-flip-in 720ms cubic-bezier(.22, .61, .36, 1) backwards;
+  transform-origin: center center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-document-stage .card-scene,
+  .hepan-scene {
+    animation: card-fade-in 320ms ease-out both;
+    transform: none;
+  }
+}
+
+/* CardWorkspace 内的卡片预览 — 跟 specimen 设计的内部尺寸 (540px) 对齐，
+ * 这样 absolute-pixel 字号/间距落点和 /card/{slug} 独立页 + 1080px 导出完全
+ * 一致。三道约束:
+ *   1. 540px 是设计最大宽度
+ *   2. 100% 容器宽 — 容器更窄时不撑爆
+ *   3. (100vh - chrome) * 0.75 — 屏幕矮的时候按 3:4 比例缩,保证整张卡一屏看完
+ * 选择器三层确保覆盖前面 `.card-workspace .card-stage-mat .card-scene` 的默认值。 */
+.card-workspace .card-document-stage .card-scene {
+  width: min(460px, 90%, calc((100vh - var(--card-controls-height, 96px) - 78px) * 0.66));
+}
+
+@media (max-width: 1180px) {
+  .card-workspace {
+    --card-controls-height: 136px;
+  }
+
+  .card-workspace[data-mode="single"] {
+    --card-controls-height: 72px;
+  }
+
+  .card-compact-bar {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .card-top-actions {
+    grid-column: 1 / -1;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
+  .card-hepan-compact-form {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .card-workspace {
+    --card-controls-height: 214px;
+  }
+
+  .card-workspace[data-mode="single"] {
+    --card-controls-height: 118px;
+  }
+
+  .card-compact-bar,
+  .card-hepan-compact-form,
+  .card-form-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .card-top-actions {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
+  .card-compact-date,
+  .card-compact-time,
+  .card-compact-city,
+  .card-compact-nickname,
+  .card-compact-gender,
+  .card-compact-unknown,
+  .card-form-actions {
+    grid-column: auto;
+  }
+
+  .card-current-summary span {
+    white-space: normal;
+  }
+
+  .card-workspace .card-stage-mat .card-scene,
+  .card-workspace .card-stage-mat .hepan-scene {
+    width: min(420px, 100%);
+  }
+}
+
+/* ── 合盘 tab — CardWorkspace 我的合盘面板 ─────────────────────────
+ * Tasks 1-15 重写了 CardWorkspace 合盘 tab：用 `+ 新建合盘` 按钮 +
+ * 内联 PartnerBirthForm + 下方 HepanList 替换原先的 card-hepan-form
+ * 单一表单。下面 rules 给新结构加约束；老的 `.card-hepan-panel /
+ * head / error` 在前面已经有规则，这里只补新选择器。
+ */
+.card-hepan-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-hepan-title {
+  margin: 0;
+  color: var(--card-ui-ink, var(--ink, #111));
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.card-hepan-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-hepan-create {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--card-ui-line, var(--line, #e5e5e5));
+  border-radius: 8px;
+  background: var(--card-ui-bg, var(--bg-2, #fff));
+}
+
+.card-hepan-fallback {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.card-hepan-fallback .link-button {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--ink, #111);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.card-hepan-fallback .link-button:hover {
+  opacity: .7;
+}
+
+.card-hepan-fallback .link-button:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* ── First-card reveal modal ───────────────────────────────────────────
+ * Floating overlay shown the first time a user lands on each fresh chart
+ * after 排盘. Same shape as HepanCardModal — backdrop blur, centered
+ * dialog, 3-button toolbar — so the "specimen viewer" pattern is
+ * consistent across single and pair cards. Motion is intentionally
+ * understated: a soft scale + lift + fade, no rotateY swing, easing
+ * tuned for "comes to rest" (cubic-bezier(.16, 1, .3, 1) — Linear-ish).
+ * The dialog itself animates; the backdrop just fades. */
+.first-reveal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+  overflow-y: auto;
+  background: color-mix(in oklch, oklch(20% 0.02 60) 64%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 320ms cubic-bezier(.16, 1, .3, 1),
+              backdrop-filter 320ms cubic-bezier(.16, 1, .3, 1);
+}
+.first-reveal-revealing.first-reveal-modal { opacity: 1; }
+.first-reveal-dismissing.first-reveal-modal { opacity: 0; }
+
+.first-reveal-modal .first-reveal-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  max-width: 100%;
+  transform: translateY(14px) scale(0.96);
+  opacity: 0;
+  transition: transform 520ms cubic-bezier(.16, 1, .3, 1),
+              opacity 420ms cubic-bezier(.16, 1, .3, 1);
+}
+.first-reveal-revealing .first-reveal-dialog {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.first-reveal-dismissing .first-reveal-dialog {
+  transform: translateY(-6px) scale(0.98);
+  opacity: 0;
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1),
+              opacity 240ms cubic-bezier(.16, 1, .3, 1);
+}
+
+/* Header above the card — small editorial kicker + 文楷 title.
+ * Sets the curatorial voice: "a new specimen has been catalogued." */
+.first-reveal-head {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  text-align: center;
+  color: oklch(96% 0.005 80);
+}
+.first-reveal-kicker {
+  font-family: "Fragment Mono", ui-monospace, "SF Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, oklch(96% 0.005 80) 64%, transparent);
+}
+.first-reveal-title {
+  font-family: "LXGW WenKai", "霞鹜文楷", "Songti SC", serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  margin: 0;
+}
+
+.first-reveal-stage {
+  display: flex;
+  justify-content: center;
+}
+/* Card sized for the modal — viewport-aware calc tuned for the modal,
+ * leaving room for the header above + toolbar below in one screen. */
+.first-reveal-stage .card-scene {
+  width: min(500px, 90vw, calc((100vh - 240px) * 0.75));
+}
+
+/* Toolbar shares the HepanCardModal action button styles (.hepan-modal-
+ * action / -primary / -ghost) so the two modals are visually identical
+ * in their action surface — see hepan.css for the rules. */
+.first-reveal-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Preparing placeholder — three breathing dots while card POST settles */
+.first-reveal-preparing {
+  padding: 32px 40px;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  color: oklch(96% 0.005 80);
+}
+.first-reveal-dots {
+  display: inline-flex;
+  gap: 8px;
+}
+.first-reveal-dots em {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: color-mix(in oklch, oklch(96% 0.005 80) 60%, transparent);
+  display: inline-block;
+  animation: first-reveal-dot 1.2s ease-in-out infinite both;
+}
+.first-reveal-dots em:nth-child(2) { animation-delay: 0.18s; }
+.first-reveal-dots em:nth-child(3) { animation-delay: 0.36s; }
+@keyframes first-reveal-dot {
+  0%, 80%, 100% { opacity: 0.32; transform: scale(0.9); }
+  40%           { opacity: 1;    transform: scale(1.1); }
+}
+.first-reveal-loading-label {
+  font-family: "LXGW WenKai", "Songti SC", serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+@media (max-width: 540px) {
+  .first-reveal-modal { padding: 16px 8px; }
+  .first-reveal-modal .first-reveal-dialog { gap: 14px; }
+  .first-reveal-toolbar { gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .first-reveal-modal,
+  .first-reveal-modal .first-reveal-dialog {
+    transition-duration: 180ms !important;
+  }
+  .first-reveal-modal .first-reveal-dialog { transform: none !important; }
+}

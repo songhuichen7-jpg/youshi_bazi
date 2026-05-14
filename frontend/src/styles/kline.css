@@ -1,0 +1,579 @@
+/* ───────────────────────────────────────────────────────────
+ * 命局能量曲线 — 文人 almanac 视觉
+ *   · 主调：墨黑 / 米白 / 一点暖金 / 一点淡朱
+ *   · 字：宋体走标题，sans 走辅助
+ *   · 不画带色填充背景；五档只用极淡 hairline 暗示
+ *   · 已走过实色，未来虚 — 把"projection 不是 prediction"画进视觉里
+ * ───────────────────────────────────────────────────────────── */
+
+.kline-root {
+  --kline-ink: var(--ink, #111);
+  --kline-ink-soft: #2a2a2a;
+  --kline-mute: var(--mute, #6b6b6b);
+  --kline-line: #e5e0d4;       /* 比 --line 偏暖，跟米白纸性匹配 */
+  --kline-line-soft: #efeae0;
+  --kline-paper: #faf6ec;      /* 比 --bg 偏暖，K 线区域里独立的纸面 */
+  --kline-gold: #6b4a14;       /* 暖金 — 当下 / 极佳的强调色 */
+  --kline-gold-bg: #fdf5e1;
+  --kline-gold-border: #efdfa8;
+  --kline-brick: #b44343;      /* 淡朱 — 极险 / 警示，sparingly */
+  --kline-brick-soft: #cf7c7c;
+  width: 100%;
+  margin-bottom: 28px;
+  font-feature-settings: "tnum", "palt";
+}
+
+/* ── header ──────────────────────────────────────────── */
+
+.kline-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 4px 18px;
+}
+
+.kline-header-left {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  min-width: 0;
+}
+
+.kline-back {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--kline-mute);
+  background: transparent;
+  border: 1px solid var(--kline-line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.kline-back:hover {
+  color: var(--kline-ink);
+  border-color: var(--kline-ink);
+}
+
+.kline-back span {
+  margin-right: 4px;
+  font-size: 9px;
+}
+
+.kline-title-block { min-width: 0; }
+
+.kline-kicker {
+  font-size: 10px;
+  letter-spacing: 0.42em;
+  color: var(--kline-mute);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.kline-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--kline-ink);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.kline-title-meta {
+  margin-left: 8px;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  letter-spacing: 0.06em;
+  color: var(--kline-mute);
+}
+
+.kline-header-right {
+  flex: 0 0 auto;
+  align-self: flex-end;
+  padding-bottom: 4px;
+}
+
+.kline-ask-link {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--kline-ink);
+  background: transparent;
+  border: none;
+  padding: 6px 0;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.kline-ask-link:hover {
+  border-bottom-color: var(--kline-ink);
+}
+
+/* ── 从格 banner ─────────────────────────────────────── */
+
+.kline-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  margin: 0 4px 16px;
+  background: var(--kline-gold-bg);
+  border: 1px solid var(--kline-gold-border);
+  font-size: 12px;
+  line-height: 1.65;
+  color: #5e441b;
+}
+
+.kline-banner-mark {
+  flex: 0 0 auto;
+  font-size: 13px;
+  color: #8a6b2a;
+}
+
+.kline-banner b {
+  font-weight: 500;
+}
+
+/* ── canvas ──────────────────────────────────────────── */
+
+.kline-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1000 / 520;
+  background: var(--kline-paper);
+  border: 1px solid var(--kline-line);
+  /* 极细的暖金顶 + 底压边线，给"图册条目"感 */
+  box-shadow: inset 0 1px 0 rgba(239, 223, 168, 0.4),
+              inset 0 -1px 0 rgba(239, 223, 168, 0.4);
+  /* 允许 chip 略微上溢出 — 否则窄屏下会被裁掉。横向仍裁切 */
+  overflow: visible;
+  clip-path: inset(-40px 0 0 0);
+}
+
+.kline-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: default;
+}
+
+/* ── bands ───────────────────────────────────────────── */
+
+.kline-band-line {
+  stroke: #e5dfcf;
+  stroke-width: 1;
+  stroke-dasharray: 0;
+  shape-rendering: crispEdges;
+}
+
+.kline-band-line-mid {
+  stroke: #c8bfa8;
+  stroke-width: 1;
+}
+
+.kline-band-label {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  fill: var(--kline-mute);
+  letter-spacing: 0.18em;
+}
+
+/* ── 主线（连续 polyline） ───────────────────────────── */
+
+.kline-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kline-line-past {
+  stroke: var(--kline-ink);
+  stroke-width: 1.5;
+}
+
+.kline-line-future {
+  /* 未来线 — 之前 dashed + 0.5 opacity 把整个未来段虚得读不出趋势。
+   * 改用稍细 + 稍浅的实线，让走势保持可读；空心 dot 已经是足够强的
+   * "未来 = projection" 信号，不必再叠加虚线。 */
+  stroke: var(--kline-ink-soft);
+  stroke-width: 1.25;
+  opacity: 0.85;
+}
+
+/* ── candles ─────────────────────────────────────────── */
+
+.kline-candle { cursor: pointer; }
+
+.kline-whisker {
+  stroke: var(--kline-ink);
+  stroke-width: 1;
+  opacity: 0.4;
+}
+
+.kline-candle.is-future .kline-whisker {
+  stroke: var(--kline-ink-soft);
+  opacity: 0.55;
+}
+
+.kline-dot {
+  fill: var(--kline-paper);
+  stroke: var(--kline-ink);
+  stroke-width: 1.5;
+  transition: r 0.18s ease, stroke 0.18s ease, fill 0.18s ease;
+}
+
+.kline-candle.is-past .kline-dot {
+  fill: var(--kline-ink);
+  stroke: var(--kline-ink);
+}
+
+.kline-candle.is-future .kline-dot {
+  stroke: var(--kline-ink-soft);
+  stroke-width: 1;
+  fill: var(--kline-paper);
+  opacity: 0.7;
+}
+
+.kline-candle.is-current .kline-dot {
+  fill: var(--kline-gold-bg);
+  stroke: var(--kline-gold);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgba(107, 74, 20, 0.18));
+}
+
+.kline-candle:hover .kline-dot {
+  stroke: var(--kline-ink);
+  stroke-width: 2;
+}
+
+.kline-candle.is-current:hover .kline-dot { stroke: var(--kline-gold); }
+
+.kline-x-label {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  fill: var(--kline-ink);
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.kline-candle.is-future .kline-x-label {
+  fill: var(--kline-mute);
+  opacity: 0.65;
+}
+
+.kline-x-sub {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  fill: var(--kline-mute);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.kline-candle.is-future .kline-x-sub { opacity: 0.55; }
+
+.kline-marker {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  fill: var(--kline-brick);
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.kline-candle.is-future .kline-marker {
+  fill: var(--kline-brick-soft);
+  opacity: 0.5;
+}
+
+/* 主峰 ▲ 标记 — 暖金, 跟"当下"金halo 区分（一个是状态、一个是顶点）。
+ * 略带 drop-shadow 让它在密集 candle 中也能跳出来。 */
+.kline-peak-mark {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  fill: var(--kline-gold);
+  pointer-events: none;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.6));
+  letter-spacing: 0;
+}
+
+.kline-candle.is-future .kline-peak-mark {
+  /* 未来段也是主峰 — 不要降透明度, 因为这正是要强调的"未来高点" */
+  opacity: 0.95;
+}
+
+.kline-tooltip-peak {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--kline-gold, #6b4a14);
+  background: var(--kline-gold-bg, #fdf5e1);
+  border: 1px solid var(--kline-gold-border, #efdfa8);
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
+.kline-hit { cursor: pointer; }
+
+/* ── "现在"竖线 ─────────────────────────────────────── */
+
+.kline-now-line {
+  stroke: var(--kline-gold);
+  stroke-width: 1;
+  stroke-dasharray: 1 4;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ── 头像 + chip overlay ─────────────────────────────── */
+
+.kline-avatar-wrap {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 14px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.kline-avatar-chip {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--kline-gold);
+  background: var(--kline-gold-bg);
+  border: 1px solid var(--kline-gold-border);
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.kline-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--kline-paper);
+  border: 1.5px solid var(--kline-gold);
+  box-shadow: 0 2px 6px rgba(17, 17, 17, 0.08),
+              0 0 0 4px rgba(253, 245, 225, 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kline-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kline-avatar.is-glyph {
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+/* ── tooltip ─────────────────────────────────────────── */
+/* 触屏设备：hover 不可靠 — 干脆不渲染 tooltip，避免点完之后挂在屏上不消失。
+ * 桌面 hover-capable 设备才显示。点击行为不变（移动端用 click 触发注入）。*/
+
+.kline-tooltip {
+  position: absolute;
+  /* JS 内联给 left / top / transform。pointer-events:auto — 鼠标能从 candle
+   * 移上来读 / 点 CTA。max-height + scroll 兜底极端短屏的内容截断。 */
+  min-width: 168px;
+  max-width: 240px;
+  max-height: 145px;
+  overflow-y: auto;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--kline-line);
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.08);
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--kline-ink-soft);
+  pointer-events: auto;
+  z-index: 5;
+  white-space: normal;
+}
+
+.kline-tooltip-clickable {
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.kline-tooltip-clickable:hover {
+  border-color: var(--kline-ink-soft);
+  box-shadow: 0 14px 32px rgba(17, 17, 17, 0.12);
+}
+
+@media (hover: none) {
+  .kline-tooltip { display: none; }
+}
+
+.kline-tooltip-title {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--kline-ink);
+  margin-bottom: 4px;
+}
+
+.kline-tooltip-meta {
+  font-size: 11px;
+  color: var(--kline-mute);
+  margin-left: 6px;
+  letter-spacing: 0.04em;
+}
+
+.kline-tooltip-row {
+  font-size: 11px;
+  color: var(--kline-ink-soft);
+  margin-top: 2px;
+}
+
+.kline-tooltip-row b {
+  font-weight: 500;
+  color: var(--kline-ink);
+}
+
+.kline-tooltip-cta {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--kline-line);
+  color: var(--kline-mute);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+}
+
+/* 大运 tooltip 用：两个 CTA 横排 — 左边 informational "点 → 进入流年" +
+ * 右边可点 button "→ 问这一运"（stopPropagation, 不触发主区 drill）。 */
+.kline-tooltip-cta-row {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--kline-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.kline-tooltip-cta-row .kline-tooltip-cta {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.kline-tooltip-cta-btn {
+  background: var(--kline-gold-bg, #fdf5e1);
+  color: var(--kline-gold, #6b4a14);
+  border: 1px solid var(--kline-gold-border, #efdfa8);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+.kline-tooltip-cta-btn:hover {
+  background: var(--kline-gold-border, #efdfa8);
+  border-color: var(--kline-gold, #6b4a14);
+}
+
+/* ── legend ─────────────────────────────────────────── */
+
+.kline-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 4px 0;
+  font-size: 11px;
+  color: var(--kline-mute);
+  letter-spacing: 0.04em;
+}
+
+.kline-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kline-legend-swatch {
+  display: inline-block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--kline-ink);
+}
+
+.kline-legend-swatch.is-future {
+  background: var(--kline-ink-soft);
+  height: 1.25px;
+  opacity: 0.6;
+}
+
+.kline-legend-swatch.is-current {
+  background: var(--kline-gold);
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+}
+
+.kline-legend-spacer { flex: 1; }
+
+.kline-legend-hint {
+  font-size: 11px;
+  color: var(--kline-mute);
+  letter-spacing: 0.04em;
+}
+
+/* ── empty state ────────────────────────────────────── */
+
+.kline-empty {
+  padding: 80px 24px;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  color: var(--kline-mute);
+  letter-spacing: 0.16em;
+  background: var(--kline-paper);
+  border: 1px solid var(--kline-line);
+}
+
+/* ── chat 上下文 chip 的 K 线变体 ──────────────────── */
+
+.chat-context-pill-kline {
+  background: var(--kline-gold-bg, #fdf5e1);
+  border-color: var(--kline-gold-border, #efdfa8);
+}
+
+.chat-context-pill-kline .chat-context-pill-prefix {
+  color: var(--kline-gold, #6b4a14);
+}
+
+/* ── 响应式 ────────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  /* 保持 viewBox 的 1000/360 比例（preserveAspectRatio="none"），不
+   * 引入新的 aspect-ratio 比例 — 那会让 SVG 文字被拉伸。窄屏下整个
+   * 画布等比缩小即可。 */
+  .kline-title { font-size: 18px; }
+  .kline-title-meta { display: block; margin-left: 0; margin-top: 2px; font-size: 11px; }
+  .kline-header { flex-direction: column; align-items: stretch; gap: 8px; }
+  .kline-header-right { align-self: flex-end; }
+  .kline-legend { flex-wrap: wrap; gap: 10px 14px; }
+  .kline-legend-spacer { display: none; }
+  .kline-legend-hint { width: 100%; padding-top: 4px; }
+  /* 窄屏下整体压缩：avatar 缩小，chip 字也跟着缩 */
+  .kline-avatar { width: 22px; height: 22px; border-width: 1.5px; box-shadow: 0 2px 4px rgba(17,17,17,.1); }
+  .kline-avatar.is-glyph { font-size: 13px; }
+  .kline-avatar-chip { font-size: 9.5px; padding: 2px 6px; }
+}
