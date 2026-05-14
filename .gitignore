@@ -1,0 +1,41 @@
+# Node
+node_modules/
+**/node_modules/
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+*.egg-info/
+.coverage
+.python-version
+
+# Env
+.env
+**/.env
+*.log
+
+# OS
+.DS_Store
+.idea/
+.vscode/
+
+# 本地工具链 / Claude 工作树
+.claude/
+.superpowers/
+.claire/
+.gstack/
+.code-review-graph/
+
+# 排盘 / 检索索引产物（可由 scripts 重建）
+server/var/
+
+# 本地 PM 笔记
+PM/
+
+# 临时
+tmp/
