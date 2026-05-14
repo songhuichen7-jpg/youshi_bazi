@@ -1,0 +1,14 @@
+{
+  "name": "bazi-analysis",
+  "private": true,
+  "scripts": {
+    "dev:front": "cd frontend && npm run dev",
+    "dev:back":  "cd server && uv run --package server --with 'uvicorn[standard]' python -m uvicorn app.main:app --port 3101 --host 127.0.0.1",
+    "build":     "cd frontend && npm run build",
+    "start":     "npm run build && npm run dev:back",
+    "test:paipan":   "uv run --package paipan pytest -n auto -q paipan/tests/",
+    "test:server":   "uv run --package server pytest -n auto -q server/tests/",
+    "test:frontend": "cd frontend && node --test tests/*.mjs",
+    "test":          "npm run test:paipan && npm run test:server && npm run test:frontend"
+  }
+}

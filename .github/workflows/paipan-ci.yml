@@ -1,0 +1,32 @@
+name: paipan tests
+
+on:
+  push:
+    paths:
+      - 'paipan/**'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '.github/workflows/paipan-ci.yml'
+  pull_request:
+    paths:
+      - 'paipan/**'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '.github/workflows/paipan-ci.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # Asia/Shanghai is required: 1986-1991 CDT regression fixtures rely on
+    # IANA Asia/Shanghai wall-clock arithmetic being the host TZ.
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - name: install python
+        run: uv python install 3.12
+      - name: sync deps
+        run: uv sync --package paipan --extra dev
+      - name: run tests in parallel
+        run: uv run --package paipan pytest paipan/tests/ -n auto

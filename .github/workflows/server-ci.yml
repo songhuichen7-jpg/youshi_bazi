@@ -1,0 +1,33 @@
+name: server tests
+
+on:
+  push:
+    paths:
+      - 'server/**'
+      - 'paipan/**'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '.github/workflows/server-ci.yml'
+  pull_request:
+    paths:
+      - 'server/**'
+      - 'paipan/**'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '.github/workflows/server-ci.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # Asia/Shanghai for consistency with Plan 1's paipan test suite.
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - name: install python
+        run: uv python install 3.12
+      - name: sync deps
+        run: uv sync --package server --extra dev
+      - name: run tests in parallel (testcontainers starts its own postgres)
+        run: uv run --package server pytest server/tests/ -n auto
