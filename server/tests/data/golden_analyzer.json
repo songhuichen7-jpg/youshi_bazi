@@ -1,0 +1,390 @@
+{
+  "A": {
+    "input": {
+      "label": "A",
+      "year": 1993,
+      "month": 7,
+      "day": 15,
+      "hour": 14,
+      "minute": 30,
+      "gender": "male",
+      "city": "长沙"
+    },
+    "sizhu": "?",
+    "rizhu": null,
+    "dayStrength": "身弱",
+    "scores": {
+      "比肩": 4.4,
+      "劫财": 0,
+      "食神": 10,
+      "伤官": 0,
+      "正财": 0,
+      "偏财": 4.4,
+      "正官": 0,
+      "七杀": 3.3,
+      "正印": 0,
+      "偏印": 0.3
+    },
+    "sameSideScore": 4.3,
+    "otherSideScore": 16,
+    "geju": "食神格",
+    "gejuNote": "四库月 未，己/丁 透干",
+    "liuHe": [],
+    "chong": [],
+    "notes": [
+      {
+        "type": "pair_mismatch",
+        "group": "比劫",
+        "dominant": "比肩",
+        "message": "比劫 组中 比肩 (4.4) vs 劫财 (0) 强度差异大，分析时不能笼统称\"比劫旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "食伤",
+        "dominant": "食神",
+        "message": "食伤 组中 食神 (10) vs 伤官 (0) 强度差异大，分析时不能笼统称\"食伤旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "财",
+        "dominant": "偏财",
+        "message": "财 组中 正财 (0) vs 偏财 (4.4) 强度差异大，分析时不能笼统称\"财旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "官杀",
+        "dominant": "七杀",
+        "message": "官杀 组中 正官 (0) vs 七杀 (3.3) 强度差异大，分析时不能笼统称\"官杀旺/弱\""
+      }
+    ]
+  },
+  "B": {
+    "input": {
+      "label": "B",
+      "year": 1990,
+      "month": 5,
+      "day": 12,
+      "hour": 12,
+      "minute": 0,
+      "gender": "male",
+      "city": "北京"
+    },
+    "sizhu": "?",
+    "rizhu": null,
+    "dayStrength": "中和",
+    "scores": {
+      "比肩": 3.3,
+      "劫财": 10,
+      "食神": 4.2,
+      "伤官": 1.7,
+      "正财": 2.2,
+      "偏财": 5.3,
+      "正官": 0,
+      "七杀": 0.8,
+      "正印": 0,
+      "偏印": 2
+    },
+    "sameSideScore": 9.2,
+    "otherSideScore": 8.5,
+    "geju": "月刃格",
+    "gejuNote": "建禄月劫格：月令本气为日主比劫，框架名为建禄/月刃，实际取用须看其他透干十神",
+    "liuHe": [],
+    "chong": [],
+    "notes": [
+      {
+        "type": "pair_mismatch",
+        "group": "比劫",
+        "dominant": "劫财",
+        "message": "比劫 组中 比肩 (3.3) vs 劫财 (10) 强度差异大，分析时不能笼统称\"比劫旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "财",
+        "dominant": "偏财",
+        "message": "财 组中 正财 (2.2) vs 偏财 (5.3) 强度差异大，分析时不能笼统称\"财旺/弱\""
+      }
+    ]
+  },
+  "C": {
+    "input": {
+      "label": "C",
+      "year": 2003,
+      "month": 8,
+      "day": 29,
+      "hour": 8,
+      "minute": 27,
+      "gender": "male",
+      "city": "上海"
+    },
+    "sizhu": "?",
+    "rizhu": null,
+    "dayStrength": "身弱",
+    "scores": {
+      "比肩": 0,
+      "劫财": 0.9,
+      "食神": 0,
+      "伤官": 0.9,
+      "正财": 2.9,
+      "偏财": 4.1,
+      "正官": 0.7,
+      "七杀": 10,
+      "正印": 1.8,
+      "偏印": 0.7
+    },
+    "sameSideScore": 2.4,
+    "otherSideScore": 13,
+    "geju": "七杀格",
+    "gejuNote": "四孟月 申，庚 透干（本气优先），取七杀格",
+    "liuHe": [],
+    "chong": [
+      {
+        "a": "戌",
+        "b": "辰"
+      }
+    ],
+    "notes": [
+      {
+        "type": "pair_mismatch",
+        "group": "官杀",
+        "dominant": "七杀",
+        "message": "官杀 组中 正官 (0.7) vs 七杀 (10) 强度差异大，分析时不能笼统称\"官杀旺/弱\""
+      },
+      {
+        "type": "zhi_chong",
+        "chongs": [
+          {
+            "a": "戌",
+            "b": "辰",
+            "idx_a": 2,
+            "idx_b": 3
+          }
+        ],
+        "message": "地支有冲：戌辰，可能带来突发事件或环境变动"
+      }
+    ]
+  },
+  "D": {
+    "input": {
+      "label": "D",
+      "year": 1985,
+      "month": 1,
+      "day": 5,
+      "hour": 23,
+      "minute": 45,
+      "gender": "female",
+      "city": "广州"
+    },
+    "sizhu": "?",
+    "rizhu": null,
+    "dayStrength": "中和",
+    "scores": {
+      "比肩": 6.5,
+      "劫财": 1.1,
+      "食神": 6.5,
+      "伤官": 6.5,
+      "正财": 8.6,
+      "偏财": 4.3,
+      "正官": 0.3,
+      "七杀": 0,
+      "正印": 10,
+      "偏印": 0
+    },
+    "sameSideScore": 8.2,
+    "otherSideScore": 12.2,
+    "geju": "格局不清",
+    "gejuNote": "四库月 丑，藏干均未透干，格局暂不清晰，待刑冲开库",
+    "liuHe": [
+      {
+        "a": "子",
+        "b": "丑",
+        "wuxing": "土"
+      },
+      {
+        "a": "丑",
+        "b": "子",
+        "wuxing": "土"
+      }
+    ],
+    "chong": [],
+    "notes": [
+      {
+        "type": "pair_mismatch",
+        "group": "比劫",
+        "dominant": "比肩",
+        "message": "比劫 组中 比肩 (6.5) vs 劫财 (1.1) 强度差异大，分析时不能笼统称\"比劫旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "财",
+        "dominant": "正财",
+        "message": "财 组中 正财 (8.6) vs 偏财 (4.3) 强度差异大，分析时不能笼统称\"财旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "印",
+        "dominant": "正印",
+        "message": "印 组中 正印 (10) vs 偏印 (0) 强度差异大，分析时不能笼统称\"印旺/弱\""
+      },
+      {
+        "type": "geju_unclear",
+        "message": "四库月无透干，格局不清，需大运流年刑冲开库后重新定格"
+      }
+    ]
+  },
+  "E": {
+    "input": {
+      "label": "E",
+      "year": 1976,
+      "month": 11,
+      "day": 30,
+      "hour": 6,
+      "minute": 15,
+      "gender": "female",
+      "city": "成都"
+    },
+    "sizhu": "?",
+    "rizhu": null,
+    "dayStrength": "身弱",
+    "scores": {
+      "比肩": 7.5,
+      "劫财": 0.4,
+      "食神": 10,
+      "伤官": 7.5,
+      "正财": 1.4,
+      "偏财": 0,
+      "正官": 0.4,
+      "七杀": 10,
+      "正印": 6.3,
+      "偏印": 1.3
+    },
+    "sameSideScore": 6.2,
+    "otherSideScore": 11.7,
+    "geju": "七杀格",
+    "gejuNote": "四孟月 亥，藏干无一透出，取本气 壬（七杀）定格",
+    "liuHe": [
+      {
+        "a": "戌",
+        "b": "卯",
+        "wuxing": "火"
+      }
+    ],
+    "chong": [
+      {
+        "a": "辰",
+        "b": "戌"
+      }
+    ],
+    "notes": [
+      {
+        "type": "pair_mismatch",
+        "group": "比劫",
+        "dominant": "比肩",
+        "message": "比劫 组中 比肩 (7.5) vs 劫财 (0.4) 强度差异大，分析时不能笼统称\"比劫旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "官杀",
+        "dominant": "七杀",
+        "message": "官杀 组中 正官 (0.4) vs 七杀 (10) 强度差异大，分析时不能笼统称\"官杀旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "印",
+        "dominant": "正印",
+        "message": "印 组中 正印 (6.3) vs 偏印 (1.3) 强度差异大，分析时不能笼统称\"印旺/弱\""
+      },
+      {
+        "type": "rizhu_he_cai",
+        "message": "日主与正财有合，正财带有\"情\"的维度，不可简化为功能性占有"
+      },
+      {
+        "type": "zhi_chong",
+        "chongs": [
+          {
+            "a": "辰",
+            "b": "戌",
+            "idx_a": 0,
+            "idx_b": 2
+          }
+        ],
+        "message": "地支有冲：辰戌，可能带来突发事件或环境变动"
+      }
+    ]
+  },
+  "F": {
+    "input": {
+      "label": "F",
+      "year": 2000,
+      "month": 2,
+      "day": 29,
+      "hour": 16,
+      "minute": 0,
+      "gender": "male",
+      "city": "深圳"
+    },
+    "sizhu": "?",
+    "rizhu": null,
+    "dayStrength": "身弱",
+    "scores": {
+      "比肩": 0,
+      "劫财": 2.8,
+      "食神": 0,
+      "伤官": 10,
+      "正财": 5.9,
+      "偏财": 0,
+      "正官": 0.6,
+      "七杀": 0.2,
+      "正印": 4.5,
+      "偏印": 0.6
+    },
+    "sameSideScore": 7,
+    "otherSideScore": 14.6,
+    "geju": "正印格",
+    "gejuNote": "四孟月 寅，只有余气 戊 透干，仍以本气 甲(正印) 定格",
+    "liuHe": [
+      {
+        "a": "巳",
+        "b": "申",
+        "wuxing": "水"
+      }
+    ],
+    "chong": [
+      {
+        "a": "寅",
+        "b": "申"
+      }
+    ],
+    "notes": [
+      {
+        "type": "pair_mismatch",
+        "group": "食伤",
+        "dominant": "伤官",
+        "message": "食伤 组中 食神 (0) vs 伤官 (10) 强度差异大，分析时不能笼统称\"食伤旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "财",
+        "dominant": "正财",
+        "message": "财 组中 正财 (5.9) vs 偏财 (0) 强度差异大，分析时不能笼统称\"财旺/弱\""
+      },
+      {
+        "type": "pair_mismatch",
+        "group": "印",
+        "dominant": "正印",
+        "message": "印 组中 正印 (4.5) vs 偏印 (0.6) 强度差异大，分析时不能笼统称\"印旺/弱\""
+      },
+      {
+        "type": "zhi_chong",
+        "chongs": [
+          {
+            "a": "寅",
+            "b": "申",
+            "idx_a": 1,
+            "idx_b": 3
+          }
+        ],
+        "message": "地支有冲：寅申，可能带来突发事件或环境变动"
+      }
+    ]
+  }
+}

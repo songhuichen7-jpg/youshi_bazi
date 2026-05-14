@@ -1,0 +1,16 @@
+{
+  "thresholds": {
+    "strong_upper": 0.76,
+    "strong_lower": 0.55,
+    "neutral_lower": 0.35,
+    "weak_lower": 0.12
+  },
+  "mapping": {
+    "极强": "绽放",
+    "身强": "绽放",
+    "中和": "绽放",
+    "身弱": "蓄力",
+    "极弱": "蓄力"
+  },
+  "borderline_band": 0.05
+}
